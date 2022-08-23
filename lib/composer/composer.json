@@ -1,0 +1,16 @@
+{
+    "name": "wef/calendar",
+    "description": "Calendário Agenda de Eventos com PHP.",
+    "authors": [
+        {
+            "name": "Webdesign em Foco"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Classes\\": "../../class",
+            "Models\\": "../../model"
+        }
+    }
+}
