@@ -11,3 +11,5 @@ $objEvents->createUser(
     $username,
     $password
 );
+?>
+<script>window.location.replace("http://localhost/Curso/views/user/logado.php");</script>

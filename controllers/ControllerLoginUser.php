@@ -9,4 +9,4 @@ $objEvents->searchUser(
     $password
 );
 ?>
-<script>window.location.replace("<?php echo DIRPAGE.'/views/user'?>");</script>
+<script>window.location.replace("http://localhost/Curso/views/user/logado.php");</script>

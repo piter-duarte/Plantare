@@ -12,7 +12,7 @@
    <label class="alinha"> Senha: </label>
    <input type="password" name="password"> <br>
 
-   <input type="submit" value="Login">
+   <input type="submit" id="login" value="Login">
   </fieldset>
  </form> 
 
