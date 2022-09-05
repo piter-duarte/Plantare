@@ -13,10 +13,10 @@
             <p>'</p>
         </div>
         <div class="container-mid-child2">
-            <a href="<?php echo DIRPAGE.'/views/user'; ?>">Calendário do Usuário</a> <br> <br>
+            <a href="<?php echo DIRPAGE.'/views/cadastro.php'; ?>">Cadastre-se</a> <br> <br>
         </div>
         <div class="container-mid-child3">
-            <a href="<?php echo DIRPAGE.'/views/manager'; ?>">Calendário do Gerente</a>
+            <a href="<?php echo DIRPAGE.'/views/login.php'; ?>">Logar</a>
         </div>
     </div>
     <div class="container-mid-right">
