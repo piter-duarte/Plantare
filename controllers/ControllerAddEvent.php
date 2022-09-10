@@ -22,6 +22,4 @@ $objEvents->createEvent(
     $provider_id
 );
 
-echo "<script>window.location.replace('http://localhost/Curso/views/user/logado.php');</script>"
-
-?>
+echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";

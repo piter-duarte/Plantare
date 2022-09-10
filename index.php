@@ -1,5 +1,9 @@
-<?php include("config/config.php"); ?>
-<?php include(DIRREQ."/lib/html/header.php"); ?>
+<?php 
+    include("config/config.php");
+    include(DIRREQ."/lib/html/header.php");
+    $objEvents= new \Models\ModelConect;
+    $objEvents->conectDB();
+?>
 
 <div class="container-top">
     <p>'</p>
@@ -13,10 +17,10 @@
             <p>'</p>
         </div>
         <div class="container-mid-child2">
-            <a href="<?php echo DIRPAGE.'/views/cadastro.php'; ?>">Cadastre-se</a> <br> <br>
+            <a href="./views/cadastro.php">Cadastre-se</a> <br> <br>
         </div>
         <div class="container-mid-child3">
-            <a href="<?php echo DIRPAGE.'/views/login.php'; ?>">Logar</a>
+            <a href="./views/login.php">Logar</a>
         </div>
     </div>
     <div class="container-mid-right">
@@ -35,4 +39,4 @@
 
 
 
-<?php include(DIRREQ."/lib/html/footer.php"); ?>
+<?php include("./lib/html/footer.php"); ?>

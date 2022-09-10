@@ -1,5 +1,7 @@
-<?php include("../../config/config.php"); ?>
-<?php include(DIRREQ."/lib/html/header.php"); ?>
+<?php
+    include("../../config/config.php");
+    include(DIRREQ."/lib/html/header.php");
+?>
 
 <?php
    $objEvents= new \Classes\ClassEvents();

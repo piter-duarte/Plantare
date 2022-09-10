@@ -15,16 +15,16 @@ class ClassEvents extends ModelConect
     }
 
     #Criação da consulta no banco
-    public function createEvent($id=0, $title, $description, $color='blue', $start, $end, $client_id, $provider_id)
+    public function createEvent($id=0, $title, $description, $color='blue', $start, $end, $client_key, $provider_key)
     {
 
-        $b=$this->conectDB()->prepare("select * from events where start=? and provider_id=?");
-        $b->bindParam(1,$start,\PDO::PARAM_STR);
-        $b->bindParam(2,$provider_id,\PDO::PARAM_INT);
-        $b->execute();
+        // $b=$this->conectDB()->prepare("select * from events where start=? and provider_key=?");
+        // $b->bindParam(1,$start,\PDO::PARAM_STR);
+        // $b->bindParam(2,$provider_id,\PDO::PARAM_INT);
+        // $b->execute();
 
-        if($b->rowCount() == 0)
-        {
+        // if($b->rowCount() == 0)
+        // {
             
                 $b=$this->conectDB()->prepare("insert into events values (?,?,?,?,?,?,?, ?)");
                 $b->bindParam(1,$id,\PDO::PARAM_INT);
@@ -33,57 +33,53 @@ class ClassEvents extends ModelConect
                 $b->bindParam(4,$color,\PDO::PARAM_STR);
                 $b->bindParam(5,$start,\PDO::PARAM_STR);
                 $b->bindParam(6,$end,\PDO::PARAM_STR);
-                $b->bindParam(7,$client_id,\PDO::PARAM_INT);
-                $b->bindParam(8,$provider_id,\PDO::PARAM_INT);
+                $b->bindParam(7,$client_key,\PDO::PARAM_STR);
+                $b->bindParam(8,$provider_key,\PDO::PARAM_STR);
                 $b->execute();
-        }
-        else
-        {
-            exit("<p> Este horário não está disponível </p>");
-        }
+        // }
+        // else
+        // {
+        //     exit("<p> Este horário não está disponível </p>");
+        // }
         
     }
 
         
 
-    public function createUser($id=0, $name, $username, $password, $email,$telefone,$cep,$endereco,$ehProvedor)
+    public function inserirUsuario($nome, $telefone, $cep, $endereco, $ehProvedor, $email, $senha)
     {
 
-        $usernameCriptografado = hash("sha512", $username);
-        $emailCriptografado    = hash("sha512", $email);
-        $passwordCriptografada = hash("sha512", $password);
+        //$emailCriptografado = hash("sha512", $email);
+        $senhaCriptografada = hash("sha512", $senha);
 
-        $b=$this->conectDB()->prepare("select * from users where username=? and password=?");
-        $b->bindParam(1,$usernameCriptografado,\PDO::PARAM_STR);
-        $b->bindParam(2,$passwordCriptografada,\PDO::PARAM_STR);
+        $b=$this->conectDB()->prepare("select * from usuarios where email=? and senha=?");
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->bindParam(2,$senhaCriptografada,\PDO::PARAM_STR);
         $b->execute();
         $resultado=$b->fetch(\PDO::FETCH_ASSOC);
 
-        //exit(var_dump($resultado));
-
         if($b->rowCount() == 0)
         {
-            $b=$this->conectDB()->prepare("insert into users values (?,?,?,?,?,?,?,?,?)");
-            $b->bindParam(1,$id,\PDO::PARAM_INT);
-            $b->bindParam(2,$name,\PDO::PARAM_STR);
-            $b->bindParam(3,$usernameCriptografado,\PDO::PARAM_STR);
-            $b->bindParam(4,$passwordCriptografada,\PDO::PARAM_STR);
-            $b->bindParam(5,$emailCriptografado,\PDO::PARAM_STR);
-            $b->bindParam(6,$telefone,\PDO::PARAM_STR);
-            $b->bindParam(7,$cep,\PDO::PARAM_STR);
-            $b->bindParam(8,$endereco,\PDO::PARAM_STR);
-            $b->bindParam(9,$ehProvedor,\PDO::PARAM_INT);
+            $b=$this->conectDB()->prepare("insert into usuarios values (?,?,?,?,?,?,?)");
+            $b->bindParam(1,$nome,\PDO::PARAM_STR);
+            $b->bindParam(2,$telefone,\PDO::PARAM_STR);
+            $b->bindParam(3,$cep,\PDO::PARAM_STR);
+            $b->bindParam(4,$endereco,\PDO::PARAM_STR);
+            $b->bindParam(5,$ehProvedor,\PDO::PARAM_STR);
+            $b->bindParam(6,$email,\PDO::PARAM_STR);
+            $b->bindParam(7,$senhaCriptografada,\PDO::PARAM_STR);
             $b->execute();
 
-            $b=$this->conectDB()->prepare("select * from users where username=? and password=?");
-            $b->bindParam(1,$usernameCriptografado,\PDO::PARAM_STR);
-            $b->bindParam(2,$passwordCriptografada,\PDO::PARAM_STR);
+            $b=$this->conectDB()->prepare("select * from usuarios where email=? and senha=?");
+            $b->bindParam(1,$email,\PDO::PARAM_STR);
+            $b->bindParam(2,$senhaCriptografada,\PDO::PARAM_STR);
             $b->execute();
             $resultado=$b->fetch(\PDO::FETCH_ASSOC);
 
             session_start();
-            $_SESSION["nome"] = $resultado['name'];
-            $_SESSION["client_id"] = $resultado['id'];
+            $_SESSION["nome"] = $resultado['nome'];
+            $_SESSION["client_key"] = $resultado['email'];
+            $_SESSION['conectado'] = true;
         }
         else
         {
@@ -92,14 +88,14 @@ class ClassEvents extends ModelConect
         }
     }
 
-    public function loginUser($username, $password)
+    public function logarUsuario($email, $senha)
     {
-        $usernameCriptografado = hash("sha512", $username);
-        $passwordCriptografada = hash("sha512", $password);
+        //$emailCriptografado  = hash("sha512", $email);
+        $senhaCriptografada  = hash("sha512", $senha);
 
-        $b=$this->conectDB()->prepare("select * from users where username=? and password=?");
-        $b->bindParam(1,$usernameCriptografado,\PDO::PARAM_STR);
-        $b->bindParam(2,$passwordCriptografada,\PDO::PARAM_STR);
+        $b=$this->conectDB()->prepare("select * from usuarios where email=? and senha=?");
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->bindParam(2,$senhaCriptografada,\PDO::PARAM_STR);
         $b->execute();
         $resultado=$b->fetch(\PDO::FETCH_ASSOC);
 
@@ -110,9 +106,10 @@ class ClassEvents extends ModelConect
         else
         {  
             session_start();
-            $_SESSION["nome"] = $resultado['name'];
-            $_SESSION["client_id"] = $resultado['id'];
+            $_SESSION["nome"] = $resultado['nome'];
+            $_SESSION["client_key"] = $resultado['email'];
             $_SESSION["ehProvedor"] = $resultado['ehProvedor'];
+            $_SESSION['conectado'] = true;
         }        
     }
 
@@ -125,11 +122,11 @@ class ClassEvents extends ModelConect
         return $f=$b->fetch(\PDO::FETCH_ASSOC);
     }
     
-    public function getEventsByClientId($client_id)
+    public function getEventsByClientKey($client_key)
     {
-        $b=$this->conectDB()->prepare("select * from events where client_id=? or provider_id=?");
-        $b->bindParam(1,$client_id,\PDO::PARAM_INT);
-        $b->bindParam(2,$client_id,\PDO::PARAM_INT);
+        $b=$this->conectDB()->prepare("select * from events where client_key=? or provider_key=?");
+        $b->bindParam(1,$client_key,\PDO::PARAM_STR);
+        $b->bindParam(2,$client_key,\PDO::PARAM_STR);
         $b->execute();
         $f=$b->fetchAll(\PDO::FETCH_ASSOC);
         return json_encode($f);

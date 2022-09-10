@@ -15,3 +15,5 @@ $objEvents->updateEvent(
     $start->format("Y-m-d H:i:s"),
     'green'
 );
+
+echo "<script>window.location.replace('http://localhost/Curso/views/manager/index.php');</script>";

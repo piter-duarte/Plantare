@@ -1,12 +1,12 @@
 <?php
 include ("../config/config.php");
 $objEvents= new \Classes\ClassEvents();
-$username=filter_input(INPUT_POST,'username', FILTER_DEFAULT);
-$password=filter_input(INPUT_POST,'password', FILTER_DEFAULT);
+$email=filter_input(INPUT_POST,'email', FILTER_DEFAULT);
+$senha=filter_input(INPUT_POST,'senha', FILTER_DEFAULT);
 
-$objEvents->loginUser(
-    $username,
-    $password
+$objEvents->logarUsuario(
+    $email,
+    $senha
 );
 if($_SESSION["ehProvedor"] == 1)
 {
