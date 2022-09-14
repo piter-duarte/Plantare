@@ -8,8 +8,8 @@ $description=filter_input(INPUT_POST,'description', FILTER_DEFAULT);
 $horasAtendimento=filter_input(INPUT_POST,'horasAtendimento', FILTER_DEFAULT);
 $start=new \DateTime($date.' '.$time, new \DateTimeZone('America/Sao_Paulo'));
 session_start();
-$client_id=$_SESSION["client_id"];
-$provider_id=filter_input(INPUT_POST,'provider_id', FILTER_DEFAULT);
+$client_key=$_SESSION["client_key"];
+$provider_key=filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT);
 
 $objEvents->createEvent(
     0,
@@ -18,8 +18,9 @@ $objEvents->createEvent(
     'blue',
     $start->format("Y-m-d H:i:s"),
     $start->modify('+'.$horasAtendimento.'hours')->format("Y-m-d H:i:s"),
-    $client_id,
-    $provider_id
+    null,
+    $client_key,
+    $provider_key
 );
 
 echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";

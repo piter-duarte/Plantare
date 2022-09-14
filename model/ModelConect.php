@@ -26,6 +26,7 @@ class ModelConect
                 color VARCHAR(10),
                 start TIMESTAMP,
                 end TIMESTAMP,
+                rating INT,
                 client_key VARCHAR(300),
                 provider_key VARCHAR(300),
                 FOREIGN KEY (client_key) REFERENCES usuarios(email)

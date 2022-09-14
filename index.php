@@ -1,8 +1,8 @@
 <?php 
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
-    $objEvents= new \Models\ModelConect;
-    $objEvents->conectDB();
+    $con= new \Models\ModelConect;
+    $con->conectDB();
 ?>
 
 <div class="container-top">

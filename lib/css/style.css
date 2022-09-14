@@ -1,7 +1,7 @@
 *{margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
 
 .calendarUser, .calendarManager{
-    width: 50%;
+    width: 70%;
     margin: 30px auto;
     height: 80vh;
 }

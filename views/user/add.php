@@ -1,10 +1,9 @@
 <?php
     include("../../config/config.php");
     include(DIRREQ."/lib/html/header.php");
-?>
-
-<?php
     $date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
+    $objEvents= new \Classes\ClassEvents();
+    $resultado = $objEvents->getProviders();
 ?>
 
 <form name="formAdd" id="formAdd" method="post"action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
@@ -26,8 +25,15 @@
         <option value="2">2h</option>
         <option value="3">3h</option>
     </select><br>
-    Profissional Responsável: <input type="text" name="provider_key" id="provider_key"> <br>
-    <input type="submit" value="Marcar Consulta">
+    Profissional Responsável: <select name="provider_key">
+    <?php
+        foreach($resultado as $linha)
+        {
+            $provider_email = $linha['email'];
+            echo "<option value='$provider_email'>$provider_email</option>";
+        }
+    ?>
+    <input type="submit" value="Solicitar Serviço">
 
 
 </form>
