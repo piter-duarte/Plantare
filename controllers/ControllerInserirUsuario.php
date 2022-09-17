@@ -22,5 +22,9 @@ $con->inserirUsuario(
     $email,
     $senha
 );
-?>
-<script>window.location.replace("http://localhost/Curso/views/user/index.php");</script>
+
+if ($ehProvedor ==0) {
+    echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";
+} else {
+    echo "<script>window.location.replace('http://localhost/Curso/views/manager/index.php');</script>";
+}

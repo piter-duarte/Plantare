@@ -1,5 +1,6 @@
 <?php
     include("../../config/config.php");
+    require_once "../../lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/html/header.php");
     $date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
     $objEvents= new \Classes\ClassEvents();
@@ -20,7 +21,6 @@
     Preço: <input type="text" name="description" id="description" value=""> <br>
     Quanto tempo deseja de atendimento: 
     <select name="horasAtendimento" id="horasAtendimento">
-        <option value="">Selecione</option>
         <option value="1">1h</option>
         <option value="2">2h</option>
         <option value="3">3h</option>

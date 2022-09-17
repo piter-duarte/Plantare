@@ -6,6 +6,10 @@
     height: 80vh;
 }
 
+.fc-day-past{
+    background-color: #eeeeee5e;   
+}
+
 .container-top
 {
     width: 80%;

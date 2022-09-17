@@ -14,7 +14,7 @@
 <div class="container-mid">
     <div class="container-mid-left">
         <div class="container-mid-child1">
-            <p>'</p>
+           <p></p>
         </div>
         <div class="container-mid-child2">
             <a href="./views/cadastro.php">Cadastre-se</a> <br> <br>

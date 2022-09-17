@@ -11,16 +11,21 @@ session_start();
 $client_key=$_SESSION["client_key"];
 $provider_key=filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT);
 
-$objEvents->createEvent(
-    0,
-    $title,
-    $description,
-    'blue',
-    $start->format("Y-m-d H:i:s"),
-    $start->modify('+'.$horasAtendimento.'hours')->format("Y-m-d H:i:s"),
-    null,
-    $client_key,
-    $provider_key
-);
+    $i=0;
+    do
+    {
+        $objEvents->createEvent(
+            0,
+            $title,
+            $description,
+            'blue',
+            $start->format("Y-m-d H:i:s"),
+            $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"),
+            null,
+            $client_key,
+            $provider_key
+        ); 
+        $i++;
+    }while($i < $horasAtendimento);
 
 echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";

@@ -18,13 +18,14 @@ class ClassEvents extends ModelConect
     public function createEvent($id=0, $title, $description, $color='blue', $start,$end, $rating=null, $client_key, $provider_key)
     {
 
-        // $b=$this->conectDB()->prepare("select * from events where start=? and provider_key=?");
-        // $b->bindParam(1,$start,\PDO::PARAM_STR);
-        // $b->bindParam(2,$provider_id,\PDO::PARAM_INT);
-        // $b->execute();
+        $b=$this->conectDB()->prepare("select * from events where start=? and end=? and provider_key=?");
+        $b->bindParam(1,$start,\PDO::PARAM_STR);
+        $b->bindParam(2,$end,\PDO::PARAM_STR);
+        $b->bindParam(3,$provider_key,\PDO::PARAM_INT);
+        $b->execute();
 
-        // if($b->rowCount() == 0)
-        // {
+        if($b->rowCount() == 0)
+        {
             
                 $b=$this->conectDB()->prepare("insert into events values (?,?,?,?,?,?,?,?,?)");
                 $b->bindParam(1,$id,\PDO::PARAM_INT);
@@ -37,11 +38,11 @@ class ClassEvents extends ModelConect
                 $b->bindParam(8,$client_key,\PDO::PARAM_STR);
                 $b->bindParam(9,$provider_key,\PDO::PARAM_STR);
                 $b->execute();
-        // }
-        // else
-        // {
-        //     exit("<p> Este horário não está disponível </p>");
-        // }
+        }
+        else
+        {
+            exit("<p> Este horário não está disponível </p>");
+        }
         
     }
 
@@ -50,7 +51,6 @@ class ClassEvents extends ModelConect
     public function inserirUsuario($nome, $telefone, $cep, $endereco, $ehProvedor, $email, $senha)
     {
 
-        //$emailCriptografado = hash("sha512", $email);
         $senhaCriptografada = hash("sha512", $senha);
 
         $b=$this->conectDB()->prepare("select * from usuarios where email=? and senha=?");

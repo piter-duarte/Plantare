@@ -36,6 +36,22 @@ class ModelConect
                 ON DELETE CASCADE
                 ON UPDATE CASCADE
             ) ENGINE=innoDB");
+            $con->query("CREATE TABLE IF NOT EXISTS servicos(
+                id INT PRIMARY KEY,
+                nome VARCHAR(300)
+            ) ENGINE=innoDB");
+            $con->query("CREATE TABLE IF NOT EXISTS relacao(
+                id INT PRIMARY KEY AUTO_INCREMENT,
+                provider_key VARCHAR(300),
+                idServico INT,
+                preco DECIMAL(7,2),
+                FOREIGN KEY (provider_key) REFERENCES usuarios(email) 
+                ON DELETE CASCADE
+                ON UPDATE CASCADE,
+                FOREIGN KEY (idServico) REFERENCES servicos(id) 
+                ON DELETE CASCADE
+                ON UPDATE CASCADE
+            ) ENGINE=innoDB");
             return $con;
         }catch (\PDOException $erro){
             return $erro ->getMessage();
