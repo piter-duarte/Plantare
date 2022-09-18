@@ -1,9 +1,11 @@
 <?php 
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
-    $con= new \Models\ModelConect;
+    $con= new Models\ModelConect;
     $con->conectDB();
 ?>
+
+
 
 <div class="container-top">
     <p>'</p>
@@ -34,9 +36,4 @@
         </div>
 </div>
 
-
-
-
-
-
-<?php include("./lib/html/footer.php"); ?>
+<?php include(DIRREQ."/lib/html/footer.php"); ?>

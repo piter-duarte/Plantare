@@ -28,4 +28,4 @@ $provider_key=filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT);
         $i++;
     }while($i < $horasAtendimento);
 
-echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";
+echo "<script>window.location.replace('".DIRPAGE."/views/user/index.php');</script>";

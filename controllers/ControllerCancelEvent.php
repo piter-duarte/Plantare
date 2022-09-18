@@ -16,4 +16,4 @@ $objEvents->updateEvent(
     'red'
 );
 
-echo "<script>window.location.replace('http://localhost/Curso/views/manager/index.php');</script>";
+echo "<script>window.location.replace('".DIRPAGE."/views/manager/index.php');</script>";

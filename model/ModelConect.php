@@ -52,6 +52,7 @@ class ModelConect
                 ON DELETE CASCADE
                 ON UPDATE CASCADE
             ) ENGINE=innoDB");
+            $con->query("INSERT IGNORE INTO servicos VALUES (1, 'Cortar Grama'), (2, 'Realizar Poda'), (3, 'Aplicar Pesticida'), (4, 'Aplicar Fertilizante')"); //Cláusula IGNORE utilizada para evitar que o MySQL mostre erro ao tentar reinserir os serviços no BDD
             return $con;
         }catch (\PDOException $erro){
             return $erro ->getMessage();

@@ -10,5 +10,4 @@ $objEvents->updateRating(
     $id,
     $avaliacao
 );
-
-echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";
+echo "<script>window.location.replace('".DIRPAGE."/views/user/index.php');</script>";

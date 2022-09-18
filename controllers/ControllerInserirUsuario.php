@@ -1,6 +1,6 @@
 <?php
 include ("../config/config.php");
-$con  = new \Classes\ClassEvents();
+$objBDD     = new \Classes\ClassBDD();
 $nome       = filter_input(INPUT_POST,'nome', FILTER_DEFAULT);
 $telefone   = filter_input(INPUT_POST,'telefone', FILTER_DEFAULT);
 $cep        = filter_input(INPUT_POST,'cep', FILTER_DEFAULT);
@@ -13,7 +13,7 @@ if(isset($_POST["ehProvedor"]))
 $email      = filter_input(INPUT_POST,'email', FILTER_DEFAULT);
 $senha      = filter_input(INPUT_POST,'senha', FILTER_DEFAULT);
 
-$con->inserirUsuario(
+$objBDD->inserirUsuario(
     $nome,
     $telefone,
     $cep,
@@ -24,7 +24,9 @@ $con->inserirUsuario(
 );
 
 if ($ehProvedor ==0) {
-    echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";
-} else {
-    echo "<script>window.location.replace('http://localhost/Curso/views/manager/index.php');</script>";
+    echo "<script>window.location.replace('".DIRPAGE."/views/user/index.php');</script>";
+}
+else
+{
+    echo "<script>window.location.replace('".DIRPAGE."/views/manager/index.php');</script>";
 }

@@ -1,6 +1,6 @@
 <?php
     include("../../config/config.php");
-    require_once "../../lib/includes/valida-acesso.inc.php";
+    require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/html/header.php");
 ?>
 
@@ -16,12 +16,10 @@
         <option value="5">5</option>
     </select><br>
     <input type="submit" value="Avaliar" formaction="<?php echo DIRPAGE.'/controllers/ControllerUpdateRating.php'; ?>">
-    <input type="submit" value="Cancelar" formaction="<?php echo 'http://localhost/Curso/views/user/index.php'; ?>">
+    <input type="submit" value="Cancelar" formaction="<?php echo DIRPAGE.'/views/user/index.php'; ?>">
 
 </form>
 
 <?php
-    // $objEvents->updateRating($id);
-    // echo "<script>window.location.replace('http://localhost/Curso/views/user/index.php');</script>";
     include(DIRREQ."/lib/html/footer.php");
 ?>
