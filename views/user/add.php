@@ -16,8 +16,9 @@
     <?php 
          foreach($resultadoServices as $linha)
          {
-            $servico = $linha['nome'];
-            echo "<option value='$servico'>$servico</option>";
+            $idServico = $linha['id'];
+            $servico   = $linha['nome'];
+            echo "<option value='$idServico'>$servico</option>";
          }
     ?>
     </select><br>
@@ -40,5 +41,4 @@
 
 
 </form>
-
 <?php include(DIRREQ."/lib/html/footer.php"); ?>

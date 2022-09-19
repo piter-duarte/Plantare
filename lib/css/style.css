@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
 *{margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
 
 .calendarUser, .calendarManager{
@@ -8,6 +9,84 @@
 
 .fc-day-past{
     background-color: #eeeeee5e;   
+}
+
+
+legend.continua
+{
+    border: 1px solid #4e4e4e;
+    width: 50%;
+    margin: 30px auto;
+    background-color: rgba(100, 100, 100, 0.5);
+    box-shadow: 5px 5px 3px  rgba(100, 100, 100, 0.5);
+    border-radius: 7px;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+p{
+    text-align: center;
+    width: 50%;
+    margin: auto;
+}
+legend.alinha
+{
+    text-align: center;
+}
+body
+{
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+}
+h1
+{
+    border-bottom: 1px solid #4e4e4e;
+    background-color: #808080;
+    color: #fff;
+    margin: 0;
+    text-align: center;
+    margin-bottom: 30px;
+}
+fieldset
+{
+    border: 1px solid #4e4e4e;
+    width: 50%;
+    margin: 30px auto;
+    background-color: rgba(100, 100, 100, 0.5);
+    box-shadow: 5px 5px 3px  rgba(100, 100, 100, 0.5);
+    border-radius: 7px;
+    padding-top: 30px;
+    padding-left: 30px;
+}
+label.alinha
+{
+    /*border:1px solid;*/
+    width: 250px;
+    display: inline-block;/* converte o elemento inline - que não obedece a largura - para nivel de bloco, obrigando o navegador a aplicar a mesma largura para todos os labels*/
+    margin-bottom: 10px;
+    text-align: right;
+}
+input.checkbox
+{
+    width: 10px;
+     display: inline-block;/* converte o elemento inline - que não obedece a largura - para nivel de bloco, obrigando o navegador a aplicar a mesma largura para todos os labels*/
+     margin: 10px auto;
+    text-align: right;
+    margin-left: 180px;
+}
+input.button
+{
+    width: 300px;
+    height: 50px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    margin: auto;
+    display: block;
+    margin-top: 20px;
+}
+
+.tabela-bruno{
+    margin: 20px auto;
 }
 
 .container-top

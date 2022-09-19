@@ -28,5 +28,5 @@ if ($ehProvedor ==0) {
 }
 else
 {
-    echo "<script>window.location.replace('".DIRPAGE."/views/manager/index.php');</script>";
+    echo "<script>window.location.replace('".DIRPAGE."/views/manager/continuacaoCadastro.php');</script>";
 }

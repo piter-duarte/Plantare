@@ -72,9 +72,20 @@ class ClassBDD extends ModelConect
         }        
     }
 
+    public function insertServices($id=0, $provider_key, $idServico, $preco)
+    {
+        $b=$this->conectDB()->prepare("INSERT INTO relacao VALUES (?,?,?,?)");
+        $b->bindParam(1,$id,\PDO::PARAM_INT);
+        $b->bindParam(2,$provider_key,\PDO::PARAM_STR);
+        $b->bindParam(3,$idServico,\PDO::PARAM_INT);
+        $b->bindParam(4,$preco,\PDO::PARAM_STR); //mesmo sendo DECIMAL o bindParam não tem um específico para decimais, portanto deve se usar PARAM_STR
+        $b->execute();
+
+    }
+
     public function getServices()
     {
-        $b=$this->conectDB()->prepare("SELECT nome FROM servicos");
+        $b=$this->conectDB()->prepare("SELECT id, nome FROM servicos");
         $b->execute();
         $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
