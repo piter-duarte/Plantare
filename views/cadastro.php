@@ -20,16 +20,17 @@
    <label class="alinha"> Endereço: </label>
    <input type="text" name="endereco"> <br>
 
-   <input type="checkbox" name="ehProvedor"> Provedor de Serviços ?
-   <br>
-
    <label class="alinha"> E-mail: </label>
    <input type="text" name="email"> <br>
 
    <label class="alinha"> Senha: </label>
    <input type="password" name="senha"> <br>
 
-   <input type="submit" value="Cadastrar">
+   <input class="checkbox" type="checkbox" name="ehProvedor"> Provedor de Serviços ?
+   <br>
+
+   <input class="button" type="submit" value="Cadastrar">
+
   </fieldset>
  </form>
  <?php 

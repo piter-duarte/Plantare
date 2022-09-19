@@ -1,5 +1,6 @@
 <?php
     include("../../config/config.php");
+    require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/html/header.php");
 ?>
 
@@ -15,8 +16,8 @@
     Hora: <input type="time" name="time" id="time" value="<?php echo $date->format("H:i"); ?>"> <br>
     Paciente: <input type="text" name="title" id="title" value="<?php echo $events['title']; ?>"> <br>
     Queixa: <input type="text" name="description" id="description" value="<?php echo $events['description']; ?>"> <br>
-    <input type="submit" formaction="<?php echo DIRPAGE.'/controllers/ControllerEdit.php'; ?>" value="Aceitar">
-    <input type="submit" formaction="<?php echo DIRPAGE.'/controllers/ControllerEditCancel.php'; ?>" value="Cancelar">
+    <input type="submit" formaction="<?php echo DIRPAGE.'/controllers/ControllerConfirmEvent.php'; ?>" value="Aceitar">
+    <input type="submit" formaction="<?php echo DIRPAGE.'/controllers/ControllerCancelEvent.php'; ?>" value="Cancelar">
 
 </form>
 

@@ -1,9 +1,10 @@
 {
-    "name": "wef/calendar",
-    "description": "Calendário Agenda de Eventos com PHP.",
+    "name": "pi/ifsc",
+    "description": "Projeto Integrador de finalização do CTDS",
     "authors": [
         {
-            "name": "Webdesign em Foco"
+            "name": "piter-duarte",
+            "email": "piter__duarte66@hotmail.com"
         }
     ],
     "require": {},
