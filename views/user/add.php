@@ -18,7 +18,7 @@
          {
             $idServico = $linha['id'];
             $servico   = $linha['nome'];
-            echo "<option value='$idServico'>$servico</option>";
+            echo "<option value='$servico'>$servico</option>";
          }
     ?>
     </select><br>
@@ -33,8 +33,10 @@
     <?php
         foreach($resultadoProvider as $linha)
         {
+            $provider_nome  = $linha['nome'];
             $provider_email = $linha['email'];
-            echo "<option value='$provider_email'>$provider_email</option>";
+            $provider_media = $linha['media'];
+            echo "<option value='$provider_email'>$provider_nome | $provider_media estrelas </option>";
         }
     ?>
     <input type="submit" value="Solicitar Serviço">

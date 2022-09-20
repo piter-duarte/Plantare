@@ -16,6 +16,7 @@ class ModelConect
                 cep        VARCHAR(9),
                 endereco   VARCHAR(150),
                 ehProvedor TINYINT(1),
+                media      DECIMAL(3,2),
                 email      VARCHAR(300) PRIMARY KEY,
                 senha      VARCHAR(130)
                 ) ENGINE=innoDB");
@@ -53,8 +54,8 @@ class ModelConect
                 ON UPDATE CASCADE
             ) ENGINE=innoDB");
             $con->query("INSERT IGNORE INTO servicos VALUES (1, 'Cortar Grama'), (2, 'Realizar Poda'), (3, 'Aplicar Pesticida'), (4, 'Aplicar Fertilizante')"); //Cláusula IGNORE utilizada para evitar que o MySQL mostre erro ao tentar reinserir os serviços no BDD
-            $con->query("INSERT IGNORE INTO usuarios VALUES ('Manager', '', '', '', 1, 'manager', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
-            $con->query("INSERT IGNORE INTO usuarios VALUES ('Usuario', '', '', '', 1, 'user', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            $con->query("INSERT IGNORE INTO usuarios VALUES ('Manager', '', '', '', 1, 5,'manager', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            $con->query("INSERT IGNORE INTO usuarios VALUES ('Usuario', '', '', '', 0, '', 'user', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
             return $con;
         }catch (\PDOException $erro){
             return $erro ->getMessage();

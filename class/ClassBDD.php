@@ -6,7 +6,7 @@ use Models\ModelConect;
 class ClassBDD extends ModelConect
 {
   
-    public function inserirUsuario($nome, $telefone, $cep, $endereco, $ehProvedor, $email, $senha)
+    public function inserirUsuario($nome, $telefone, $cep, $endereco, $ehProvedor, $avaliacao=null, $email, $senha)
     {
 
         $senhaCriptografada = hash("sha512", $senha);
@@ -19,14 +19,15 @@ class ClassBDD extends ModelConect
 
         if($b->rowCount() == 0)
         {
-            $b=$this->conectDB()->prepare("insert into usuarios values (?,?,?,?,?,?,?)");
+            $b=$this->conectDB()->prepare("insert into usuarios values (?,?,?,?,?,?,?,?)");
             $b->bindParam(1,$nome,\PDO::PARAM_STR);
             $b->bindParam(2,$telefone,\PDO::PARAM_STR);
             $b->bindParam(3,$cep,\PDO::PARAM_STR);
             $b->bindParam(4,$endereco,\PDO::PARAM_STR);
             $b->bindParam(5,$ehProvedor,\PDO::PARAM_STR);
-            $b->bindParam(6,$email,\PDO::PARAM_STR);
-            $b->bindParam(7,$senhaCriptografada,\PDO::PARAM_STR);
+            $b->bindParam(6,$avaliacao,\PDO::PARAM_STR);
+            $b->bindParam(7,$email,\PDO::PARAM_STR);
+            $b->bindParam(8,$senhaCriptografada,\PDO::PARAM_STR);
             $b->execute();
 
             $b=$this->conectDB()->prepare("select * from usuarios where email=? and senha=?");
@@ -93,7 +94,7 @@ class ClassBDD extends ModelConect
 
     public function getProviders()
     {
-        $b=$this->conectDB()->prepare("SELECT email FROM usuarios WHERE ehProvedor=1");
+        $b=$this->conectDB()->prepare("SELECT nome, email, media FROM usuarios WHERE ehProvedor=1");
         $b->execute();
         $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;

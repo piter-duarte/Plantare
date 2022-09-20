@@ -19,6 +19,7 @@ $objBDD->inserirUsuario(
     $cep,
     $endereco,
     $ehProvedor,
+    null,
     $email,
     $senha
 );
