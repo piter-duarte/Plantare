@@ -86,17 +86,36 @@ class ClassBDD extends ModelConect
 
     public function getServices()
     {
-        $b=$this->conectDB()->prepare("SELECT id, nome FROM servicos");
+        $b=$this->conectDB()->prepare("SELECT id, nomeS FROM servicos");
         $b->execute();
         $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
     }
 
-    public function getProviders()
+    public function getService($idServico)
     {
-        $b=$this->conectDB()->prepare("SELECT nome, email, media FROM usuarios WHERE ehProvedor=1");
+        $b=$this->conectDB()->prepare("SELECT nomeS FROM servicos WHERE id=?");
+        $b->bindParam(1,$idServico,\PDO::PARAM_INT);
         $b->execute();
-        $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
+        $resultado=$b->fetch(\PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+
+    // public function getProviders()
+    // {
+    //     $b=$this->conectDB()->prepare("SELECT nome, email, media FROM usuarios WHERE ehProvedor=1");
+    //     $b->execute();
+    //     $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
+    //     return $resultado;
+
+    // }
+
+    public function getProviders($idServico)
+    {
+        $b=$this->conectDB()->prepare("SELECT usuarios.nome, usuarios.email, usuarios.media, usuarios.telefone, servicos.nomeS,relacao.preco FROM relacao JOIN usuarios ON relacao.provider_key=usuarios.email JOIN servicos ON relacao.idServico=servicos.id WHERE ehProvedor=1 AND servicos.id=? ORDER BY usuarios.media DESC, usuarios.nome ASC");
+        $b->bindParam(1,$idServico,\PDO::PARAM_INT);
+        $b->execute();
+        $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
     }
     

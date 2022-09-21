@@ -26,10 +26,12 @@ class ClassEvents extends ModelConect
 
         if($b->rowCount() == 0)
         {
-            
+                $objBDD           = new \Classes\ClassBDD();
+                $resultadoService = $objBDD->getService($title); //pegando o nome do serviço baseado no id
+
                 $b=$this->conectDB()->prepare("insert into events values (?,?,?,?,?,?,?,?,?)");
                 $b->bindParam(1,$id,\PDO::PARAM_INT);
-                $b->bindParam(2,$title,\PDO::PARAM_STR);
+                $b->bindParam(2,$resultadoService['nomeS'],\PDO::PARAM_STR);
                 $b->bindParam(3,$description,\PDO::PARAM_STR);
                 $b->bindParam(4,$color,\PDO::PARAM_STR);
                 $b->bindParam(5,$start,\PDO::PARAM_STR);

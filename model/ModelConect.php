@@ -39,7 +39,7 @@ class ModelConect
             ) ENGINE=innoDB");
             $con->query("CREATE TABLE IF NOT EXISTS servicos(
                 id INT PRIMARY KEY,
-                nome VARCHAR(300)
+                nomeS VARCHAR(300)
             ) ENGINE=innoDB");
             $con->query("CREATE TABLE IF NOT EXISTS relacao(
                 id INT PRIMARY KEY AUTO_INCREMENT,
