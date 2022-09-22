@@ -3,7 +3,10 @@
     include(DIRREQ."/lib/html/header.php");
 ?>
 
-<h1> Login de usuário usando sessões em PHP </h1>
+<div class="container-logo">
+    <img class="img-logo" src="https://source.unsplash.com/random" width="265px" height="220px">
+</div>
+
  <form action="<?php echo DIRPAGE.'/controllers/ControllerLoginUser.php'; ?>" method="post">
   <fieldset>
    <legend> Login do usuário </legend>
