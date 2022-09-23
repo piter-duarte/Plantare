@@ -1,9 +1,105 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
-*{margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif;}
-body
-{
+*{
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+
+html{
+    height: 100%;
+}
+
+body{
     width: 100%;
     height: 100%;
+}
+
+.container-top{
+    position: relative;
+    top: 2.5%;
+    width: 80%;
+    height: 12.5%;
+    margin: auto;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 75% 12.5% 12.5%;
+    grid-template-rows: 1;
+    background-color: rgba(128, 128, 128, 0.5);
+    grid-template-areas: 'logo tpCadastrar tpLogar';
+}
+
+.container-top .img-logo
+{
+    width: 10%;
+    height: 100%;
+    grid-area: logo;
+}
+
+.container-top .btn
+{
+    position: relative;
+    display: inline-block;
+    top:20%;
+    left: 10%;
+    width: 80%;
+    height: 50%;
+    margin: 0;
+    background-color: rgb(128, 128, 128);
+    border-color: transparent;
+}
+
+#tpCadastrar
+{
+    grid-area: tpCadastrar;
+}
+
+#tpLogar
+{
+    grid-area: tpLogar; 
+}
+
+.container-mid
+{
+    position: relative;
+    background-color: rgb(128, 128, 128, 0.5);
+    display: grid;
+    grid-template-columns: 50% 50%;
+    top: 8%;
+    height: 70%;
+    margin: 0 10%;
+}
+
+.container-mid-espaco1
+{
+    grid-column: 1;
+    grid-row: span 2;
+}
+
+.container-mid-espaco2
+{
+    grid-column: 2;
+    grid-row: span 2;
+}
+
+.container-bottom{
+    position: fixed;
+    width: 100%;
+    height: 7%;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.bottom-footer
+{
+    background-color: rgb(128, 128, 128, 0.5);
+    width: 50%;
+    height: 100%;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
 }
 
 .calendarUser, .calendarManager{
@@ -37,11 +133,7 @@ legend.alinha
 {
     text-align: center;
 }
-body
-{
-    font-family: 'Roboto Condensed', sans-serif;
-    margin: 0;
-}
+
 h1
 {
     border-bottom: 1px solid #4e4e4e;
@@ -93,105 +185,9 @@ input.button
 .tabela-bruno{
     margin: 20px auto;
 }
-
-.container-top
-{
-    
-    align-items: center;
-    width: 80%;
-    height: 114px;
-    margin: 22px auto;
-    display: flex;
-    align-items: center;
-
-
-    background: #D9D9D9;
-    border-radius: 10px;
-}
-
-.container-mid
-{
-    width: 80%;
-    margin: 0px auto;
-}
-
-.container-mid-left
-{
-    width: 569px;
-    margin-top: 60px;
-    display: inline-block;
-
-}
-
-.container-mid-child1
-{
-    width: 100%;
-    height: 226px;
-    margin: 0px auto;
-    margin-bottom: 60px;
-
-    background: #D9D9D9;
-    border-radius: 10px;
-}
-
-.container-mid-child2
-{
-    width: 15%;
-    height: 103px;
-    margin-left: 0px;
-    position: absolute;
-    display: flex;
-    align-items: center;
-
-    background: #D9D9D9;
-    border-radius: 10px;
-}
-
-.container-mid-child3
-{
-    width: 15%;
-    height: 103px;
-    margin-left: 330px;
-    display: inline-block;
-    display: flex;
-    align-items: center;
-    position: absolute;
-
-    background: #D9D9D9;
-    border-radius: 10px;
-}
-
-.container-mid-right
-{
-    border-radius: 10px;
-    width: 25.5%;
-    height: 389px;
-    margin-left: 74.5%;
-    margin-top: -285px;
-    background: #D9D9D9;
-    align-items: center;
-}
-
-.btn 
-{
-    background-color: #808080;
-    color: black;
-    width: 169px;
-    height: 65px;
-    border-radius: 10px;
-    border-color: #808080;
-    font-weight: bolder;
-    font-size: 18px;
-}
-
-.btn-1
-{
-    margin-left: 62.5%;
-    margin-right: 2%;
-}
-
 .img-logo
 {
+    display: inline-block;
     margin-left: 66px;
 }
 
@@ -204,29 +200,4 @@ a
 {
     text-decoration: none;
     color: black;
-}
-
-.container-bottom
-{
-    width: 100%;
-}
-
-.container-bottom-child1 {
-    margin-left: 30%;
-    margin-top: 100px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-    width: 40%;
-    height: 60px;
-    background-color: #D9D9D9;
-}
-
-.container-logo
-{
-    margin-left: 39%;
-    width: 386px;
-    height: 240px;
-
-    background: #808080;
-    border-radius: 6px;
 }
