@@ -110,13 +110,71 @@ class ClassBDD extends ModelConect
 
     // }
 
-    public function getProviders($idServico)
+    public function getProviders($idServico, $start, $end, $horas)
     {
-        $b=$this->conectDB()->prepare("SELECT usuarios.nome, usuarios.email, usuarios.media, usuarios.telefone, servicos.nomeS,relacao.preco FROM relacao JOIN usuarios ON relacao.provider_key=usuarios.email JOIN servicos ON relacao.idServico=servicos.id WHERE ehProvedor=1 AND servicos.id=? ORDER BY usuarios.media DESC, usuarios.nome ASC");
-        $b->bindParam(1,$idServico,\PDO::PARAM_INT);
-        $b->execute();
-        $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
-        return $resultado;
+        if($horas == 1)
+        {
+            $b=$this->conectDB()->prepare("SELECT DISTINCT usuarios.nome, usuarios.email, usuarios.media, 
+            usuarios.telefone, servicos.nomeS, relacao.preco
+            FROM usuarios
+            LEFT JOIN events ON usuarios.email=events.provider_key
+            JOIN relacao ON usuarios.email=relacao.provider_key
+            JOIN servicos ON relacao.idServico=servicos.id
+            WHERE usuarios.ehProvedor=1 
+            AND (start!=? or start is null)
+            AND (end!=? or end is null)
+            AND relacao.idServico=?
+            ORDER BY usuarios.media DESC, usuarios.nome ASC");
+            $b->bindParam(1,$start,\PDO::PARAM_STR);
+            $b->bindParam(2,$end,\PDO::PARAM_STR);
+            $b->bindParam(3,$idServico,\PDO::PARAM_INT);
+            $b->execute();
+            $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        }
+        elseif($horas == 2)
+        {
+            $b=$this->conectDB()->prepare("SELECT DISTINCT usuarios.nome, usuarios.email, usuarios.media, 
+            usuarios.telefone, servicos.nomeS, relacao.preco
+            FROM usuarios
+            LEFT JOIN events ON usuarios.email=events.provider_key
+            JOIN relacao ON usuarios.email=relacao.provider_key
+            JOIN servicos ON relacao.idServico=servicos.id
+            WHERE usuarios.ehProvedor=1 
+            AND (start!=? or start is null)
+            AND (end!=? or end is null)
+            AND relacao.idServico=?
+            ORDER BY usuarios.media DESC, usuarios.nome ASC");
+            $b->bindParam(1,$start,\PDO::PARAM_STR);
+            $b->bindParam(2,$end,\PDO::PARAM_STR);
+            $b->bindParam(3,$idServico,\PDO::PARAM_INT);
+            $b->execute();
+            $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        } elseif($horas == 3)
+        {
+            $b=$this->conectDB()->prepare("SELECT DISTINCT usuarios.nome, usuarios.email, usuarios.media, 
+            usuarios.telefone, servicos.nomeS, relacao.preco
+            FROM usuarios
+            LEFT JOIN events ON usuarios.email=events.provider_key
+            JOIN relacao ON usuarios.email=relacao.provider_key
+            JOIN servicos ON relacao.idServico=servicos.id
+            WHERE usuarios.ehProvedor=1 
+            AND (start!=? or start is null)
+            AND (end!=? or end is null)
+            AND relacao.idServico=?
+            ORDER BY usuarios.media DESC, usuarios.nome ASC");
+            $b->bindParam(1,$start,\PDO::PARAM_STR);
+            $b->bindParam(2,$end,\PDO::PARAM_STR);
+            $b->bindParam(3,$idServico,\PDO::PARAM_INT);
+            $b->execute();
+            $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
+            return $resultado;
+        }
+        else
+        {
+            exit("Erro!");
+        }
     }
     
 }

@@ -5,11 +5,23 @@
     $date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
     $objBDD            = new \Classes\ClassBDD();
     $resultadoServices = $objBDD->getServices();
-    $resultadoProvider = $objBDD->getProviders(1);
+
+
+    //cria o cookie hora para que na primeira leitura já seja atribuído no elemento html select#horaAtendimento a option 1 como selected
     if(isset($_COOKIE["hora"]) == false)
     {
         setcookie('hora','1', 0 ); 
     }
+
+    //descobre a data atual
+    $start=new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
+    
+    //realiza a busca no banco de dados na primeira vez que a página foi carregada e nenhum dado dos selects foi manipulado
+    if(!isset($_COOKIE["hora"]) AND !isset($_COOKIE["id"]))
+    {
+        $resultadoProvider = $objBDD->getProviders(1, $start->format("Y-m-d H:i:s"), $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"), 1);
+    }
+
 ?>
 
 <form name="formAdd" id="formAdd" method="post"action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
@@ -63,10 +75,10 @@
     </select><br>
     Profissional Responsável: <select name="provider_key">
     <?php
-            if(isset($_COOKIE["id"]))
+            if(isset($_COOKIE["id"]) AND isset($_COOKIE["hora"]))
             {
 
-                $resultadoProvider = $objBDD->getProviders($_COOKIE["id"]);
+                $resultadoProvider = $objBDD->getProviders($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"), $_COOKIE["hora"]);
                 foreach($resultadoProvider as $linha)
                 {
                    $provider_nome  = $linha['nome'];
@@ -91,5 +103,4 @@
 
 </form>
 <?php 
-//echo var_dump($resultadoProvider);
 include(DIRREQ."/lib/html/footer.php"); ?>
