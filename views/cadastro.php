@@ -7,14 +7,29 @@
   <fieldset>
    <legend> Dados cadastrais do usuário </legend>
 
+   <input type="radio" name="tipo_pessoa" id="tipo_pessoa_f" value="0" checked>Pessoa Física
+   <input type="radio" name="tipo_pessoa" id="tipo_pessoa_j" value="1">Pessoa Jurídica <br> <br>
 
-   <label class="alinha"> Nome completo: </label>
-   <input type="text" name="nome"> <br>
+   <div id="form-pessoa-fisica">
+      <label class="alinha"> Nome completo: </label>
+      <input type="text" name="nome"> <br>
+
+      <label class="alinha"> CPF: </label>
+      <input type="text" name="cpf"> <br>
+   </div>
+
+   <div id="form-pessoa-juridica" style="display: none;">
+      <label class="alinha"> Razão Social: </label>
+      <input type="text" name="razao_social"> <br>
+
+      <label class="alinha"> CNPJ: </label>
+      <input type="text" name="cnpj"> <br>
+   </div>
 
    <label class="alinha"> Telefone: </label>
    <input type="text" name="telefone"> <br>
 
-   <label class="alinha"> Cep: </label>
+   <label class="alinha"> CEP: </label>
    <input type="text" name="cep"> <br>
    
    <label class="alinha"> Endereço: </label>

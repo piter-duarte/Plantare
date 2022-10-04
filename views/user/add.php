@@ -6,20 +6,25 @@
     $objBDD            = new \Classes\ClassBDD();
     $resultadoServices = $objBDD->getServices();
 
+    //descobre a data atual
+    $start=new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
+
+        //realiza a busca no banco de dados na primeira vez que a página foi carregada e nenhum dado dos selects foi manipulado
+        if(!isset($_COOKIE["hora"]) AND !isset($_COOKIE["id"]))
+        {
+            $resultadoProvider = $objBDD->getProviders(1, $start->format("Y-m-d H:i:s"), $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"), 1);
+        }
+        else
+        {
+            $resultadoProvider = $objBDD->getProviders($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"), $_COOKIE["hora"]);
+        }
+
+    //  echo var_dump($resultadoProvider); //mostra o resultado da query do BDD
 
     //cria o cookie hora para que na primeira leitura já seja atribuído no elemento html select#horaAtendimento a option 1 como selected
     if(isset($_COOKIE["hora"]) == false)
     {
         setcookie('hora','1', 0 ); 
-    }
-
-    //descobre a data atual
-    $start=new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
-    
-    //realiza a busca no banco de dados na primeira vez que a página foi carregada e nenhum dado dos selects foi manipulado
-    if(!isset($_COOKIE["hora"]) AND !isset($_COOKIE["id"]))
-    {
-        $resultadoProvider = $objBDD->getProviders(1, $start->format("Y-m-d H:i:s"), $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"), 1);
     }
 
 ?>
@@ -77,11 +82,16 @@
     <?php
             if(isset($_COOKIE["id"]) AND isset($_COOKIE["hora"]))
             {
-
-                $resultadoProvider = $objBDD->getProviders($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"), $_COOKIE["hora"]);
                 foreach($resultadoProvider as $linha)
                 {
-                   $provider_nome  = $linha['nome'];
+                    if($linha['ehJuridica'] == '0')
+                    {
+                        $provider_nome  = $linha['nome'];
+                    }
+                    else
+                    {
+                        $provider_nome  = $linha['razao_social'];
+                    }
                    $provider_email = $linha['email'];
                    $provider_media = $linha['media'];
                    echo "<option value='$provider_email'>$provider_nome | $provider_media estrelas <br>";
@@ -91,7 +101,14 @@
             {
                 foreach($resultadoProvider as $linha)
                 {
-                    $provider_nome  = $linha['nome'];
+                    if($linha['ehJuridica'] == '0')
+                    {
+                        $provider_nome  = $linha['nome'];
+                    }
+                    else
+                    {
+                        $provider_nome  = $linha['razao_social'];
+                    }
                     $provider_email = $linha['email'];
                     $provider_media = $linha['media'];
                     echo "<option value='$provider_email'>$provider_nome | $provider_media estrelas </option> <br>";
