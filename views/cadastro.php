@@ -41,7 +41,11 @@
    <label class="alinha"> Senha: </label>
    <input type="password" name="senha"> <br>
 
-   <input class="checkbox" type="checkbox" name="ehProvedor"> Provedor de Serviços ?
+   <label class="checkbox" for="ehProvedorId">
+        <input class="checkbox__input" type="checkbox" name="ehProvedor" id="ehProvedorId" checked>
+        <div class="checkbox__box"></div>
+        Provedor de Serviços ?
+   </label>
    <br>
 
    <input class="button" type="submit" value="Cadastrar">

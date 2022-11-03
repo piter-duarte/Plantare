@@ -8,91 +8,116 @@
 
   <header>
         <div class="logo">
-          <img class="img-logo" src="./lib/img/LogoAlterada.png">
-          <h6>Plantare</h6>
+          <a class="img-logo" href="assets.php">
+           <img class="img-logo" src="./lib/img/LogoAlterada.png">
+          </a>
+          <h5>Plantare</h5>
         </div>
         <div class="btns">
           <a class="button-main" href="./views/cadastro.php">
-            <h6>CONECTE-SE</h6>
+            <h5>CONECTE-SE</h5>
           </a>
           <a class="button-secondary" href="./views/login.php">
-            <h6>LOGIN</h6>
+            <h5>LOGIN</h5>
           </a>
         </div>       
   </header>
 
   <main>
-    <h2 class="hero">Facilitando a sua conexão com a natureza</h2>
-    <div class="slider">
-          <div class="slides">
-              <!--Radio Buttons-->
-              <input type="radio" name="radio-btn" id="radio1">
-              <input type="radio" name="radio-btn" id="radio2" checked>
-              <input type="radio" name="radio-btn" id="radio3">
-              <!--fim Radio Buttons-->
-
-              <!--Slide images-->
-              <div class="slide first">
-                <img src="./lib/img/image1.png" alt="imagem 1">
-              </div>
-
-              <div class="slide">
-                <img src="./lib/img/image2.png" alt="imagem 2">
-              </div>
-
-              <div class="slide">
-                <img src="./lib/img/image3.png" alt="imagem 3">
-              </div>
-              <!--fim Slide images-->
-
-              <!--Navigation auto-->
-              <div class="navigation-auto">
-                <div class="auto-btn1"></div>
-                <div class="auto-btn2"></div>
-                <div class="auto-btn3"></div>
-              </div>
-          </div>
-
-          <div class="manual-navigation">
-            <label for="radio1" class="manual-btn"></label>
-            <label for="radio2" class="manual-btn"></label>
-            <label for="radio3" class="manual-btn"></label>
-          </div>
+    <div class="heroarea" id="heroarea">
+      <div class="heroradios">
+        <input type="radio" name="slide" id="radio1">
+        <input type="radio" name="slide" id="radio2" checked>
+        <input type="radio" name="slide" id="radio3">
       </div>
-  
+      <h1>Facilitando a sua conexão<br>com a natureza</h1>
+      <h4>Encontre os melhores profissionais da<br>jardinagem</h4>
+      <div class="btcontainer">
+        <button class="btg">CONECTE-SE</button>
+      </div>
+    </div>
+
     <div class="qsomos">
-      <h3>QUEM<br>SOMOS</h3>
+      <h2>QUEM<br>SOMOS</h2>
       <p>Somos uma plataforma focada no ramo de jardinagem, promovendo um espaço para a busca e contratação de profissionais do ramo</p>
     </div>
     
     <div class="nservicos">
-      <h2>NOSSOS<br>SERVIÇOS</h2>
+      
+      <h1>NOSSOS<br>SERVIÇOS</h1>
+      
       <img class="nservicosimg" src="./lib/img/nservicosimg.png" alt="nservicosimg">
+      
       <div class="servicos">
         <div class="servicosgrid" id="servico1">
-            <img src="./lib/img/Grama.png" alt="algo">
-            <p>Cortar Grama</p>
+              <img src="./lib/img/Grama.png" alt="algo">
+              <p>Cortar Grama</p>
+          </div>
+          <div class="servicosgrid" id="servico2">
+          <img src="./lib/img/Poda.png" alt="algo">
+              <p>Realizar Poda</p>
+          </div>
+          <div class="servicosgrid" id="servico3">
+              <img src="./lib/img/Fertiliza.png" alt="algo">
+              <p>Aplicar Fertilizante</p>
+          </div>
+          <div class="servicosgrid" id="servico4">
+              <img src="./lib/img/Pesticida.png" alt="algo">
+              <p>Aplicar Pesticida</p>
+          </div>
+      </div>
+
+    </div>
+
+    <div class="nprofissionais">
+        <div class="main">
+          <h2>NOSSOS<br>PROFISSIONAIS</h2>
+          
+          <div class="profissionais">
+              <div id="p1">
+                <img src="./lib/img/profissional1.png" alt="algo">
+                <div id="p1info"> 
+                  <h4>Kristin Watson</h4>
+                  <img src="./lib/img/profissionalestrelas4.png" alt="">
+                </div>
+              </div>
+              <div  id="p2">
+                <img src="./lib/img/profissional2.png" alt="algo">
+                <div id="p2info"> 
+                  <h4>Theresa Webb</h4>
+                  <img src="./lib/img/profissionalestrelas5.png">
+                </div>
+              </div>
+              <div  id="p3">
+              <img src="./lib/img/profissional3.png" alt="algo">
+              <div id="p3info"> 
+                  <h4>Jenny Wilson</h4>
+                  <img src="./lib/img/profissionalestrelas4.png" alt="algo">
+                </div>
+              </div>
+          </div>
+          
+          <div class="mainC3">
+            <h4>+ de 200 profissionais em um só lugar</h4>
+            <hr class="rounded">
+          </div>
         </div>
-        <div class="servicosgrid" id="servico2">
-        <img src="./lib/img/Poda.png" alt="algo">
-            <p>Realizar Poda</p>
-        </div>
-        <div class="servicosgrid" id="servico3">
-            <img src="./lib/img/Fertiliza.png" alt="algo">
-            <p>Aplicar Fertilizante</p>
-        </div>
-        <div class="servicosgrid" id="servico4">
-            <img src="./lib/img/Pesticida.png" alt="algo">
-            <p>Aplicar Pesticida</p>
-        </div>
+      
+      <div class="nprofissionaisimg">
+
       </div>
     </div>
 
-  <div class="nprofissionais">
+    <div class="footer">
+        <h4>FALE CONOSCO</h4>
+        <div class="contato"> 
+          <img id="c1" src="./lib/img/email.png" alt="algo">
+          <img id="c2" src="./lib/img/whats.png" alt="algo">
+          <img id="c3" src="./lib/img/insta.png" alt="algo">
+        </div>
+    </div>
 
-  </div>
-
-    </main>
+  </main>
 
 </div>
 

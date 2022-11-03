@@ -17,7 +17,7 @@
    <label class="alinha"> Senha: </label>
    <input type="password" name="senha"> <br>
 
-   <input class="button" type="submit" value="Login">
+   <input class="button btm" type="submit" value="sim">
   </fieldset>
  </form> 
 
