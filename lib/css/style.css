@@ -6,6 +6,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: var(--pfont);
 }
 
 body{
@@ -18,20 +19,28 @@ body{
     box-sizing: border-box;
 
     /* Main Colors */
-    --primary: #14C530;
+    --primary:   #14C530;
+    --primary75: rgba(20, 197, 47, 0.75);
+    --primary50: rgba(20, 197, 47, 0.50);
+    --primary25: rgba(20, 197, 47, 0.25);
+    --primary10: rgba(20, 197, 47, 0.10);
+    --primary5:  rgba(20, 197, 47, 0.05);
     --secondary: #85CC3D;
     --terciary: #174429;
+    --terciary75: rgba(23, 68, 41, 0.75);
+    --terciary50: rgba(23, 68, 41, 0.50);
     --quaternary: #CAEED0;
-    --error: #C9E339;
+    --error: #d93025; /* old error color #C9E339 */
+    
     --white: #ffffff;
 
     /* Black Pallete */
-    --black:   rgb(33, 39, 34);
-    --black75: rgba(33, 39, 34, 0.75);
-    --black50: rgba(33, 39, 34, 0.50);
-    --black25: rgba(33, 39, 34, 0.25);
-    --black10: rgba(33, 39, 34, 0.10);
-    --black5:  rgba(33, 39, 34, 0.05);
+    --black:   #212722;
+    --black75: #212722bf;
+    --black50: #21272280;
+    --black25: #21272240;
+    --black10: #2127221a;
+    --black5:  #2127220d;
 
     /* Gradients */
     --gradient1: linear-gradient(180deg, #36D950 0%, #2EE6B4 100%);
@@ -54,8 +63,8 @@ body{
 h1{
     font-family: var(--hfonts);
     font-style: normal;
-    font-weight: 700;
-    font-size: var(--h1fsize);
+    font-weight: 700 !important;
+    font-size: var(--h1fsize) !important;
     line-height: 90px;
     letter-spacing: 0.15px;
 
@@ -66,8 +75,8 @@ h1{
 h2{
     font-family: var(--hfonts);
     font-style: normal;
-    font-weight: 600;
-    font-size: var(--h2fsize);
+    font-weight: 600 !important;
+    font-size: var(--h2fsize) !important;
     line-height: 68px;
     letter-spacing: 0.15px;
 
@@ -78,8 +87,8 @@ h2{
 h3{
     font-family: var(--hfonts);
     font-style: normal;
-    font-weight: 700;
-    font-size: var(--h3fsize);
+    font-weight: 700 !important;
+    font-size: var(--h3fsize) !important;
     line-height: 48px;
     letter-spacing: 0.15px;
 
@@ -90,8 +99,8 @@ h3{
 h4{
     font-family: var(--hfonts);
     font-style: normal;
-    font-weight: 700;
-    font-size: var(--h4fsize);
+    font-weight: 700 !important;
+    font-size: var(--h4fsize) !important;
     line-height: 35px;
     letter-spacing: 0.15px;
     
@@ -102,8 +111,8 @@ h4{
 h5{
     font-family: var(--hfonts);
     font-style: normal;
-    font-weight: 700;
-    font-size: var(--h5fsize);
+    font-weight: 700 !important;
+    font-size: var(--h5fsize) !important;
     letter-spacing: 0.15px;
 
     text-align: center;
@@ -113,8 +122,8 @@ h5{
 h6{
     font-family: var(--hfonts);
     font-style: normal;
-    font-weight: 700;
-    font-size: var(--h6fsize);
+    font-weight: 700 !important;
+    font-size: var(--h6fsize) !important;
     letter-spacing: 0.15px;
 
     text-align: center;
@@ -142,8 +151,8 @@ a{
     font-size: var(--h5fsize);
     letter-spacing: 0.15px;
     align-items: center;
-    color: var(--black);
-    text-decoration: none;
+    color: var(--black) !important;
+    text-decoration: none !important;
 }
 
 label {
@@ -164,7 +173,7 @@ label {
 
 
 
-button, input[type='submit'], input[type="button"], button.btg, input[type='submit'].btg, input[type="button"].btg{
+button, input[type='submit'], input[type="button"], button.btg, input[type='submit'].btg, input[type="button"].btg, button[type="submit"]{
     display: inline-flex;
     flex-direction: row;
     justify-content: center;
@@ -185,14 +194,43 @@ button, input[type='submit'], input[type="button"], button.btg, input[type='subm
 }
 
 button.btm, input[type='submit'].btm, input[type="button"].btm{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 36px;
+    
+    border: none;
+    border-radius: 100px;
+    background-image: var(--gradient1);
+    padding: 8px 16px;
+    
+    font-family: var(--hfonts);
+    font-size: var(--h5fsize);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 button.btp, input[type='submit'].btp, input[type="button"].btp{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     width: 50px;
     height: 36px;
+    
+    border: none;
+    border-radius: 100px;
+    background-image: var(--gradient1);
     padding: 4px 8px;
+    
+    font-family: var(--hfonts);
+    font-size: var(--h5fsize);
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 button.bts, input[type='submit'].bts, input[type="button"].bts{
@@ -206,6 +244,7 @@ input[type='radio']{
     margin-left: 10px;
     margin-right: 10px;
     margin-bottom: 10px;
+    font-size: 15px;
 }
 
 input[type='radio']:after {
@@ -270,49 +309,46 @@ input.checkbox{
     color: var(--quaternary);
 }
 
-.custom-field{
-    position: relative;
-    font-size: var(--h5fsize);
-    padding-top: 20px;
-    margin-bottom: 5px;
-    text-align: left;
-}
-
-.custom-field input {
-    border: none;
-    -webkit-appearance: none;
-    -ms-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background: var(--black5);
-    padding: 12px;
-    border-radius: 3px;
-    width: 250px;
-    outline: none;
-    font-size: var(--h5fsize);
-}
-
-.custom-field .placeholder {
-    position: absolute;
-    left: 12px;
-    top: calc(50% + 10px);
-    transform: translateY(-50%);
-    color: var(--black50);
-    transition: 
-    top 0.3s ease,
-    font-size 0.3s ease,
-    color 0.3s ease;
-}
-.custom-field input:valid + .placeholder,
-.custom-field input:focus + .placeholder{
-    top: 10px;
-    font-size: var(--h6fsize);
-    color: var(--primary);
-}
-
 .checkbox__input:checked + .checkbox__box{
     background-color: var(--primary);
     border-color: var(--primary);
+}
+
+div.formGroup input{
+    width: 250px;
+}
+
+div.flex.items-center input.border-black {
+    transition: 0.3s ease;
+    border-color: var(--black);
+}
+
+div.flex.items-center input.border-green-700{
+    transition: 0.3s ease;
+    border-color: var(--primary);
+}
+
+div.flex.items-center input.border-red-700{
+    transition: 0.3s ease;
+    border-color: var(--error);
+}
+div.error.text-red-700{
+    transition: 0.3s ease;
+    color: var(--error);
+}
+
+span.error-icon.text-red-700{
+    transition: 0.3s ease;
+    color: var(--error);
+}
+
+span.success-icon.text-green-700{
+    transition: 0.3s ease;
+    color: var(--primary);
+}
+
+::-webkit-calendar-picker-indicator {
+    display: none;
 }
 
 ::-webkit-scrollbar {
@@ -330,9 +366,10 @@ input.checkbox{
 
 /* --------------------------------------End of Main Assets-------------------------------------------------- */
 
+/* -----------------------------------------------INDEX------------------------------------------------------ */
 .container{
-    width: 100%;
-    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 10vh 1fr;
@@ -341,6 +378,8 @@ input.checkbox{
 /*HEADER*/
 
 header{
+    width: 100%;
+    min-height: 100% !important;
     background: var(--terciary);
     min-height: inherit;
     grid-row-start: 1;
@@ -360,6 +399,7 @@ div.logo{
 }
 
 a.img-logo{
+    display: flex;
     grid-column-start: 1;
     width: 100%;
     height: 100%;
@@ -382,38 +422,8 @@ div.btns{
     flex-direction: row;
     align-items: center;
 }
-
-div.btns a.button-main{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    width: 137px;
-    height: 42px;
-    border-radius: 100px;
-    padding: 8px 16px;
-    text-decoration: none;
-
-    background-image: var(--gradient1);
-}
-
-div.btns a.button-secondary{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    width: 137px;
-    height: 42px;
-    border-radius: 100px;
-    padding: 8px 16px;
-    text-decoration: none;
-
-    margin-left: 5px;
-    background-color: none;
-}
-
-.button-secondary h5 {
-    color: var(--quaternary);
+div.btns button:last-child{
+    margin-left: 10px;
 }
 
 /*FIM HEADER*/
@@ -751,4 +761,50 @@ div.contato img#c2{
 div.contato img#c3{
     justify-self: center;
     grid-column-start: 6; 
+}
+
+/* -----------------------------------------------INDEX END------------------------------------------------- */
+
+main.loginPage{
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    height: 90vh;
+    background-image: url(../img/loginPageImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.loginPage form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: 350 px;
+    padding: 10px;
+    margin: 0 10%;
+    align-self: center;
+    justify-self: right;
+    justify-items: center;
+    align-items: center;
+    border-radius: 10px;
+    background-color: var(--terciary50);
+}
+
+.loginPage .formGroup{
+    width: 100%;
+}
+
+.loginPage .formGroup div.items-center{
+    justify-content: center;
+}
+
+.loginPage .formGroup label, .loginPage .formGroup .error {
+    margin-left: 6.5%;
+}
+
+.loginPage .formGroup input{
+    background-color: transparent;
+}
+
+.loginPage .formGroup label {
+    color: var(--primary);
 }

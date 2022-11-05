@@ -45,15 +45,106 @@
         Checked
 </label>
 <br><br>
-<label class="custom-field">
-    <input type="text" required>
-    <span class="placeholder">Sem dados</span>
-</label>
+<form id="registrationForm" action="">
+    <div class="formGroup flex flex-col my-4">
+        <label  for="firstName">First Name</label>
+        <div class="flex items-center">
+            <input
+                id="firstName"
+                type="text"
+                class="w-full border-b-2 border-black outline-none py-2"
+                required 
+                minlength="2" 
+                custommaxlength="5"
+            >
+            <span class="error-icon hidden -ml-6 text-red-700">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </span>
+            <span class="success-icon hidden -ml-6 text-green-700">
+                <i class="fa-solid fa-circle-check"></i>
+            </span>
+        </div>
+        <div class="error text-red-700 py-2"></div>
+    </div>
+    <div class="formGroup flex flex-col my-4">
+        <label  for="email">Email Address</label>
+        <div class="flex items-center">
+            <input
+                id="email"
+                type="email"
+                class="w-full border-b-2 border-black outline-none py-2"
+                required 
+                pattern="^(.+)@(.+)$"
+            >
+            <span class="error-icon hidden -ml-6 text-red-700">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </span>
+            <span class="success-icon hidden -ml-6 text-green-700">
+                <i class="fa-solid fa-circle-check"></i>
+            </span>
+        </div>
+        <div class="error text-red-700 py-2"></div>
+    </div>
+    <div class="formGroup flex flex-col my-4">
+        <label  for="password">Password</label>
+        <div class="flex items-center">
+            <input
+                id="password"
+                type="password"
+                class="w-full border-b-2 border-black outline-none py-2"
+                required 
+            >
+            <span class="error-icon hidden -ml-6 text-red-700">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </span>
+            <span class="success-icon hidden -ml-6 text-green-700">
+                <i class="fa-solid fa-circle-check"></i>
+            </span>
+        </div>
+        <div class="error text-red-700 py-2"></div>
+    </div>
+    <div class="formGroup flex flex-col my-4">
+        <label  for="confirmPassword">Confirm Password</label>
+        <div class="flex items-center">
+            <input
+                id="confirmPassword"
+                type="password"
+                class="w-full border-b-2 border-black outline-none py-2"
+                required 
+                match="password"
+            >
+            <span class="error-icon hidden -ml-6 text-red-700">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </span>
+            <span class="success-icon hidden -ml-6 text-green-700">
+                <i class="fa-solid fa-circle-check"></i>
+            </span>
+        </div>
+        <div class="error text-red-700 py-2"></div>
+    </div>
+    <div class="formGroup flex flex-col my-4">
+        <label  for="date">Date</label>
+        <div class="flex items-center">
+            <input
+                id="date"
+                type="date"
+                class="w-full border-b-2 border-black outline-none py-2"
+                required 
+            >
+            <span class="error-icon hidden -ml-6 text-red-700">
+                <i class="fa-solid fa-circle-exclamation"></i>
+            </span>
+            <span class="success-icon hidden -ml-6 text-green-700">
+                <i class="fa-solid fa-circle-check"></i>
+            </span>
+        </div>
+        <div class="error text-red-700 py-2"></div>
+    </div>
 
-<label class="custom-field">
-    <input type="number" required value="123">
-    <span class="placeholder">Com dados preenchidos e validos</span>
-</label>
+    <button type="submit">Register</button>
+</form>
+
+
 
 <br><br>
 

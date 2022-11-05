@@ -14,11 +14,11 @@
           <h5>Plantare</h5>
         </div>
         <div class="btns">
-          <a class="button-main" href="./views/cadastro.php">
-            <h5>CONECTE-SE</h5>
+          <a href="./views/cadastro.php">
+            <button class="btg">CONECTE-SE</button>
           </a>
-          <a class="button-secondary" href="./views/login.php">
-            <h5>LOGIN</h5>
+          <a href="./views/login.php">
+            <button class="btm bts">LOGIN</button>
           </a>
         </div>       
   </header>
