@@ -14,12 +14,9 @@
           <h5>Plantare</h5>
         </div>
         <div class="btns">
-          <a href="./views/cadastro.php">
-            <button class="btg">CONECTE-SE</button>
-          </a>
-          <a href="./views/login.php">
-            <button class="btm bts">LOGIN</button>
-          </a>
+            <button class="btg"><a href="./views/cadastro.php">CONECTE-SE</a></button>
+            <button class="btm bts"><a href="./views/login.php">LOGIN</a></button>
+          
         </div>       
   </header>
 

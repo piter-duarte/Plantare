@@ -145,7 +145,7 @@ p{
 }
 
 a{  
-    font-family: var(--pfont);
+    font-family: var(--hfonts);
     font-style: normal;
     font-weight: 700;
     font-size: var(--h5fsize);
