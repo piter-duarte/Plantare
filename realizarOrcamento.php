@@ -1,7 +1,8 @@
 <?php
-    include("../../config/config.php");
-    require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
+    include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
+    $con= new Models\ModelConect;
+    $con->conectDB();
 ?>
 
 

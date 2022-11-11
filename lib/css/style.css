@@ -819,7 +819,7 @@ main.loginPage{
 
 /* -----------------------------------------------LOGIN END------------------------------------------------- */
 
-
+/* -----------------------------------------------ORÇAMENTO------------------------------------------------- */
 main.logado {
     grid-template-columns: 25% 1fr;
     grid-template-rows: auto;
@@ -829,3 +829,14 @@ main.logado {
 .logado div.navbar {
     background-color: #14C530;
 }
+
+main.logado div.conteudo {
+    background-color: #85CC3D;
+    
+}
+
+
+
+
+
+/* -----------------------------------------------ORÇAMENTO END------------------------------------------------- */
