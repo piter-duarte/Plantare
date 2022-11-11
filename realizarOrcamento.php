@@ -27,7 +27,20 @@
             <a href="">Sair</a>
         </div>
         <div class="conteudo">
-
+            <div class="space80">     
+                <div class="containerform">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="text">
+                    <input type="button">
+                    
+                </div>
+            </div>
+            
+           
+           
     </div>
     </main>
 

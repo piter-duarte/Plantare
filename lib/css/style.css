@@ -832,8 +832,37 @@ main.logado {
 
 main.logado div.conteudo {
     background-color: #85CC3D;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: 10% 1fr 10% ;
     
 }
+main.logado div.conteudo div.space80{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    background-color: red;
+    display: grid;
+    grid-template-columns: 10% 80% 10%;
+    justify-content: center;/*centralizou na vertical*/
+    align-items: center;
+}
+div.space80 div.containerform{
+    background-color: grey;
+    height: 100%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 20% 1fr;    
+}
+div.containerform input:last-child{
+    grid-row-start: 7;
+    grid-row-end: 8;
+}
+
+
+
 
 
 
