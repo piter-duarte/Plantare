@@ -23,7 +23,7 @@
     <main class="loginPage">
         <form id="loginForm" action="<?php echo DIRPAGE.'/controllers/ControllerLoginUser.php'; ?>" method="post">    
             <div class="formGroup flex flex-col my-4">
-            <label for="email">Login</label>
+            <label for="email">Email</label>
             <div class="flex items-center">
                 <input
                     name="email"

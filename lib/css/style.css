@@ -364,6 +364,12 @@ span.success-icon.text-green-700{
     border-radius: 10px;
 }
 
+/* div.calendarUser, div.calendarManager
+{
+    width: 600px;
+    height: 600px;
+} */
+
 /* --------------------------------------End of Main Assets-------------------------------------------------- */
 
 /* -----------------------------------------------INDEX------------------------------------------------------ */
@@ -765,6 +771,8 @@ div.contato img#c3{
 
 /* -----------------------------------------------INDEX END------------------------------------------------- */
 
+/* -----------------------------------------------LOGIN----------------------------------------------------- */
+
 main.loginPage{
     grid-template-rows: auto;
     grid-template-columns: auto;
@@ -807,4 +815,17 @@ main.loginPage{
 
 .loginPage .formGroup label {
     color: var(--primary);
+}
+
+/* -----------------------------------------------LOGIN END------------------------------------------------- */
+
+
+main.logado {
+    grid-template-columns: 25% 1fr;
+    grid-template-rows: auto;
+    height: 90vh;
+}
+
+.logado div.navbar {
+    background-color: #14C530;
 }
