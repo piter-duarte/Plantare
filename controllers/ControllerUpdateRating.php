@@ -3,11 +3,14 @@ include ("../config/config.php");
 $objEvents = new \Classes\ClassEvents();
 $id        =filter_input(INPUT_POST,'id', FILTER_DEFAULT);
 $avaliacao =filter_input(INPUT_POST,'avaliacao', FILTER_DEFAULT);
+$provider_key        =filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT);
 
 $avaliacao = (int)$avaliacao;
 
 $objEvents->updateRating(
     $id,
-    $avaliacao
+    $avaliacao,
+    $provider_key
 );
+
 echo "<script>window.location.replace('".DIRPAGE."/views/user/index.php');</script>";

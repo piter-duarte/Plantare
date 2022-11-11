@@ -6,6 +6,7 @@
 
 <form name="formAdd" id="formAdd" method="post">
     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>"> <br>
+    <input type="hidden" name="provider_key" value="<?php echo $_GET['provider_key']; ?>"> <br>
     Avaliar:
     <select name="avaliacao">
         <option value="">Selecione</option>

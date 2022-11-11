@@ -26,10 +26,12 @@ class ClassEvents extends ModelConect
 
         if($b->rowCount() == 0)
         {
-            
+                $objBDD           = new \Classes\ClassBDD();
+                $resultadoService = $objBDD->getService($title); //pegando o nome do serviço baseado no id
+
                 $b=$this->conectDB()->prepare("insert into events values (?,?,?,?,?,?,?,?,?)");
                 $b->bindParam(1,$id,\PDO::PARAM_INT);
-                $b->bindParam(2,$title,\PDO::PARAM_STR);
+                $b->bindParam(2,$resultadoService['nomeS'],\PDO::PARAM_STR);
                 $b->bindParam(3,$description,\PDO::PARAM_STR);
                 $b->bindParam(4,$color,\PDO::PARAM_STR);
                 $b->bindParam(5,$start,\PDO::PARAM_STR);
@@ -85,11 +87,19 @@ class ClassEvents extends ModelConect
         $b->execute();
     }
 
-    public function updateRating($id, $avaliacao)
+    public function updateRating($id, $avaliacao, $provider_key)
     {
-        $b=$this->conectDB()->prepare("update events set rating=? where id=?");
-        $b->bindParam(1,$avaliacao,\PDO::PARAM_INT);
-        $b->bindParam(2,$id,\PDO::PARAM_INT);
+
+        $a=$this->conectDB()->prepare("UPDATE events SET rating=? WHERE id=?");
+        $a->bindParam(1,$avaliacao,\PDO::PARAM_INT);
+        $a->bindParam(2,$id,\PDO::PARAM_INT);
+        $a->execute();
+
+        $email=$provider_key;
+
+        $b=$this->conectDB()->prepare("UPDATE usuarios SET media=(SELECT AVG(rating) FROM events WHERE provider_key=?) WHERE email=?");
+        $b->bindParam(1,$provider_key,\PDO::PARAM_STR);
+        $b->bindParam(2,$email,\PDO::PARAM_STR);
         $b->execute();
     }
     

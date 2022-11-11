@@ -11,13 +11,18 @@ class ModelConect
             $con->query("CREATE DATABASE IF NOT EXISTS sistema");
             $con->query("USE sistema");
             $con->query("CREATE TABLE IF NOT EXISTS usuarios(
-                nome       VARCHAR(300),
-                telefone   VARCHAR(15),
-                cep        VARCHAR(9),
-                endereco   VARCHAR(150),
-                ehProvedor TINYINT(1),
-                email      VARCHAR(300) PRIMARY KEY,
-                senha      VARCHAR(130)
+                nome         VARCHAR(300),
+                cpf          VARCHAR(14),
+                razao_social VARCHAR(300),
+                cnpj         VARCHAR(18),
+                telefone     VARCHAR(15),
+                cep          VARCHAR(9),
+                endereco     VARCHAR(150),
+                ehJuridica   TINYINT(1),
+                ehProvedor   TINYINT(1),
+                media        DECIMAL(3,2),
+                email        VARCHAR(300) PRIMARY KEY,
+                senha        VARCHAR(130)
                 ) ENGINE=innoDB");
             $con->query("CREATE TABLE IF NOT EXISTS events(
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -38,7 +43,7 @@ class ModelConect
             ) ENGINE=innoDB");
             $con->query("CREATE TABLE IF NOT EXISTS servicos(
                 id INT PRIMARY KEY,
-                nome VARCHAR(300)
+                nomeS VARCHAR(300)
             ) ENGINE=innoDB");
             $con->query("CREATE TABLE IF NOT EXISTS relacao(
                 id INT PRIMARY KEY AUTO_INCREMENT,
@@ -53,8 +58,15 @@ class ModelConect
                 ON UPDATE CASCADE
             ) ENGINE=innoDB");
             $con->query("INSERT IGNORE INTO servicos VALUES (1, 'Cortar Grama'), (2, 'Realizar Poda'), (3, 'Aplicar Pesticida'), (4, 'Aplicar Fertilizante')"); //Cláusula IGNORE utilizada para evitar que o MySQL mostre erro ao tentar reinserir os serviços no BDD
-            $con->query("INSERT IGNORE INTO usuarios VALUES ('Manager', '', '', '', 1, 'manager', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
-            $con->query("INSERT IGNORE INTO usuarios VALUES ('Usuario', '', '', '', 1, 'user', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            $con->query("INSERT IGNORE INTO usuarios VALUES ('Manager', null, null, null, null, null, null, 1, 1, null,'manager', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            $con->query("INSERT IGNORE INTO usuarios VALUES ('Usuario', null, null, null, null, null, null, 0,0, null, 'user', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 1, 80)");
+            // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 2, 200)");
+            // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 3, 100)");
+            // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 4, 50)");
+            // $con->query("INSERT IGNORE INTO events VALUES (null, 'Cortar Grama', null, null, '2022-09-26 10:00:00', '2022-09-26 11:00:00', null, 'user', 'manager')");
+            // $con->query("INSERT IGNORE INTO events VALUES (null, 'Cortar Grama', null, null, '2022-09-26 11:00:00', '2022-09-26 12:00:00', null, 'user', 'manager')");
+            // $con->query("INSERT IGNORE INTO events VALUES (null, 'Cortar Grama', null, null, '2022-09-26 12:00:00', '2022-09-26 1:00:00', null, 'user', 'manager')");
             return $con;
         }catch (\PDOException $erro){
             return $erro ->getMessage();
