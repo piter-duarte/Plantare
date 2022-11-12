@@ -87,6 +87,7 @@ class ClassBDD extends ModelConect
             {
                 $_SESSION["nome"] = $resultado['razao_social'];
             }
+
             $_SESSION["client_key"] = $resultado['email'];
             $_SESSION["ehProvedor"] = $resultado['ehProvedor'];
             $_SESSION['conectado'] = true;
