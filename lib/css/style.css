@@ -9,6 +9,8 @@
     font-family: var(--pfont);
 }
 
+html {font-size: 131.3%;} /*21px*/
+
 body{
     width: 100%;
     min-height: 100vh;
@@ -30,7 +32,10 @@ body{
     --terciary75: rgba(23, 68, 41, 0.75);
     --terciary50: rgba(23, 68, 41, 0.50);
     --quaternary: #CAEED0;
+    --quaternary50: rgba(202, 238, 208, 0.50);
     --error: #d93025; /* old error color #C9E339 */
+    --starFilled: #FF8A00;
+    --starEmpty: #E7DCD0;
     
     --white: #ffffff;
 
@@ -49,14 +54,14 @@ body{
     --hfonts: 'Raleway', 'Roboto';
     --pfont: 'Merriweather';
 
-    --h1fsize: 84px;
-    --h2fsize: 60px;
-    --h3fsize: 42px;
-    --h4fsize: 30px;
-    --h5fsize: 15px;
-    --h6fsize: 11px;
-
-    --pfsize: 21px;
+    --h1fsize: 3.998rem;  /*83.95px*/
+    --h2fsize: 2.827rem;  /*59.37px*/
+    --h3fsize: 1.999rem;  /*41.99px*/
+    --h4fsize: 1.414rem;  /*29.69px*/
+    --h5fsize: 0.715rem;  /*14.85px*/
+    --h6fsize: 0.53rem;   /*11.13px*/
+                          
+    --pfsize: 1rem;       /*21.00px*/
 
 }
 
@@ -314,8 +319,13 @@ input.checkbox{
     border-color: var(--primary);
 }
 
-div.formGroup input{
+div.formGroup div.flex.items-center input{
     width: 250px;
+    font-size: var(--h5fsize);
+}
+
+div.formGroup label{
+    font-size: var(--h5fsize);
 }
 
 div.flex.items-center input.border-black {
@@ -340,15 +350,25 @@ div.error.text-red-700{
 span.error-icon.text-red-700{
     transition: 0.3s ease;
     color: var(--error);
+    margin-left: 10px;
+    display: none;
+}
+
+.error.text-red-700.py-2{
+    font-size: var(--h6fsize);
+    padding-top: 3px;
+    padding-bottom: 0;
 }
 
 span.success-icon.text-green-700{
     transition: 0.3s ease;
     color: var(--primary);
+    display: none;
+    margin-left: 10px;
 }
 
 ::-webkit-calendar-picker-indicator {
-    display: none;
+    /* display: none; */
 }
 
 ::-webkit-scrollbar {
@@ -364,11 +384,123 @@ span.success-icon.text-green-700{
     border-radius: 10px;
 }
 
-/* div.calendarUser, div.calendarManager
-{
-    width: 600px;
-    height: 600px;
-} */
+/* Calendar CSS */
+
+    .fc-header-toolbar.fc-toolbar 
+    {
+        align-self: center;
+    }
+
+    .calendarManager,  
+    .calendarUser{
+        justify-items: center;
+        align-items: center;
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:first-child .fc-button-group button, 
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:first-child .fc-button-group button
+    {
+        width: 50px;
+        height: 25px;
+        padding: 0;
+        background-color: var(--black);
+        font-size: 12px;
+        border-radius: 100px;
+        margin-right: 5px;
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(2) h2, 
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(2) h2 {
+        width: 200px;   
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3), 
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3)  {
+        width: 250px;
+        display: grid;
+        justify-items: center;
+        align-items: center;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto;
+        gap: 5px;
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group:nth-child(1), 
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group:nth-child(1){
+        grid-column-start: 1;
+        grid-column-end: 2;
+
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group:nth-child(2),
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group:nth-child(2)
+    {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        margin: 0;
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) button:last-child,
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) button:last-child
+    {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        margin: 0;
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group button:last-child,
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group button:last-child
+    {
+        display: none;
+    }
+
+    .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group button, .calendarManager .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) button,
+    .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) .fc-button-group button, .calendarUser .fc-header-toolbar.fc-toolbar  .fc-toolbar-chunk:nth-child(3) button
+    {
+        width: 65px;
+        height: 25px;
+        font-family: var(--hfonts);
+        font-size: 12px;
+        border-radius: 100px;
+        padding: 0;
+        background-color: var(--black);
+        align-items: center;
+        justify-items: center;
+    }
+
+    .calendarManager div.fc-header-toolbar.fc-toolbar  div.fc-toolbar-chunk h2.fc-toolbar-title,
+    .calendarUser div.fc-header-toolbar.fc-toolbar  div.fc-toolbar-chunk h2.fc-toolbar-title
+    {
+        font-family: var(--hfonts);
+        font-size: var(--h5fsize) !important;
+        
+    }
+
+    .calendarManager .fc-view-harness.fc-view-harness-active,
+    .calendarUser .fc-view-harness.fc-view-harness-active{
+        width: 45.5%;
+        background-color: var(--black75);
+    }
+
+    div.fc-scrollgrid-sync-inner a.fc-col-header-cell-cushion {
+        color: var(--white) !important;
+    }
+
+    div.fc-daygrid-day-top a {
+        color: var(--white) !important;
+    }
+
+    div.fc-timegrid-slot-label-cushion.fc-scrollgrid-shrink-cushion{
+        color: var(--white);
+    }
+
+    .calendarManager .fc-view-harness.fc-view-harness-active tbody a.fc-daygrid-event.fc-daygrid-dot-event.fc-event,
+    .calendarUser .fc-view-harness.fc-view-harness-active tbody a.fc-daygrid-event.fc-daygrid-dot-event.fc-event{
+        font-size: var(--h6fsize);
+        color: var(--white) !important;
+    }
+
+/* Calendar CSS END */
 
 /* --------------------------------------End of Main Assets-------------------------------------------------- */
 
@@ -434,7 +566,7 @@ div.btns button:last-child{
 
 /*FIM HEADER*/
 
-main{
+main.index{
     grid-row-start: 2;
     grid-row-end: 3;
     min-height: inherit;
@@ -776,6 +908,7 @@ div.contato img#c3{
 main.loginPage{
     grid-template-rows: auto;
     grid-template-columns: auto;
+    display: grid;
     height: 90vh;
     background-image: url(../img/loginPageImg.png);
     background-repeat: no-repeat;
@@ -819,32 +952,301 @@ main.loginPage{
 
 /* -----------------------------------------------LOGIN END------------------------------------------------- */
 
-/* -----------------------------------------------ORÇAMENTO------------------------------------------------- */
-main.logado {
-    grid-template-columns: 25% 1fr;
+/* -----------------------------------------------CADASTRO-------------------------------------------------- */
+main.cadastroPage{
+    height: 90vh;
+    grid-template-columns: auto;
     grid-template-rows: auto;
+    background-image: url(../img/cadastroPageImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.formAlign{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+
+
+form#formCadastro{
+    position: relative;
+    top: -5px;
+    width: 30%;
+    height: 90%;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    grid-template-columns: auto;
+    grid-template-rows: 10% 90%;
+    margin: 0 auto;
+}
+
+form#formCadastro  div.formCadastro_radiobox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+form#formCadastro  div.formCadastro_content{
+    background-color: var(--white);
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto;
+    align-items: center;
+    justify-items: center;
+}
+
+div.formCadastro_content  div#form-pessoa-fisica, div.formCadastro_content  div#form-pessoa-juridica{
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+
+form#formCadastro div.formCadastro_radios{
+    width: fit-content;
+    padding: 5px;
+    align-self: flex-end;
+}
+
+form#formCadastro input[type="radio"]{
+    margin: 0;
+    display: none;
+}
+
+form#formCadastro input[type="radio"] + label{
+    color: hsla(0, 0%, 100%, 0.70);
+    cursor: pointer;
+}
+
+form#formCadastro input[type="radio"]:checked + label{
+    color: var(--white);
+    font-size: 18px;
+    border-bottom: 2px solid var(--white);
+}
+
+form#formCadastro div.formEnd {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 80%;
+}
+
+form#formCadastro div.formEnd label.checkbox {
+    margin-bottom: 15px;
+}
+
+/* -----------------------------------------------CADASTRO END---------------------------------------------- */
+
+/* -----------------------------------------------CADASTRO CONTINUACAO------------------------------------- */
+
+main.cadastroContinuacaoPage{
+    grid-template-rows: auto;
+    grid-template-columns: auto;
+    display: grid;
+    height: 90vh;
+    background-image: url(../img/cadastroPageImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+form#continuacaoCadastroForm{
+    width: 80%;
+    height: 80%;
+    border-radius: 5px;
+}
+
+form#continuacaoCadastroForm div.continuacaoContainer{
+    width: 100%;
+    height: 100%;
+    background-color: var(--white);
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 15% 65% 20%;
+    align-items: center;
+    justify-items: center;
+}
+
+input.button.btg{
+    grid-row-start: 3;
+    grid-row-end: 4;
+}
+
+form#continuacaoCadastroForm div.continuacaoContainer div#heading{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+div.continuacaoContainer div#heading div#servico, div.continuacaoContainer div#heading div#valorHora{
+    width: 100%;
+    height: 100%;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 2px solid var(--black25);
+}
+
+div.continuacaoContainer div#heading div#servico{
+    border-right: 2px solid var(--black25);
+}
+
+div.continuacaoContainer  div#body {
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    border-bottom: 2px solid var(--black25);
+}
+
+div.continuacaoContainer  div#body div#bodyContent1, div.continuacaoContainer  div#body div#bodyContent2{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+div.continuacaoContainer  div#body div#bodyContent1{
+    border-right: 2px solid var(--black25);
+}
+
+div.continuacaoContainer  div#body div#bodyContent1, div.continuacaoContainer  div#body div#bodyContent2{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+}
+
+div.continuacaoContainer  div#body div#bodyContent2 div.formGroup.flex.flex-col.my-4 {
+    margin: 0;
+}
+
+/* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
+
+/* -----------------------------------------------NAVBAR------------------------------------------------- */
+
+header h4
+{
+    color: var(--white);
+    width: 100%;
+}
+
+main.logadoPage {
+    grid-template-columns: minmax(225px, 18%) 1fr;
+    grid-template-rows: auto;
+    display: grid;
     height: 90vh;
 }
 
 .logado div.navbar {
-    background-color: #14C530;
+    background-color: var(--black);
 }
 
-main.logado div.conteudo {
-    background-color: #85CC3D;
+
+div.navbar div.userInfo {
+    display: grid;
+    padding: 5px 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(auto, 88px) 1fr 0.25fr;
+    justify-items: center;
+    align-items: center;
+}
+
+div.navbar div.userInfo img#img-user{
+    max-width: 88px;
+    max-height: 88px;
+    display: inline;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--black25);
+}
+
+div.navbar div.userInfo i{
+    color: var(--starFilled);
+
+}
+
+div.navbar div.divider{
+    background-color: var(--black5);
+    width: 100%;
+    height: 2px;
+}
+
+div.navbar div.options{
+    padding: 15px 0;
+    display: grid;
+    height: 71%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: auto;
+}
+
+div.navbar div.options a:last-child{
+    grid-row-start: 8;
+    grid-row-end: 9;
+}
+
+div.navbar div.options a {
+    color: var(--black);
+    font-size: inherit;
+}
+
+div.navbar div.options a:hover{
+    background-color: var(--quaternary50);
+}
+
+div.navbar div.options a:hover i, div.navbar div.options a:hover h5{
+    color: var(--primary);
+}
+
+div.navbar div.options div.item{
+    width: fit-content;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 21px 1fr;
+    padding-left: 18px;
+    align-items: center;
+}
+
+div.navbar div.options div.item h5{
+    width: 100%;
+    padding-left: 30px;
+    text-align: left;
+}
+
+.logadoPage div.conteudo { /* container principal da aplicação*/
+    background-color: gray;
+}
+
+/* -----------------------------------------------NAVBAR END------------------------------------------------- */
+
+/* -----------------------------------------------ORÇAMENTO------------------------------------------------- */
+
+main.logadoPage div.conteudo.realizarOrcamento {
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: 10% 1fr 10% ;
     
 }
-main.logado div.conteudo div.space80{
+main.logadoPage div.conteudo div.space80{
     grid-row-start: 2;
     grid-row-end: 3;
     background-color: red;
     display: grid;
     grid-template-columns: 10% 80% 10%;
     justify-content: center;/*centralizou na vertical*/
-    align-items: center;
+    align-items: center; /* centralizou na horizontal*/
 }
 div.space80 div.containerform{
     background-color: grey;
@@ -861,11 +1263,4 @@ div.containerform input:last-child{
     grid-row-end: 8;
 }
 
-
-
-
-
-
-
-
-/* -----------------------------------------------ORÇAMENTO END------------------------------------------------- */
+/* -----------------------------------------------ORÇAMENTO END------------------------------------------------- *

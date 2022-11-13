@@ -11,14 +11,6 @@
             </a>
             <h5>Plantare</h5>
             </div>
-            <!-- <div class="btns">
-            <a href="./views/cadastro.php">
-                <button class="btg">CONECTE-SE</button>
-            </a>
-            <a href="./views/login.php">
-                <button class="btm bts">LOGIN</button>
-            </a>
-            </div>        -->
     </header>
     <main class="loginPage">
         <form id="loginForm" action="<?php echo DIRPAGE.'/controllers/ControllerLoginUser.php'; ?>" method="post">    

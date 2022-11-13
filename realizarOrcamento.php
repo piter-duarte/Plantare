@@ -1,47 +1,31 @@
-<?php
+<?php 
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
-    $con= new Models\ModelConect;
-    $con->conectDB();
+    include(DIRREQ."/lib/includes/funcoes.php");
+
 ?>
 
 
 <div class="container">
-    <header>
-        <h3>Teste</h3>
-    </header>
-    <main class="logado">
-        <div class="navbar">
-            <a href="">Meu Perfil</a>
-            <br>
-            <a href="">Meus Pedidos</a>
-            <br>
-            <a href="">Novo Pedido</a>
-            <br>
-            <a href="">Avaliar Profissional</a><a href=""></a>
-            <br>
-            <a href="">Cadastrar Serviços</a>
-            <br>
-            <a href="">Status do Pedido</a>
-            <br>
-            <a href="">Sair</a>
-        </div>
-        <div class="conteudo">
+    <?php 
+        chamarHeader('Status dos Pedidos');
+    ?>
+    <main class="logadoPage">
+        <?php
+            chamarNavbar('Pagina em Desenvolvimento do Bruno');
+        ?>
+        <div class="conteudo realizarOrcamento">
             <div class="space80">     
-                <div class="containerform">
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
-                    <input type="text">
-                    <input type="button">
-                    
-                </div>
+                    <div class="containerform">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="text">
+                        <input type="button">
+                    </div>
             </div>
-            
-           
-           
-    </div>
+        </div>
     </main>
 
 </div>
