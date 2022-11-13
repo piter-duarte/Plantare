@@ -58,8 +58,8 @@ class ModelConect
                 ON UPDATE CASCADE
             ) ENGINE=innoDB");
             $con->query("INSERT IGNORE INTO servicos VALUES (1, 'Cortar Grama'), (2, 'Realizar Poda'), (3, 'Aplicar Pesticida'), (4, 'Aplicar Fertilizante')"); //Cláusula IGNORE utilizada para evitar que o MySQL mostre erro ao tentar reinserir os serviços no BDD
-            $con->query("INSERT IGNORE INTO usuarios VALUES ('Manager', null, null, null, null, null, null, 1, 1, null,'manager', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
-            $con->query("INSERT IGNORE INTO usuarios VALUES ('Usuario', null, null, null, null, null, null, 0,0, null, 'user', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            $con->query("INSERT IGNORE INTO usuarios VALUES (null, null, 'Manager', null, null, null, null, 1, 1, null,'manager@email.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
+            $con->query("INSERT IGNORE INTO usuarios VALUES ('Usuario', null, null, null, null, null, null, 0,0, null, 'user@email.com', '3c9909afec25354d551dae21590bb26e38d53f2173b8d3dc3eee4c047e7ab1c1eb8b85103e3be7ba613b31bb5c9c36214dc9f14a42fd7a2fdb84856bca5c44c2')"); //para testes
             // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 1, 80)");
             // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 2, 200)");
             // $con->query("INSERT IGNORE INTO relacao VALUES (null, 'manager', 3, 100)");

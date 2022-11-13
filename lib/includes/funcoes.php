@@ -15,7 +15,7 @@
             '
                 <div class="navbar">
                 <div class="userInfo">
-                    <img id="img-user" src="'.DIRPAGE.'/lib/img/Avatar.png" alt="">
+                    <img id="img-user" src="'.DIRPAGE.'/lib/img/userImage.png" alt="">
                     <h5>'.$usuario.'</h5>
         
                     <div class="stars">

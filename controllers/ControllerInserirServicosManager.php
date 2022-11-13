@@ -41,4 +41,4 @@ else
     </p>");
 }
 
-echo "<script>window.location.replace('".DIRPAGE."/views/manager/index.php');</script>";
+echo "<script>window.location.replace('".DIRPAGE."/views/manager/novoPedido.php');</script>";
