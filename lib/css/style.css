@@ -1373,7 +1373,7 @@ div.contendmiddle div.btnAvaliar
     grid-template-columns: 1fr;
     grid-template-rows: 1fr ;
     background-color: rgb(153, 59, 59);
-    justify-content: right ;/*centralizou na vertical*/
+    justify-content: center ;/*centralizou na vertical*/
     align-items: right ; 
     text-align:right ;
 }

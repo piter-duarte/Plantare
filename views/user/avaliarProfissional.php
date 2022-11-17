@@ -41,16 +41,6 @@
                 <input class="btg" type="button" value="Avaliar">
                 </div>
             </div>
-            <!-- 
-
-            display grid
-            
-            grid-template-rows: 1fr 1fr 1fr
-            grid-template-collumns: 10% 5% 1fr
-            grid-row-start: 1
-            grid-row-end: 3
-            -->
-
         </div>
     </main>
 
