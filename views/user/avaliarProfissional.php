@@ -27,7 +27,7 @@
                 </div>
 
                 <div class="avaliar">
-                    <img id="img-user" src="../../lib/img/userImage.png" alt="">
+                    <--<h5><?php $_SESSION["nome"]?></h5>-->
                     <h5>'.$usuario.'</h5>
                     <!-- <div class="stars">
                         <i class="fa-solid fa-star fa-sm"></i>
