@@ -1289,3 +1289,103 @@ form.containerform div.formGroup.flex.flex-col.my-4 label
 }
 
 /* -----------------------------------------------ORÇAMENTO END------------------------------------------------- */
+
+
+
+/* -----------------------------------------------AVALIAR PROFISSIONAL------------------------------------------------- */
+
+
+main.logadoPage div.conteudo.avaliarProfissional 
+{
+    display: grid;
+    grid-template-columns: 20% 1fr 20%;
+    grid-template-rows: 20% 1fr 20%;
+    
+    
+}
+
+main.logadoPage div.conteudo.avaliarProfissional div.contendmiddle
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    display: grid;
+    grid-template-columns: 10% 1fr 1fr 10%;
+    grid-template-rows: 1fr 1fr 10%;
+    
+    justify-content: center;/*centralizou na vertical*/
+    align-items: center; /* centralizou na horizontal*/
+}
+div.contendmiddle div.titleAvaliar
+{
+    display: grid;
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: goldenrod;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+div.contendmiddle div.fotoUser
+{
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr;
+    background-color: white;
+    justify-content: center;/*centralizou na vertical*/
+    align-items: center; 
+    text-align: center;
+}
+
+div.contendmiddle div.avaliar
+{
+    display: grid;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr;
+    background-color: rgb(94, 94, 94);
+    justify-content: center;/*centralizou na vertical*/
+    align-items: center; 
+    text-align: center;
+    
+}
+
+div.contendmiddle div.btnAvaliar
+{
+    display: grid;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr ;
+    background-color: rgb(153, 59, 59);
+    justify-content: right ;/*centralizou na vertical*/
+    align-items: right ; 
+    text-align:right ;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------------AVALIAR PROFISSIONAL END------------------------------------------------- */
