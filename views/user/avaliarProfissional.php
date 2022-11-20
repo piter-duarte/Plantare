@@ -16,30 +16,36 @@
         ?>
         <div class="conteudo avaliarProfissional">
             <div class="contendmiddle">
+                <form name="formAdd" id="formAdd" method="post">
+                    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
+                    <input type="hidden" name="provider_key" value="<?php echo $_GET['provider_key']; ?>">
 
-                <div class="titleAvaliar">
-                    <h3>Avaliar prestador de Serviço</h3>
-                </div>
+                    <div class="titleAvaliar">
+                        <h3>Avaliar prestador de Serviço</h3>
+                    </div>
 
-                <div class="fotoUser">
-                    <!-- <img id="img-user" src="'.DIRPAGE.'./../lib/img/userImage.png" alt=""> -->
-                    <img id="img-user" src="../../lib/img/userImage.png" alt="">
-                </div>
+                    <div class="fotoUser">
+                        <img id="img-user" src="../../lib/img/userImage.png" alt="">
+                    </div>
 
-                <div class="avaliar">
-                    <--<h5><?php $_SESSION["nome"]?></h5>-->
-                    <h5>'.$usuario.'</h5>
-                    <!-- <div class="stars">
-                        <i class="fa-solid fa-star fa-sm"></i>
-                        <i class="fa-solid fa-star fa-sm"></i>
-                        <i class="fa-solid fa-star fa-sm"></i>
-                        <i class="fa-solid fa-star fa-sm"></i>
-                        <i class="fa-solid fa-star fa-sm"></i>
-                    </div>-->
-                </div>
-                <div class="btnAvaliar">
-                <input class="btg" type="button" value="Avaliar">
-                </div>
+                    <div class="avaliar">
+                        <h5>Usuário</h5>
+                        <select name="avaliacao">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                    </div>
+
+                    <div class="btnAvaliar">
+                        <input class="btm bts" type="submit" value="Cancelar"
+                            formaction="<?php echo DIRPAGE.'/views/user/novoPedido.php'; ?>">
+                        <input class="btm" type="submit" value="Avaliar"
+                            formaction="<?php echo DIRPAGE.'/controllers/ControllerUpdateRating.php'; ?>">
+                    </div>
+                </form>
             </div>
         </div>
     </main>
