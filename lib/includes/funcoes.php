@@ -35,24 +35,18 @@
                             <h5>Meu Perfil</h5>
                         </div>
                     </a>
-                    <a href="meusPedidos.php">
-                        <div class="item">
-                            <i class="fa-solid fa-heart"></i>   
-                            <h5>Meus Pedidos</h5>
-                        </div>
-                    </a>
                     <a href="novoPedido.php">
                     <div class="item">
                         <i class="fa-solid fa-heart"></i>   
                         <h5>Novo Pedido</h5>
                     </div>
                 </a>
-                    <a href="avaliarProfissional.php">
-                        <div class="item">
-                            <i class="fa-solid fa-heart"></i>   
-                            <h5>Avaliar Profissional</h5>
-                        </div>
-                    </a>
+                <a href="meusPedidos.php">
+                    <div class="item">
+                        <i class="fa-solid fa-heart"></i>   
+                        <h5>Meus Pedidos</h5>
+                    </div>
+                 </a>
                     <a href="cadastrarServico.php">
                         <div class="item">
                             <i class="fa-solid fa-heart"></i>   

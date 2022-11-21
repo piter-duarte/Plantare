@@ -1,15 +1,20 @@
 <?php
 include ("../config/config.php");
 $objEvents= new \Classes\ClassEvents();
-$date=filter_input(INPUT_POST,'date', FILTER_DEFAULT);
-$time=filter_input(INPUT_POST,'time', FILTER_DEFAULT);
-$title=filter_input(INPUT_POST,'title', FILTER_DEFAULT);
-$description=filter_input(INPUT_POST,'description', FILTER_DEFAULT);
-$horasAtendimento=filter_input(INPUT_POST,'horasAtendimento', FILTER_DEFAULT);
-$start=new \DateTime($date.' '.$time, new \DateTimeZone('America/Sao_Paulo'));
 session_start();
-$client_key=$_SESSION["client_key"];
-$provider_key=filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT);
+
+
+$date=filter_input(INPUT_POST,'date', FILTER_DEFAULT); //data do evento
+$time=filter_input(INPUT_POST,'time', FILTER_DEFAULT); //hora inicial
+$horasAtendimento=filter_input(INPUT_POST,'horasAtendimento', FILTER_DEFAULT); //tempo de serviço
+
+$start = new \DateTime($date.' '.$time, new \DateTimeZone('America/Sao_Paulo'));
+
+$title        = filter_input(INPUT_POST,'title', FILTER_DEFAULT); //nome evento
+$description  = filter_input(INPUT_POST,'description', FILTER_DEFAULT); //descrição evento
+
+$client_key   = $_SESSION["client_key"]; //email do solicitante de serviços
+$provider_key = filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT); //email do provedor escolhido
 
     $i=0;
     do

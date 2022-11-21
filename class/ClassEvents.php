@@ -89,7 +89,6 @@ class ClassEvents extends ModelConect
 
     public function updateRating($id, $avaliacao, $provider_key)
     {
-
         $a=$this->conectDB()->prepare("UPDATE events SET rating=? WHERE id=?");
         $a->bindParam(1,$avaliacao,\PDO::PARAM_INT);
         $a->bindParam(2,$id,\PDO::PARAM_INT);
@@ -97,7 +96,7 @@ class ClassEvents extends ModelConect
 
         $email=$provider_key;
 
-        $b=$this->conectDB()->prepare("UPDATE usuarios SET media=(SELECT AVG(rating) FROM events WHERE provider_key=?) WHERE email=?");
+        $b=$this->conectDB()->prepare("UPDATE usuarios SET media=(SELECT ROUND(AVG(rating)) FROM events WHERE provider_key=?) WHERE email=?");
         $b->bindParam(1,$provider_key,\PDO::PARAM_STR);
         $b->bindParam(2,$email,\PDO::PARAM_STR);
         $b->execute();

@@ -29,7 +29,7 @@
 
 ?>
 
-<form name="formAdd" id="formAdd" method="post"action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
+<form name="formAdd" id="formAdd" method="post" action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
     Data: <input type="date" name="date" id="date" value="<?php echo $date->format("Y-m-d"); ?>"> <br>
     Hora: <input type="time" name="time" id="time" value="<?php echo $date->format("H:i"); ?>"> <br>
     Serviço:

@@ -250,9 +250,15 @@ button.btxg, input[type='submit'].btxg, input[type="button"].btxg
     width: 250px;
 }
 
+i.starEmpty {
+    color: var(--starEmpty);
+}
+
 select 
 {
     width: 250px !important;
+    font-size: var(--h5fsize) !important;
+    font-family: var(--pfont) !important;
 }
 
 input[type='radio']{
@@ -394,6 +400,10 @@ span.success-icon.text-green-700{
     border-radius: 10px;
 }
 
+input:read-only{ /* inserir estilização de campos read-only*/
+    /* background-color: #ced3cc; */
+}
+
 /* Calendar CSS */
 
     .fc-header-toolbar.fc-toolbar 
@@ -502,6 +512,8 @@ span.success-icon.text-green-700{
 
     div.fc-timegrid-slot-label-cushion.fc-scrollgrid-shrink-cushion{
         color: var(--white);
+        font-size: var(--h5fsize);
+
     }
 
     .calendarManager .fc-view-harness.fc-view-harness-active tbody a.fc-daygrid-event.fc-daygrid-dot-event.fc-event,
@@ -911,6 +923,8 @@ div.contato img#c3{
     grid-column-start: 6; 
 }
 
+
+
 /* -----------------------------------------------INDEX END------------------------------------------------- */
 
 /* -----------------------------------------------LOGIN----------------------------------------------------- */
@@ -1246,7 +1260,7 @@ div.navbar div.options div.item h5{
 main.logadoPage div.conteudo.realizarOrcamento {
     display: grid;
     grid-template-columns: 1;
-    grid-template-rows: 10% 1fr 10%;
+    grid-template-rows: 2% 1fr 2%;
     
 }
 
@@ -1266,15 +1280,10 @@ div.space80 form.containerform{
     height: 100%;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 5% 1fr;    
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 0.5fr;    
     justify-content: center;
-}
-
-
-div.space80 form.containerform input:last-child
-{
-    grid-row-start: 7;
-    grid-row-end: 8;
+    align-items: center;
+    box-sizing: border-box;
 }
 
 form.containerform div.formGroup.flex.flex-col.my-4
@@ -1288,4 +1297,95 @@ form.containerform div.formGroup.flex.flex-col.my-4 label
     width: 100%;
 }
 
-/* -----------------------------------------------ORÇAMENTO END------------------------------------------------- *
+/* -----------------------------------------------ORÇAMENTO END------------------------------------------------- */
+
+
+
+/* -----------------------------------------------AVALIAR PROFISSIONAL------------------------------------------------- */
+
+
+main.logadoPage div.conteudo.avaliarProfissional 
+{
+    display: grid;
+    grid-template-rows: 10% 1fr 10%;
+    justify-content: center;
+    
+}
+
+main.logadoPage div.conteudo.avaliarProfissional div.contendmiddle
+{
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: grid;
+    grid-template-columns: 10% 1fr 10%;
+    
+    justify-content: center;/*centralizou na vertical*/
+    align-items: center; /* centralizou na horizontal*/
+}
+
+div.conteudo.avaliarProfissional div.contendmiddle form#formAdd {
+    width: 100%;
+    height: 100%;
+    grid-column-start: 2;
+    grid-column-end: 3;
+
+    display: grid;
+    grid-template-rows: 1fr 0.65fr 0.5fr 1fr;
+    background-color: var(--white);
+    border-radius: 5px;
+}
+
+div.contendmiddle div.titleAvaliar
+{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+
+div.contendmiddle div.fotoUser
+{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /*alinha na vertical*/
+    align-items: center;   /*alinha na horizontal*/ 
+}
+
+div.contendmiddle div.fotoUser img#img-user{
+    max-width: 68px;
+    max-height: 68px;
+    display: inline;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid var(--black25);
+}
+
+div.contendmiddle div.avaliar
+{
+    width: 100%;
+    height: 100%;
+
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;   /*alinha na horizontal*/
+}
+
+div.contendmiddle div.btnAvaliar
+{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+div.btnAvaliar button:first-child
+{
+    margin-right: 15px;
+}
+
+/* -----------------------------------------------AVALIAR PROFISSIONAL END------------------------------------------------- */

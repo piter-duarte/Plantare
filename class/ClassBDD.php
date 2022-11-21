@@ -122,96 +122,27 @@ class ClassBDD extends ModelConect
         return $resultado;
     }
 
-    // public function getProviders()
-    // {
-    //     $b=$this->conectDB()->prepare("SELECT nome, email, media FROM usuarios WHERE ehProvedor=1");
-    //     $b->execute();
-    //     $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
-    //     return $resultado;
+    public function getProviders($idServico, $start, $end){
+        $b=$this->conectDB()->prepare("SELECT usu.nome, usu.razao_social, usu.ehJuridica, usu.email, usu.media, se.nomeS 'nomeServico', rel.preco
+        FROM usuarios usu
+        INNER JOIN relacao rel ON rel.provider_key = usu.email
+        INNER JOIN servicos se ON se.id = rel.idServico
+        WHERE se.id = ? AND usu.email NOT IN(
+            SELECT usu2.email 
+            FROM usuarios usu2 
+            INNER JOIN sistema.events ev ON usu2.email = ev.provider_key
+            INNER JOIN relacao rel2 ON rel2.provider_key = usu2.email
+            INNER JOIN servicos se2 ON se2.id = rel2.idServico
+            WHERE rel2.idServico = se.id AND ev.start >= ? AND ev.end <= ?
+            GROUP BY usu2.nome
+        )");
 
-    // }
-
-    public function getProviders($idServico, $start, $end, $horas)
-    {
-        if($horas == 1)
-        {
-            $b=$this->conectDB()->prepare("SELECT DISTINCT usuarios.nome, usuarios.email, usuarios.media, 
-            usuarios.telefone, servicos.nomeS, relacao.preco, razao_social, ehJuridica
-            FROM usuarios
-            LEFT JOIN events ON usuarios.email=events.provider_key
-            JOIN relacao ON usuarios.email=relacao.provider_key
-            JOIN servicos ON relacao.idServico=servicos.id
-            WHERE usuarios.ehProvedor=1 
-            AND (start!=? or start is null)
-            AND (end!=? or end is null)
-            AND relacao.idServico=?
-            ORDER BY usuarios.media DESC, usuarios.nome ASC");
-
-            $b->bindParam(1,$start,\PDO::PARAM_STR);
-            $b->bindParam(2,$end,\PDO::PARAM_STR);
-            $b->bindParam(3,$idServico,\PDO::PARAM_INT);
-            $b->execute();
-            $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
-            return $resultado;
-        }
-        elseif($horas == 2)
-        {   
-            $b=$this->conectDB()->prepare("SELECT DISTINCT usuarios.nome, usuarios.email, usuarios.media, 
-            usuarios.telefone, servicos.nomeS, relacao.preco, razao_social, ehJuridica
-            FROM usuarios
-            LEFT JOIN events ON usuarios.email=events.provider_key
-            JOIN relacao ON usuarios.email=relacao.provider_key
-            JOIN servicos ON relacao.idServico=servicos.id
-            WHERE usuarios.ehProvedor=1 
-            AND ((start NOT BETWEEN ? AND ?) or (start IS NULL))
-            AND ((end NOT BETWEEN ? AND ?) or (end IS NULL))
-            AND (((relacao.idServico=?)))
-            ORDER BY usuarios.media DESC, usuarios.nome ASC");
-
-            $b->bindParam(1,$start,\PDO::PARAM_STR);
-            $b->bindParam(2,$end,\PDO::PARAM_STR);
-            $b->bindParam(3,$end,\PDO::PARAM_STR);
-            $end=new \DateTime($end);
-            $end = $end->modify('+'.'1'.'hours')->format('Y-m-d H:i:s');
-            $b->bindParam(4,$end,\PDO::PARAM_STR);
-            $b->bindParam(5,$idServico,\PDO::PARAM_INT);
-            $c = $b;
-            $b->execute();
-            $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
-            return $resultado;
-        }
-        elseif($horas == 3)
-        {
-            $b=$this->conectDB()->prepare("SELECT DISTINCT usuarios.nome, usuarios.email, usuarios.media, 
-            usuarios.telefone, servicos.nomeS, relacao.preco, razao_social, ehJuridica
-            FROM usuarios
-            LEFT JOIN events ON usuarios.email=events.provider_key
-            JOIN relacao ON usuarios.email=relacao.provider_key
-            JOIN servicos ON relacao.idServico=servicos.id
-            WHERE usuarios.ehProvedor=1 
-            AND ((start NOT BETWEEN ? AND ?) or (start IS NULL))
-            AND ((end NOT BETWEEN ? AND ?) or (end IS NULL))
-            AND (((relacao.idServico=?)))
-            ORDER BY usuarios.media DESC, usuarios.nome ASC");
-
-
-            $b->bindParam(1,$start,\PDO::PARAM_STR);
-            $start=new \DateTime($start);
-            $start = $start->modify('+'.'2'.'hours')->format('Y-m-d H:i:s');
-            $b->bindParam(2,$start,\PDO::PARAM_STR);
-            $b->bindParam(3,$end,\PDO::PARAM_STR);
-            $end=new \DateTime($end);
-            $end = $end->modify('+'.'2'.'hours')->format('Y-m-d H:i:s');
-            $b->bindParam(4,$end,\PDO::PARAM_STR);
-            $b->bindParam(5,$idServico,\PDO::PARAM_INT);
-            $b->execute();
-            $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
-            return $resultado;
-        }
-        else
-        {
-            exit("Erro!");
-        }
+    $b->bindParam(1,$idServico,\PDO::PARAM_INT);
+    $b->bindParam(2,$start,\PDO::PARAM_STR);
+    $b->bindParam(3,$end,\PDO::PARAM_STR);
+    $b->execute();
+    $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
+    return $resultado;
     }
     
 }
