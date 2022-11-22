@@ -41,18 +41,28 @@ class ClassBDD extends ModelConect
             $resultado=$b->fetch(\PDO::FETCH_ASSOC);
 
             session_start();
-
-            if($ehJuridica == '0')
+            if($resultado['ehJuridica'] == '0')
             {
-                $_SESSION["nome"] = $resultado['nome'];
+                $_SESSION["nome"] = $resultado["nome"];
+                $_SESSION["cpf"]  = $resultado["cpf"];
+                $_SESSION["razao_social"] = null;
+                $_SESSION["cnpj"] = null;
             }
             else
             {
-                $_SESSION["nome"] = $resultado['razao_social']; 
+                $_SESSION["nome"]  = null;
+                $_SESSION["cpf"]  = null;
+                $_SESSION["razao_social"] = $resultado['razao_social'];
+                $_SESSION["cnpj"] = $resultado["cnpj"];
             }
-           
-            $_SESSION["client_key"] = $resultado['email'];
-            $_SESSION['conectado'] = true;
+            $_SESSION["telefone"]   = $resultado["telefone"];
+            $_SESSION["cep"]        = $resultado["cep"];
+            $_SESSION["endereco"]   = $resultado["endereco"];
+            $_SESSION["ehJuridica"] = $resultado['ehJuridica'];
+            $_SESSION["ehProvedor"] = $resultado['ehProvedor'];
+            $_SESSION["media"]      = $resultado['media'];
+            $_SESSION["email"]      = $resultado['email'];
+            $_SESSION['conectado']  = true;
         }
         else
         {
@@ -63,7 +73,6 @@ class ClassBDD extends ModelConect
 
     public function logarUsuario($email, $senha)
     {
-        //$emailCriptografado  = hash("sha512", $email);
         $senhaCriptografada  = hash("sha512", $senha);
 
         $b=$this->conectDB()->prepare("select * from usuarios where email=? and senha=?"); //procura no BDD o usuario digitado
@@ -81,16 +90,26 @@ class ClassBDD extends ModelConect
             session_start();
             if($resultado['ehJuridica'] == '0')
             {
-                $_SESSION["nome"] = $resultado['nome'];
+                $_SESSION["nome"] = $resultado["nome"];
+                $_SESSION["cpf"]  = $resultado["cpf"];
+                $_SESSION["razao_social"] = null;
+                $_SESSION["cnpj"] = null;
             }
             else
             {
-                $_SESSION["nome"] = $resultado['razao_social'];
+                $_SESSION["nome"]  = null;
+                $_SESSION["cpf"]  = null;
+                $_SESSION["razao_social"] = $resultado['razao_social'];
+                $_SESSION["cnpj"] = $resultado["cnpj"];
             }
-
-            $_SESSION["client_key"] = $resultado['email'];
+            $_SESSION["telefone"]   = $resultado["telefone"];
+            $_SESSION["cep"]        = $resultado["cep"];
+            $_SESSION["endereco"]   = $resultado["endereco"];
+            $_SESSION["ehJuridica"] = $resultado['ehJuridica'];
             $_SESSION["ehProvedor"] = $resultado['ehProvedor'];
-            $_SESSION['conectado'] = true;
+            $_SESSION["media"]      = $resultado['media'];
+            $_SESSION["email"]      = $resultado['email'];
+            $_SESSION['conectado']  = true;
         }        
     }
 
@@ -143,6 +162,30 @@ class ClassBDD extends ModelConect
     $b->execute();
     $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
     return $resultado;
+    }
+
+    public function updateUser($nome, $cpf, $razao_social, $cnpj, $telefone, $cep, $endereco, $email){
+        $b=$this->conectDB()->prepare("UPDATE usuarios 
+        SET nome=?, cpf=?, razao_social=?,  cnpj=?, telefone=?, cep=?, endereco=? 
+        WHERE email=?");
+        $b->bindParam(1,$nome,\PDO::PARAM_STR);
+        $b->bindParam(2,$cpf,\PDO::PARAM_STR);
+        $b->bindParam(3,$razao_social,\PDO::PARAM_STR);
+        $b->bindParam(4,$cnpj,\PDO::PARAM_STR);
+        $b->bindParam(5,$telefone,\PDO::PARAM_STR);
+        $b->bindParam(6,$cep,\PDO::PARAM_STR);
+        $b->bindParam(7,$endereco,\PDO::PARAM_STR);
+        $b->bindParam(8,$email,\PDO::PARAM_STR);
+        $b->execute();
+
+        session_start();
+        $_SESSION["nome"]          = $nome;
+        $_SESSION["cpf"]           = $cpf;
+        $_SESSION["razao_social"]  = $razao_social;
+        $_SESSION["cnpj"]          = $cnpj;
+        $_SESSION["telefone"]      = $telefone;
+        $_SESSION["cep"]           = $cep;
+        $_SESSION["endereco"]      = $endereco;
     }
     
 }

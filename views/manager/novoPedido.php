@@ -12,7 +12,7 @@
     ?>
     <main class="logadoPage">
         <?php
-            chamarNavbar($_SESSION["nome"]);
+       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
         ?>
         <div class="conteudo">
         <a href="<?php echo DIRPAGE.'/views/user/novoPedido.php' ?>"><button>Fazer Pedidos</button></a>

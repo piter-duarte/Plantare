@@ -12,7 +12,7 @@
     ?>
     <main class="logadoPage">
         <?php
-            chamarNavbar($_SESSION["nome"]);
+        chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
         ?>
         <div class="conteudo avaliarProfissional">
             <div class="contendmiddle">
@@ -29,7 +29,9 @@
                     </div>
 
                     <div class="avaliar">
-                        <h5>Usuário</h5>
+                        <?php 
+                            echo "<h5>".$_GET['provider_key']."</h5>";
+                        ?>
                         <select name="avaliacao">
                             <option value="1">1</option>
                             <option value="2">2</option>

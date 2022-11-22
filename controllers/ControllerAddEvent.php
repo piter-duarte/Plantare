@@ -13,7 +13,7 @@ $start = new \DateTime($date.' '.$time, new \DateTimeZone('America/Sao_Paulo'));
 $title        = filter_input(INPUT_POST,'title', FILTER_DEFAULT); //nome evento
 $description  = filter_input(INPUT_POST,'description', FILTER_DEFAULT); //descrição evento
 
-$client_key   = $_SESSION["client_key"]; //email do solicitante de serviços
+$client_key   = $_SESSION["email"]; //email do solicitante de serviços
 $provider_key = filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT); //email do provedor escolhido
 
     $i=0;

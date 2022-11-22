@@ -57,11 +57,11 @@ class ClassEvents extends ModelConect
         return $f=$b->fetch(\PDO::FETCH_ASSOC);
     }
     
-    public function getEventsByClientKey($client_key)
+    public function getEventsEmail($email)
     {
         $b=$this->conectDB()->prepare("select * from events where client_key=? or provider_key=?");
-        $b->bindParam(1,$client_key,\PDO::PARAM_STR);
-        $b->bindParam(2,$client_key,\PDO::PARAM_STR);
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->bindParam(2,$email,\PDO::PARAM_STR);
         $b->execute();
         $f=$b->fetchAll(\PDO::FETCH_ASSOC);
         return json_encode($f);

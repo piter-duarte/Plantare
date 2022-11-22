@@ -13,22 +13,22 @@ if (!empty($_POST["servico"]))
     if(in_array('Cortar Grama',$_POST["servico"]))
     {
         
-        $objBDD->insertServices(0, $_SESSION["client_key"], 1, $precoGrama);
+        $objBDD->insertServices(0, $_SESSION["email"], 1, $precoGrama);
     }
 
     if(in_array('Realizar Poda',$_POST["servico"]))
     {
-        $objBDD->insertServices(0, $_SESSION["client_key"], 2, $precoPoda);
+        $objBDD->insertServices(0, $_SESSION["email"], 2, $precoPoda);
     }
 
     if(in_array('Aplicar Fertilizante',$_POST["servico"]))
     {
-        $objBDD->insertServices(0, $_SESSION["client_key"], 3, $precoFertilizante);
+        $objBDD->insertServices(0, $_SESSION["email"], 3, $precoFertilizante);
     }
 
     if(in_array('Aplicar Pesticida',$_POST["servico"]))
     {
-        $objBDD->insertServices(0, $_SESSION["client_key"], 4, $precoPesticida);
+        $objBDD->insertServices(0, $_SESSION["email"], 4, $precoPesticida);
     }
 
 

@@ -12,9 +12,9 @@
         chamarHeader('Avaliar Profissional');
     ?>
     <main class="logadoPage">
-        <?php
-            chamarNavbar($_SESSION["nome"]);
-        ?>
+    <?php
+              chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
+    ?>
         <div class="conteudo avaliarProfissional">
             <div class="contendmiddle">
                 <div class="contentbody">
