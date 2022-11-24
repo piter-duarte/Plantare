@@ -15,7 +15,7 @@
         <?php
             chamarNavbar($_SESSION["nome"]);
         ?>
-                <div class="conteudo StatusPedido">
+        <div class="conteudo StatusPedido">
             <div class="contendmiddle">
                 <form name="formAdd" id="formAdd" method="post">
                     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
@@ -25,26 +25,20 @@
                         <h3>Status do Serviço</h3>
                     </div>
 
-                    <div class="fotoUser">
-                        <img id="img-user" src="../../lib/img/userImage.png" alt="">
+                    <div class="status">
+                                            
+                        <h5>Pedido recusado.</h5><br>
+                        <h5>Em rota de execução.</h5><br>
+                        <h5>Pedido em análise.</h5>
                     </div>
 
-                    <div class="avaliar">
-                        <h5>Usuário</h5>
-                        <select name="avaliacao">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        </select>
-                    </div>
-
-                    <div class="btnAvaliar">
-                        <input class="btm bts" type="submit" value="Cancelar"
+                    <div class="btnStatus">
+                        <input class="btxg" type="submit" value="Cancelar Pedido"
                             formaction="<?php echo DIRPAGE.'/views/user/novoPedido.php'; ?>">
-                        <input class="btm" type="submit" value="Avaliar"
+                        <input class="btm bts" type="submit" value="Confirmar"
                             formaction="<?php echo DIRPAGE.'/controllers/ControllerUpdateRating.php'; ?>">
+                        <input class="btm bts" type="submit" value="Voltar"
+                            formaction="<?php echo DIRPAGE.'/views/user/meuPerfil.php'; ?>">
                     </div>
                 </form>
             </div>
