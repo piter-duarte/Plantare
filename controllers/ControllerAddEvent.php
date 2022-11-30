@@ -13,8 +13,9 @@ $start = new \DateTime($date.' '.$time, new \DateTimeZone('America/Sao_Paulo'));
 $title        = filter_input(INPUT_POST,'title', FILTER_DEFAULT); //nome evento
 $description  = filter_input(INPUT_POST,'description', FILTER_DEFAULT); //descrição evento
 
-$client_key   = $_SESSION["client_key"]; //email do solicitante de serviços
-$provider_key = filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT); //email do provedor escolhido
+$clienteEmail   = $_SESSION["email"]; //email do solicitante de serviços
+$provedorEmail = filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT); //email do provedor escolhido
+$idServico = $title;
 
     $i=0;
     do
@@ -27,10 +28,11 @@ $provider_key = filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT); //email
             $start->format("Y-m-d H:i:s"),
             $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"),
             null,
-            $client_key,
-            $provider_key
+            $clienteEmail,
+            $provedorEmail,
+            $idServico
         ); 
         $i++;
     }while($i < $horasAtendimento);
 
-echo "<script>window.location.replace('".DIRPAGE."/views/user/novoPedido.php');</script>";
+echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";

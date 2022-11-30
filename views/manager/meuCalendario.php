@@ -3,20 +3,20 @@
     include(DIRREQ."/lib/html/header.php");
     require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/includes/funcoes.php");
-
 ?>
 
 
 <div class="container">
     <?php 
-        chamarHeader('Logado');
+        chamarHeader('Meu Calendário');
     ?>
     <main class="logadoPage">
         <?php
-            chamarNavbar($_SESSION["nome"]);
+       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
         ?>
         <div class="conteudo">
-            <div class="calendarUser"></div>
+        <a href="<?php echo DIRPAGE.'/views/user/meuCalendario.php' ?>"><button>Fazer Pedidos</button></a>
+        <div class="calendarManager"></div>
         </div>
     </main>
 

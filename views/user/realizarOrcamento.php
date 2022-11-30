@@ -10,17 +10,6 @@
     $start=new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
     $end  =new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
 
-        //cria o cookie hora para que na primeira leitura já seja atribuído no elemento html select#horaAtendimento a option 1 como selected
-        if(!isset($_COOKIE["hora"]))
-        {
-            setcookie('hora','1', 0 ); 
-        }
-        //cria o cookie id para que na primeira leitura já ser feito a query no banco de dados
-        if(!isset($_COOKIE["id"]))
-        {
-            setcookie('id','1', 0 ); 
-        }
-
         //busca pelos provedores de serviço disponíveis de acordo com o que o usuário selecionar
         $resultadoProvider = $objBDD->getProviders($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $end->modify('+'.$_COOKIE["hora"].'hours')->format("Y-m-d H:i:s"));
         
@@ -37,7 +26,7 @@
     ?>
     <main class="logadoPage">
         <?php
-            chamarNavbar($_SESSION["nome"]);
+       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
         ?>
         <div class="conteudo realizarOrcamento">
             <div class="space80">
@@ -125,7 +114,7 @@
                                     foreach($resultadoServices as $linha)
                                     {
                                         $idServico = $linha['id'];
-                                        $servico   = $linha['nomeS'];
+                                        $servico   = $linha['nome'];
                                         if($idServico == $_COOKIE["id"])
                                         {
                                             echo "<option value='$idServico' selected>$servico</option>";
