@@ -8,13 +8,16 @@
 
 <div class="container">
     <?php 
-        chamarHeader('Cadastrar Serviços');
+        chamarHeader('Meu Calendário');
     ?>
     <main class="logadoPage">
         <?php
        chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
         ?>
-        <div class="conteudo"></div>
+        <div class="conteudo">
+        <a href="<?php echo DIRPAGE.'/views/user/meuCalendario.php' ?>"><button>Fazer Pedidos</button></a>
+        <div class="calendarManager"></div>
+        </div>
     </main>
 
 </div>

@@ -3,7 +3,6 @@
     include(DIRREQ."/lib/html/header.php");
     require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/includes/funcoes.php");
-
 ?>
 
 

@@ -1207,8 +1207,8 @@ main.logadoPage {
     background-color: var(--black);
 }
 
-
 div.navbar div.userInfo {
+    margin-top: 20%;
     display: grid;
     padding: 5px 5px;
     grid-template-columns: 1fr;
@@ -1240,14 +1240,14 @@ div.navbar div.divider{
 div.navbar div.options{
     padding: 15px 0;
     display: grid;
-    height: 71%;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    height: 40%;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-columns: auto;
 }
 
 div.navbar div.options a:last-child{
-    grid-row-start: 8;
-    grid-row-end: 9;
+    grid-row-start: 5;
+    grid-row-end: 6;
 }
 
 div.navbar div.options a {
@@ -1276,6 +1276,10 @@ div.navbar div.options div.item h5{
     width: 100%;
     padding-left: 30px;
     text-align: left;
+}
+
+div.navbar div.options div.item i {
+   /* opacity: 0; */
 }
 
 .logadoPage div.conteudo { /* container principal da aplicação*/
@@ -1419,7 +1423,7 @@ div.btnAvaliar input:first-child
 
 /* -----------------------------------------AVALIAR PROFISSIONAL END--------------------------------------- */
 
-/* -----------------------------------------------MEU PERFIl----------------------------------------------- */
+/* -----------------------------------------------MEU PERFIL----------------------------------------------- */
 
 div.conteudo.meuPerfil{
     display: grid;
@@ -1445,4 +1449,20 @@ div.conteudo.meuPerfil form div#btGroup button:first-child{
     margin-right: 5px;
 }
 
-/* -----------------------------------------------MEU PERFIl END----------------------------------------------- */
+/* -----------------------------------------------MEU PERFIL END------------------------------------------- */
+
+/* -----------------------------------------------APROVAR PEDIDO------------------------------------------- */
+div.conteudo.aprovarPedido{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+div.conteudo.aprovarPedido form#formAprovarPedido {
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+/* -------------------------------------------APROVAR PEDIDO END------------------------------------------- */

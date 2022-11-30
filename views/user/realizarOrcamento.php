@@ -114,7 +114,7 @@
                                     foreach($resultadoServices as $linha)
                                     {
                                         $idServico = $linha['id'];
-                                        $servico   = $linha['nomeS'];
+                                        $servico   = $linha['nome'];
                                         if($idServico == $_COOKIE["id"])
                                         {
                                             echo "<option value='$idServico' selected>$servico</option>";

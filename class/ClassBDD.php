@@ -113,11 +113,11 @@ class ClassBDD extends ModelConect
         }        
     }
 
-    public function insertServices($id=0, $provider_key, $idServico, $preco)
+    public function insertServices($id=0, $provedorEmail, $idServico, $preco)
     {
         $b=$this->conectDB()->prepare("INSERT INTO relacao VALUES (?,?,?,?)");
         $b->bindParam(1,$id,\PDO::PARAM_INT);
-        $b->bindParam(2,$provider_key,\PDO::PARAM_STR);
+        $b->bindParam(2,$provedorEmail,\PDO::PARAM_STR);
         $b->bindParam(3,$idServico,\PDO::PARAM_INT);
         $b->bindParam(4,$preco,\PDO::PARAM_STR); //mesmo sendo DECIMAL o bindParam não tem um específico para decimais, portanto deve se usar PARAM_STR
         $b->execute();
@@ -126,7 +126,7 @@ class ClassBDD extends ModelConect
 
     public function getServices()
     {
-        $b=$this->conectDB()->prepare("SELECT id, nomeS FROM servicos");
+        $b=$this->conectDB()->prepare("SELECT id, nome FROM servicos");
         $b->execute();
         $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
@@ -134,7 +134,7 @@ class ClassBDD extends ModelConect
 
     public function getService($idServico)
     {
-        $b=$this->conectDB()->prepare("SELECT nomeS FROM servicos WHERE id=?");
+        $b=$this->conectDB()->prepare("SELECT nome FROM servicos WHERE id=?");
         $b->bindParam(1,$idServico,\PDO::PARAM_INT);
         $b->execute();
         $resultado=$b->fetch(\PDO::FETCH_ASSOC);
@@ -142,15 +142,15 @@ class ClassBDD extends ModelConect
     }
 
     public function getProviders($idServico, $start, $end){
-        $b=$this->conectDB()->prepare("SELECT usu.nome, usu.razao_social, usu.ehJuridica, usu.email, usu.media, se.nomeS 'nomeServico', rel.preco
+        $b=$this->conectDB()->prepare("SELECT usu.nome, usu.razao_social, usu.ehJuridica, usu.email, usu.media, se.nome 'nomeServico', rel.preco
         FROM usuarios usu
-        INNER JOIN relacao rel ON rel.provider_key = usu.email
+        INNER JOIN relacao rel ON rel.provedorEmail = usu.email
         INNER JOIN servicos se ON se.id = rel.idServico
         WHERE se.id = ? AND usu.email NOT IN(
             SELECT usu2.email 
             FROM usuarios usu2 
-            INNER JOIN sistema.events ev ON usu2.email = ev.provider_key
-            INNER JOIN relacao rel2 ON rel2.provider_key = usu2.email
+            INNER JOIN events ev ON usu2.email = ev.provedorEmail
+            INNER JOIN relacao rel2 ON rel2.provedorEmail = usu2.email
             INNER JOIN servicos se2 ON se2.id = rel2.idServico
             WHERE rel2.idServico = se.id AND ev.start >= ? AND ev.end <= ?
             GROUP BY usu2.nome

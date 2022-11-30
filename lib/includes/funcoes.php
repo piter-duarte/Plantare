@@ -91,30 +91,34 @@
                                 <h5>Meu Perfil</h5>
                             </div>
                         </a>
-                        <a href="novoPedido.php">
+                        <a href="meuCalendario.php">
                         <div class="item">
                             <i class="fa-solid fa-heart"></i>   
-                            <h5>Novo Pedido</h5>
+                            <h5>Meu Calendário</h5>
                         </div>
-                    </a>
-                    <a href="meusPedidos.php">
-                        <div class="item">
-                            <i class="fa-solid fa-heart"></i>   
-                            <h5>Meus Pedidos</h5>
-                        </div>
-                    </a>
-                        <a href="cadastrarServico.php">
-                            <div class="item">
-                                <i class="fa-solid fa-heart"></i>   
-                                <h5>Cadastrar Serviços</h5>
-                            </div>
-                        </a>
-                        <a href="statusPedidos.php">
-                            <div class="item">
-                                <i class="fa-solid fa-heart"></i>   
-                                <h5>Status dos Pedidos</h5>
-                            </div>
-                        </a>
+                    </a>'; 
+                    
+            if($ehProvedor == 1)
+            {
+                echo '
+                <a href="meusServicos.php">
+                    <div class="item">
+                        <i class="fa-solid fa-heart"></i>   
+                        <h5>Meus Serviços</h5>
+                    </div>
+                </a>'; 
+            }
+            else
+            {
+                echo '
+                <a href="cadastrarServicos.php">
+                    <div class="item">
+                        <i class="fa-solid fa-heart"></i>   
+                        <h5>Cadastrar Serviços</h5>
+                    </div>
+                </a>';  
+            }
+            echo'
                         <a href="'.DIRPAGE.'/index.php">
                             <div class="item">
                                 <i class="fa-solid fa-heart"></i>   
@@ -125,5 +129,3 @@
                 </div>
             ';
         }
-    
-?>

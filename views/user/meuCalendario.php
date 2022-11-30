@@ -24,7 +24,7 @@
 
 <div class="container">
     <?php 
-        chamarHeader('Logado');
+        chamarHeader('Meu Calendário');
     ?>
     <main class="logadoPage">
         <?php

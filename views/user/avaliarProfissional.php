@@ -18,7 +18,7 @@
             <div class="contendmiddle">
                 <form name="formAdd" id="formAdd" method="post">
                     <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-                    <input type="hidden" name="provider_key" value="<?php echo $_GET['provider_key']; ?>">
+                    <input type="hidden" name="provedorEmail" value="<?php echo $_GET['provedorEmail']; ?>">
 
                     <div class="titleAvaliar">
                         <h3>Avaliar prestador de Serviço</h3>
@@ -30,7 +30,7 @@
 
                     <div class="avaliar">
                         <?php 
-                            echo "<h5>".$_GET['provider_key']."</h5>";
+                            echo "<h5>".$_GET['provedorEmail']."</h5>";
                         ?>
                         <select name="avaliacao">
                             <option value="1">1</option>
@@ -43,7 +43,7 @@
 
                     <div class="btnAvaliar">
                         <input class="btm bts" type="submit" value="Cancelar"
-                            formaction="<?php echo DIRPAGE.'/views/user/novoPedido.php'; ?>">
+                            formaction="<?php echo DIRPAGE.'/views/user/meuCalendario.php'; ?>">
                         <input class="btm" type="submit" value="Avaliar"
                             formaction="<?php echo DIRPAGE.'/controllers/ControllerUpdateRating.php'; ?>">
                     </div>

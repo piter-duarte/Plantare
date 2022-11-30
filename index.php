@@ -6,6 +6,14 @@
     session_start();
     $_SESSION = array();
     session_destroy();
+    if (isset($_COOKIE['id'])) {
+        unset($_COOKIE['id']);
+        setcookie('id', '', time() - 3600, '/'); // remove o cookie id
+    }
+    if (isset($_COOKIE['hora'])) {
+        unset($_COOKIE['hora']);
+        setcookie('hora', '', time() - 3600, '/'); // remove o cookie id
+    }
 ?>
 <div class="container">
 
