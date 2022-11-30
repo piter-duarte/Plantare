@@ -26,7 +26,7 @@ if($ehJuridica == 0)
         null,
         $ehJuridica,
         $ehProvedor,
-        null,
+        5,
         $email,
         $senha
     );
@@ -43,7 +43,7 @@ else
         null,
         $ehJuridica,
         $ehProvedor,
-        null,
+        5,
         $email,
         $senha
     );
@@ -51,7 +51,7 @@ else
 
 if ($ehProvedor == 0) 
 {
-   echo "<script>window.location.replace('".DIRPAGE."/views/user/novoPedido.php');</script>";
+   echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";
 }
 else
 {
