@@ -1396,18 +1396,18 @@ div.btnAvaliar button:first-child
 
 /*-----------------------------------------------STATUS PEDIDO--------------------------------------------------------------*/
 
-main.logadoPage div.conteudo.StatusPedido 
+main.logadoPage div.conteudo.StatusPedido /*  div conteudo */
 {
     display: grid;
     grid-template-rows: 10% 1fr 10%;
-    grid-template-columns: 1fr 1fr 1fr;
-    justify-content: center;
+    grid-template-columns: 1fr 3fr 1fr;
+    justify-content: left;
     width: 100%;
     height: 100%;
-    
+        
 }
 
-main.logadoPage div.conteudo.StatusPedido  div.contendmiddle
+main.logadoPage div.conteudo.StatusPedido  div.contendmiddle /* div para centralizar no meio */
 {
     grid-row-start: 2;
     grid-row-end: 3;
@@ -1415,13 +1415,16 @@ main.logadoPage div.conteudo.StatusPedido  div.contendmiddle
     grid-column-end: 3;
     display: grid;
     grid-template-columns: 10% 1fr 10%;
+    width: 100%;
+    height: 100%;
     
     justify-content: center;/*centralizou na vertical*/
     align-items: center; /* centralizou na horizontal*/
     
 }
 
-main.logadoPage div.conteudo.StatusPedido  div.contendmiddle form#formAdd {
+main.logadoPage div.conteudo.StatusPedido  div.contendmiddle form#formStatusPedido  /* div formulario */
+{
     width: 100%;
     height: 100%;
     grid-column-start: 2;
@@ -1440,7 +1443,7 @@ main.logadoPage div.conteudo.StatusPedido div.contendmiddle div.titleStatus
     width: 100%;
     height: 100%;
     justify-content: center;
-    
+
 }
 
 div.contendmiddle div.status
@@ -1451,6 +1454,7 @@ div.contendmiddle div.status
     display: inline-flex;
     flex-direction: column;
     align-items: center;   /*alinha na horizontal*/
+
 }
 
 div.contendmiddle div.btnStatus
@@ -1464,5 +1468,4 @@ div.contendmiddle div.btnStatus
     align-items: center; /* centralizou na horizontal*/
        
 }
-
 /*-----------------------------------------------STATUS PEDIDO END--------------------------------------------------------------*/

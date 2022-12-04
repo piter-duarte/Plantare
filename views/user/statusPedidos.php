@@ -17,19 +17,22 @@
         ?>
         <div class="conteudo StatusPedido">
             <div class="contendmiddle">
-                <form name="formAdd" id="formAdd" method="post">
-                    <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
-                    <input type="hidden" name="provider_key" value="<?php echo $_GET['provider_key']; ?>">
+
+                <form name="formStatusPedido" id="formStatusPedido" method="post">
+
 
                     <div class="titleStatus">
-                        <h3>Status do Serviço</h3>
+                        <h3>Status do Pedido</h3>
                     </div>
 
                     <div class="status">
-                                            
-                        <h5>Pedido recusado.</h5><br>
-                        <h5>Em rota de execução.</h5><br>
-                        <h5>Pedido em análise.</h5>
+                        <h5 >Serviço:</h5>
+                        <h5 >Solicitando:</h5>
+                        <h5 >Prestador:</h5>
+                        <h5 >Data:</h5>
+                        <h5 >Horário Inicio:</h5>
+                        <h5 >Horário Fim:</h5>
+                        <h5 >Status:</h5>
                     </div>
 
                     <div class="btnStatus">
