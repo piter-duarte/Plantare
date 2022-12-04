@@ -10,10 +10,10 @@ $objBDD->logarUsuario(
 );
 if($_SESSION["ehProvedor"] == 0)
 {
-    echo "<script>window.location.replace('".DIRPAGE."/views/user/novoPedido.php');</script>";
+    echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";
 }
 else
 {
-    echo "<script>window.location.replace('".DIRPAGE."/views/manager/novoPedido.php');</script>";
+    echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";
 }
 ?>

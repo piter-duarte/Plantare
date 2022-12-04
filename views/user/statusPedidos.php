@@ -13,7 +13,7 @@
     ?>
     <main class="logadoPage">
         <?php
-            chamarNavbar($_SESSION["nome"]);
+       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
         ?>
         <div class="conteudo StatusPedido">
             <div class="contendmiddle">
