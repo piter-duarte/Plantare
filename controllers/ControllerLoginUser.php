@@ -1,19 +1,25 @@
 <?php
 include ("../config/config.php");
-$objBDD= new \Classes\ClassBDD();
+
 $email=filter_input(INPUT_POST,'email', FILTER_DEFAULT);
 $senha=filter_input(INPUT_POST,'senha', FILTER_DEFAULT);
 
-$objBDD->logarUsuario(
-    $email,
-    $senha
-);
-if($_SESSION["ehProvedor"] == 0)
+/*
+    OBS: Aqui não se pode passar um objeto do tipo usuario,
+    isto porque se trata de uma classa abstrata e, ainda 
+    não temos como saber se é uma pessoa física ou jurídica
+*/
+$usuarioDAO= new \Classes\UsuarioDAO();
+$usuarioDAO->buscarPorEmailSenha($email, $senha); //busca o usuario no banco
+
+$usuario = unserialize($_SESSION['usuario']);
+
+if($usuario->getEhProvedor() == 0)
 {
-    echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";
+   echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";
 }
 else
 {
-    echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";
+   echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";
 }
 ?>

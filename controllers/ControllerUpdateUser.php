@@ -1,6 +1,9 @@
 <?php
+
+use Models\PessoaFisica;
+
 include ("../config/config.php");
-$objBDD       = new \Classes\ClassBDD();
+$usuarioDAO      = new \Classes\UsuarioDAO();
    
     $nome         = filter_input(INPUT_POST,'nome', FILTER_DEFAULT);
     $cpf          = filter_input(INPUT_POST,'cpf', FILTER_DEFAULT);
@@ -11,14 +14,32 @@ $objBDD       = new \Classes\ClassBDD();
     $endereco     = filter_input(INPUT_POST,'endereco', FILTER_DEFAULT);
     $email        = filter_input(INPUT_POST,'email', FILTER_DEFAULT);
 
-    $objBDD ->updateUser($nome, $cpf, $razao_social, $cnpj, $telefone, $cep, $endereco, $email);
+    session_start();
+    $usuario = unserialize($_SESSION['usuario']);
+    if($usuario instanceof PessoaFisica)
+    {
+        $usuario->setNome($nome);
+        $usuario->setCpf($cpf);
+    }
+    else
+    {
+        $usuario->setRazao_social($razao_social);
+        $usuario->setCnpj($cnpj);
+    }
+    $usuario->setTelefone($telefone);
+    $usuario->setCep($cep);
+    $usuario->setEndereco($endereco);
+    $usuario->setEmail($email);
     
-    if($_SESSION["ehProvedor"] == 0)
+
+    $usuarioDAO ->alterar($usuario);
+    
+    if($usuario->getEhProvedor() == 0)
     {
         echo "<script>window.location.replace('".DIRPAGE."/views/user/meuPerfil.php');</script>";
     }
     else
     {
-        echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuPerfil.php');</script>";
+       echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuPerfil.php');</script>";
     }
 ?>

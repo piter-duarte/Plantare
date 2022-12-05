@@ -4,19 +4,26 @@
     require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/includes/funcoes.php");
     $date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
-    $objBDD            = new \Classes\ClassBDD();
+    $usuarioDAO = new \Classes\UsuarioDAO();
+    $relacaoDAO = new \Classes\RelacaoDAO();
+    $servicoDAO = new \Classes\ServicoDAO();
 
     //descobre a data atual
     $start=new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
     $end  =new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
 
         //busca pelos provedores de serviço disponíveis de acordo com o que o usuário selecionar
-        $resultadoProvider = $objBDD->getProviders($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $end->modify('+'.$_COOKIE["hora"].'hours')->format("Y-m-d H:i:s"));
+        $resultadoBuscarDisponiveis = $usuarioDAO->buscarDisponiveis($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $end->modify('+'.$_COOKIE["hora"].'hours')->format("Y-m-d H:i:s"));
         
         //busca pelos serviços disponíveis no sistema
-        $resultadoServices = $objBDD->getServices();
+        $resultadoServicosDAO = $servicoDAO->listar();
 
-        //  echo var_dump($resultadoProvider); //mostra o resultado da query do BDD
+        //busca as informações da tabela relacao de acordo com o email e serviçi selecionado
+        $resultadoBuscarRelacaoDAO =  $relacaoDAO->buscar($_COOKIE["email"], $_COOKIE["id"]);
+        
+        // echo var_dump($resultadoBuscarRelacaoDAO); //mostra o resultado da query do BDD
+
+        $usuario = unserialize($_SESSION['usuario']);
 ?>
 
 
@@ -26,17 +33,19 @@
     ?>
     <main class="logadoPage">
         <?php
-       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
+       chamarNavbar($usuario);
         ?>
         <div class="conteudo realizarOrcamento">
             <div class="space80">
-                <form class="containerform" id="realizarOrcamento" method="post" action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
+                <form class="containerform" id="realizarOrcamento" method="post"
+                    action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
                     <div class="formGroup flex flex-col my-2">
                         <label for="date">Data</label>
                         <div class="flex items-center">
 
-                            <input name="date" id="date" type="date" class="w-full border-b-2 border-black outline-none py-2"
-                                required value="<?php echo $date->format("Y-m-d"); ?>" readonly>
+                            <input name="date" id="date" type="date"
+                                class="w-full border-b-2 border-black outline-none py-2" required
+                                value="<?php echo $date->format("Y-m-d"); ?>" readonly>
                             <span class="error-icon hidden -ml-6 text-red-700">
                                 <i class="fa-solid fa-circle-exclamation"></i>
                             </span>
@@ -51,8 +60,9 @@
                         <label for="time">Hora Inicial</label>
                         <div class="flex items-center">
 
-                            <input name="time" id="time" type="time" class="w-full border-b-2 border-black outline-none py-2"
-                                required value="<?php echo $date->format("H:i"); ?>" readonly>
+                            <input name="time" id="time" type="time"
+                                class="w-full border-b-2 border-black outline-none py-2" required
+                                value="<?php echo $date->format("H:i"); ?>" readonly>
                             <span class="error-icon hidden -ml-6 text-red-700">
                                 <i class="fa-solid fa-circle-exclamation"></i>
                             </span>
@@ -111,7 +121,7 @@
                             <select name="title" id="title" class="w-full border-b-2 border-black outline-none py-2">
                                 <!-- Options do Select-->
                                 <?php 
-                                    foreach($resultadoServices as $linha)
+                                    foreach($resultadoServicosDAO as $linha)
                                     {
                                         $idServico = $linha['id'];
                                         $servico   = $linha['nome'];
@@ -145,7 +155,7 @@
                                 <?php
                                 if(isset($_COOKIE["id"]) AND isset($_COOKIE["hora"]))
                                 {
-                                    foreach($resultadoProvider as $linha)
+                                    foreach($resultadoBuscarDisponiveis as $linha)
                                     {
                                         if($linha['ehJuridica'] == '0')
                                         {
@@ -157,12 +167,20 @@
                                         }
                                     $provider_email = $linha['email'];
                                     $provider_media = $linha['media'];
-                                    echo "<option value='$provider_email'>$provider_nome | $provider_media estrelas <br>";
+                                    if($provider_email == $_COOKIE["email"])
+                                    {
+                                        echo "<option value='$provider_email' selected>$provider_nome | $provider_media estrelas";
+                                    } 
+                                    else
+                                    {
+                                        echo "<option value='$provider_email'>$provider_nome | $provider_media estrelas";
+                                    }
+                                    
                                     }
                                 }
                                 else
                                 {
-                                    foreach($resultadoProvider as $linha)
+                                    foreach($resultadoBuscarDisponiveis as $linha)
                                     {
                                         if($linha['ehJuridica'] == '0')
                                         {
@@ -188,10 +206,26 @@
                         </div>
                         <div class="error text-red-700 py-2"></div>
                     </div>
-
-                    <input class="btxg" type="submit" value="Solicitar Orçamento">
+                    <input type="hidden" id= "precoServico" name="precoServico" value="<?php echo $resultadoBuscarRelacaoDAO["preco"]?>">
+                    <input id="solicitarOrcamento" class="btxg" type="button" value="Solicitar Orçamento">
                 </form>
             </div>
+        </div>
+        <div class="popup realizarOrcamento">
+            <h4>Orçamento - </h4>
+            <div id="popup-p-group">
+                <p>Data: </p>
+                <p>Hora Inicial: </p>
+                <p>Hora Final: </p>
+                <p>Profissional: </p>
+                <p>Preço por hora: </p>
+                <p>Total a pagar: </p>
+            </div>
+            <div id="popup-bt-group">
+                <input class="btm" type="submit" form="realizarOrcamento" value="Confirmar">
+                <input id="popCancel" class="btm bts" type="button" value="Cancelar">
+            </div>
+
         </div>
 </div>
 </main>

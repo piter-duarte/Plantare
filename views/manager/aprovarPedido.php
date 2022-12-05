@@ -10,6 +10,7 @@
    $events=$objEvents->getEventsById($_GET['id']);
    $dateInicio    = new \DateTime($events['start']);
    $dateFim       = new \DateTime($events['end']);
+   $usuario = unserialize($_SESSION['usuario']);
 ?>
 
 <div class="container">
@@ -18,7 +19,7 @@
     ?>
     <main class="logadoPage">
         <?php
-       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
+       chamarNavbar($usuario);
         ?>
         <div class="conteudo aprovarPedido">
             <form name="formAprovarPedido" id="formAprovarPedido" method="post">

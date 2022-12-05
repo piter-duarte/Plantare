@@ -2,6 +2,8 @@
     include("../../config/config.php");
     require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/html/header.php");
+
+    $usuario = unserialize($_SESSION['usuario']);
 ?>
 
 <form name="formAdd" id="formAdd" method="post">

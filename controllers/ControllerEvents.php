@@ -1,6 +1,6 @@
 <?php
 include ("../config/config.php");
-$objEvents= new \Classes\ClassEvents();
+$eventDAO = new \Classes\EventDAO();
 session_start();
-$email=$_SESSION["email"];
-echo $objEvents->getEventsEmail($email);
+$usuario = unserialize($_SESSION['usuario']);
+echo $eventDAO->buscar($usuario); //busca por email

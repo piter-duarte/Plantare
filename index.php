@@ -1,8 +1,11 @@
 <?php 
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
-    $con= new Models\ModelConect;
-    $con->conectDB();
+
+    $con= new Models\Database;
+    $con->createDB();
+
+    //o código abaixo remove tudo das variáveis de sessão e cookies do sistema
     session_start();
     $_SESSION = array();
     session_destroy();
@@ -12,7 +15,11 @@
     }
     if (isset($_COOKIE['hora'])) {
         unset($_COOKIE['hora']);
-        setcookie('hora', '', time() - 3600, '/'); // remove o cookie id
+        setcookie('hora', '', time() - 3600, '/'); // remove o cookie hora
+    }
+    if (isset($_COOKIE['email'])) {
+        unset($_COOKIE['email']);
+        setcookie('email', '', time() - 3600, '/'); // remove o cookie email
     }
 ?>
 <div class="container">

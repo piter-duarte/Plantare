@@ -16,23 +16,29 @@ $description  = filter_input(INPUT_POST,'description', FILTER_DEFAULT); //descri
 $clienteEmail   = $_SESSION["email"]; //email do solicitante de serviços
 $provedorEmail = filter_input(INPUT_POST,'provider_key', FILTER_DEFAULT); //email do provedor escolhido
 $idServico = $title;
+$precoServico = filter_input(INPUT_POST,'precoServico', FILTER_DEFAULT);
 
-    $i=0;
-    do
-    {
-        $objEvents->createEvent(
-            0,
-            $title,
-            $description,
-            'blue',
-            $start->format("Y-m-d H:i:s"),
-            $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"),
-            null,
-            $clienteEmail,
-            $provedorEmail,
-            $idServico
-        ); 
-        $i++;
-    }while($i < $horasAtendimento);
+// echo var_dump($_POST);
+//TODO mudar tabela eventos para que possua o preço vinculado ao serviço
+//TODO fazer calculo do preço final e adicionar ao evento
+
+$i=0;
+do
+{
+    $objEvents->createEvent(
+        0,
+        $title,
+        $description,
+        'blue',
+        $start->format("Y-m-d H:i:s"),
+        $start->modify('+'.'1'.'hours')->format("Y-m-d H:i:s"),
+        null,
+        $clienteEmail,
+        $provedorEmail,
+        $idServico,
+        $precoServico
+    ); 
+    $i++;
+}while($i < $horasAtendimento);
 
 echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";

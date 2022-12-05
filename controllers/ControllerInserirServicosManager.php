@@ -1,34 +1,37 @@
 <?php
 include ("../config/config.php");
 session_start();
-$objBDD     = new \Classes\ClassBDD();
+$relacaoDAO     = new \Classes\RelacaoDAO();
 
 $precoGrama         = filter_input(INPUT_POST,'precoGrama', FILTER_DEFAULT);
 $precoPoda          = filter_input(INPUT_POST,'precoPoda', FILTER_DEFAULT);
 $precoFertilizante  = filter_input(INPUT_POST,'precoFertilizante', FILTER_DEFAULT);
 $precoPesticida     = filter_input(INPUT_POST,'precoPesticida', FILTER_DEFAULT);
 
+$usuario = unserialize($_SESSION['usuario']);
+$email = $usuario->getEmail();
+
 if (!empty($_POST["servico"])) 
 {
     if(in_array('Cortar Grama',$_POST["servico"]))
     {
         
-        $objBDD->insertServices(0, $_SESSION["email"], 1, $precoGrama);
+        $relacaoDAO->inserir($email, 1, $precoGrama);
     }
 
     if(in_array('Realizar Poda',$_POST["servico"]))
     {
-        $objBDD->insertServices(0, $_SESSION["email"], 2, $precoPoda);
+        $relacaoDAO->inserir($email, 2, $precoPoda);
     }
 
     if(in_array('Aplicar Fertilizante',$_POST["servico"]))
     {
-        $objBDD->insertServices(0, $_SESSION["email"], 3, $precoFertilizante);
+        $relacaoDAO->inserir($email, 3, $precoFertilizante);
     }
 
     if(in_array('Aplicar Pesticida',$_POST["servico"]))
     {
-        $objBDD->insertServices(0, $_SESSION["email"], 4, $precoPesticida);
+        $relacaoDAO->inserir($email, 4, $precoPesticida);
     }
 
 

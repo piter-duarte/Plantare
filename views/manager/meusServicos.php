@@ -3,6 +3,7 @@
     include(DIRREQ."/lib/html/header.php");
     require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/includes/funcoes.php");
+    $usuario = unserialize($_SESSION['usuario']);
 ?>
 
 
@@ -12,7 +13,7 @@
     ?>
     <main class="logadoPage">
         <?php
-       chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
+       chamarNavbar($usuario);
         ?>
         <div class="conteudo"></div>
     </main>

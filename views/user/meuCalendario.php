@@ -19,6 +19,11 @@
         {
             setcookie('id','1', 0 ); 
         }
+        if(!isset($_COOKIE["email"]))
+        {
+            setcookie('email', 'cortadores@email.com', 0 ); 
+        }
+    $usuario = unserialize($_SESSION['usuario']);
 ?>
 
 
@@ -28,7 +33,7 @@
     ?>
     <main class="logadoPage">
         <?php
-                  chamarNavbar($_SESSION["nome"], $_SESSION["razao_social"], $_SESSION["media"], $_SESSION["ehProvedor"]);
+                  chamarNavbar($usuario);
         ?>
         <div class="conteudo">
             <div class="calendarUser"></div>
