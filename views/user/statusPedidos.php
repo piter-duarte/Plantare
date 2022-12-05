@@ -25,7 +25,7 @@
                     </div>
 
                     <div class="status">
-                        <h4>Serviço: </h4>
+                        <h4>Serviço: </h4> 
                         <h4>Solicitando:</h4>
                         <h4>Prestador:</h4>
                         <h4>Data:</h4>

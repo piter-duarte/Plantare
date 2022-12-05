@@ -11,7 +11,7 @@ define('DIRREQ',"{$_SERVER['DOCUMENT_ROOT']}{$bar}{$diretorio}");
 define('HOST', 'localhost');
 define('DB', 'sistema');
 define('USER', 'root');
-define('PASS', '123456bruno');
+define('PASS', 'ifsc');
 
 #Incluir arquivos
 include(DIRREQ.'/lib/composer/vendor/autoload.php');
