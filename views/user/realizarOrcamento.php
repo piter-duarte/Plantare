@@ -38,7 +38,7 @@
         <div class="conteudo realizarOrcamento">
             <div class="space80">
                 <form class="containerform" id="realizarOrcamento" method="post"
-                    action="<?php echo DIRPAGE.'/controllers/ControllerAddEvent.php'; ?>">
+                    action="<?php echo DIRPAGE.'/controllers/realizarOrcamentoController.php'; ?>">
                     <div class="formGroup flex flex-col my-2">
                         <label for="date">Data</label>
                         <div class="flex items-center">

@@ -16,7 +16,7 @@
     <main class="cadastroContinuacaoPage">
         <div class="formAlign">
             <form id="continuacaoCadastroForm"
-                action="<?php echo DIRPAGE.'/controllers/ControllerInserirServicosManager.php'; ?>" method="post">
+                action="<?php echo DIRPAGE.'/controllers/continuacaoCadastroController.php'; ?>" method="post">
 
                 <div class="continuacaoContainer">
                     <div id="heading">

@@ -45,7 +45,7 @@
 
                     <div class="btnAvaliar">
                         <input class="btm" type="submit" value="Avaliar"
-                            formaction="<?php echo DIRPAGE.'/controllers/ControllerUpdateRating.php'; ?>">
+                            formaction="<?php echo DIRPAGE.'/controllers/avaliarProfissionalController.php'; ?>">
                         <input class="btm bts" type="submit" value="Cancelar"
                             formaction="<?php echo DIRPAGE.'/views/user/meuCalendario.php'; ?>">
                     </div>

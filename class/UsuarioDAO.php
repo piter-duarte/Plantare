@@ -101,14 +101,6 @@ class UsuarioDAO extends Database{
 
         $_SESSION['usuario'] = serialize($usuario);
     }
-
-    public function alterarMedia($email)
-    {
-        $b=$this->useDB()->prepare("UPDATE usuarios SET media=(SELECT ROUND(AVG(rating)) FROM events WHERE provedorEmail=?) WHERE email=?");
-        $b->bindParam(1,$email,\PDO::PARAM_STR);
-        $b->bindParam(2,$email,\PDO::PARAM_STR);
-        $b->execute();
-    }
     public function remover($usuario){}
     public function buscar($usuario)
     {
@@ -168,7 +160,13 @@ class UsuarioDAO extends Database{
             $_SESSION['conectado']  = true;
         }        
     }
-
+    public function alterarMedia($email)
+    {
+        $b=$this->useDB()->prepare("UPDATE usuarios SET media=(SELECT ROUND(AVG(rating)) FROM events WHERE provedorEmail=?) WHERE email=?");
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->bindParam(2,$email,\PDO::PARAM_STR);
+        $b->execute();
+    }
     public function buscarPorEmailSenha($email, $senha)
     {
         $senha =  hash("sha512", $senha);
@@ -225,6 +223,52 @@ class UsuarioDAO extends Database{
             $_SESSION['usuario'] = serialize($usuarioRetorno);
             $_SESSION['conectado']  = true;
         }        
+    }
+
+    public function buscarPorEmail($email)
+    {
+
+        $b=$this->useDB()->prepare("select * from usuarios where email=?"); //procura no BDD o usuario digitado
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->execute();
+        $resultado=$b->fetch(\PDO::FETCH_ASSOC);
+
+        if($b->rowCount() == 0)
+        {
+         exit("<p> Erro ao buscar usuario no banco. Tente novamente! </p>");
+        }
+        else
+        {  
+            //instancia objeto de acordo com tipo de pessoa
+            if($resultado['ehJuridica'] == '0')
+            {
+                $usuarioRetorno = new PessoaFisica;
+                
+                //dados de pessoa física
+                $usuarioRetorno->setNome($resultado["nome"]);
+                $usuarioRetorno->setCpf($resultado["cpf"]);
+            }
+            else
+            {
+                $usuarioRetorno = new PessoaJuridica;
+                
+                //dados de pessoa jurídica
+                $usuarioRetorno->setRazao_social($resultado['razao_social']);
+                $usuarioRetorno->setCnpj($resultado["cnpj"]);
+            }
+
+            //dados de todo usuario
+            $usuarioRetorno->setEmail($resultado['email']);
+            $usuarioRetorno->setSenha($resultado["senha"]);
+            $usuarioRetorno->setTelefone($resultado["telefone"]);
+            $usuarioRetorno->setCep($resultado["cep"]);
+            $usuarioRetorno->setEndereco($resultado["endereco"]);
+            $usuarioRetorno->setEhJuridica($resultado['ehJuridica']);
+            $usuarioRetorno->setEhProvedor($resultado['ehProvedor']);
+            $usuarioRetorno->setMedia($resultado['media']);
+
+            return $usuarioRetorno;
+        }
     }
     public function buscarDisponiveis($idServico, $start, $end)
     {

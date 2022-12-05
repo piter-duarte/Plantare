@@ -1,6 +1,6 @@
 <?php
 include ("../config/config.php");
-$eventDAO = new \Classes\EventDAO();
+$eventoDAO = new \Classes\EventoDAO();
 $usuarioDAO = new \Classes\UsuarioDAO();
 
 $id            = filter_input(INPUT_POST,'id', FILTER_DEFAULT);
@@ -8,7 +8,7 @@ $avaliacao     = filter_input(INPUT_POST,'avaliacao', FILTER_DEFAULT);
 $provedorEmail = filter_input(INPUT_POST,'provedorEmail', FILTER_DEFAULT);
 
 
-$eventDAO->alterarNota($avaliacao,$id);
+$eventoDAO->alterarNota($avaliacao,$id);
 
 $usuarioDAO->alterarMedia($provedorEmail);
 

@@ -14,7 +14,7 @@
     </header>
     <main class="cadastroPage">
         <div class="formAlign">
-            <form id="formCadastro" action="<?php echo DIRPAGE.'/controllers/ControllerInserirUsuario.php'; ?>"
+            <form id="formCadastro" action="<?php echo DIRPAGE.'/controllers/cadastroController.php'; ?>"
                 method="post">
                 <div class="formCadastro_radiobox">
                     <div class="formCadastro_radios">

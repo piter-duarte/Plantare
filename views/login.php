@@ -13,7 +13,7 @@
             </div>
     </header>
     <main class="loginPage">
-        <form id="loginForm" action="<?php echo DIRPAGE.'/controllers/ControllerLoginUser.php'; ?>" method="post">    
+        <form id="loginForm" action="<?php echo DIRPAGE.'/controllers/loginController.php'; ?>" method="post">    
             <div class="formGroup flex flex-col my-4">
             <label for="email">Email</label>
             <div class="flex items-center">

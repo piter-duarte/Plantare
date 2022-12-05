@@ -26,7 +26,7 @@ use Models\PessoaFisica;
                 // var_dump($_SESSION);
                 // echo '</pre> <br>';
             ?>
-            <form id="formMeuPerfil" method="post" action="<?php echo DIRPAGE.'/controllers/ControllerUpdateUser.php'; ?>">
+            <form id="formMeuPerfil" method="post" action="<?php echo DIRPAGE.'/controllers/meuPerfilController.php'; ?>">
             <?php
                 
                 if($usuario instanceof PessoaFisica)

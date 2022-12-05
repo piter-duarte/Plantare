@@ -55,7 +55,7 @@ class Database extends Connection
                 color VARCHAR(10),
                 start TIMESTAMP,
                 end TIMESTAMP,
-                rating INT,
+                rating INT DEFAULT NULL,
                 clienteEmail VARCHAR(300),
                 provedorEmail VARCHAR(300),
                 idServico INT,
