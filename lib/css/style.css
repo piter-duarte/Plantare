@@ -1454,15 +1454,15 @@ main.logadoPage div.conteudo.StatusPedido  div.contendmiddle /* div para central
     
 }
 
-main.logadoPage div.conteudo.StatusPedido  div.contendmiddle form#formStatusPedido  /* div formulario */
+main.logadoPage div.conteudo.StatusPedido  div.contendmiddle div.infoStatus  /* div formulario */
 {
-    width: 100%;
+    width: 80%;
     height: 100%;
     grid-column-start: 2;
     grid-column-end: 3;
 
     display: grid;
-    grid-template-rows: 1fr 0.5fr 0.5fr 1fr;
+    grid-template-rows: 10% 1fr 30%;
     background-color: var(--white);
     border-radius: 5px;
 }
@@ -1473,32 +1473,46 @@ main.logadoPage div.conteudo.StatusPedido div.contendmiddle div.titleStatus
     flex-direction: column;
     width: 100%;
     height: 100%;
-    justify-content: center;
+    margin-top: 20px;
+
 
 }
 
 div.contendmiddle div.status
 {
-    width: 100%;
-    height: 100%;
-
+    width: 60%;
+    height: 90%;
+    
     display: inline-flex;
     flex-direction: column;
-    align-items: center;   /*alinha na horizontal*/
-
+    
+    align-self: center;    /*alinha na vertical*/
+    justify-self: center;
+}
+div.contendmiddle div.status h4
+{
+    text-align: left;
+    margin: 6px;
+    margin-top: 10px;
+    font-size: 18px !important;
+    
 }
 
-div.contendmiddle div.btnStatus
+
+div.contendmiddle form.btnStatus
 {
-    width: 100%;
+    width: 60%;
     height: 100%;
     grid-row-start: 3;
     grid-row-end: 5;
     display:grid;
-    justify-content: center;/*centralizou na vertical*/
+    justify-items: center;/*centralizou na vertical*/
     align-items: center; /* centralizou na horizontal*/
-       
+    
+    justify-self: center;
+    grid-template-rows: 1fr 1fr;
 }
+
 /*-----------------------------------------------STATUS PEDIDO END--------------------------------------------------------------*/
 
 /* -----------------------------------------------MEU PERFIL----------------------------------------------- */
