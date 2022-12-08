@@ -16,7 +16,7 @@
         <?php
        chamarNavbar($usuario);
         ?>
-        <div class="conteudo"></div>
+        <div class="conteudo cadastrarServicos"></div>
     </main>
 
 </div>

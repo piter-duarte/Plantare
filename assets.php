@@ -45,7 +45,7 @@
     Checked
 </label>
 <br><br>
-<form id="registrationForm" action="">
+<form id="testeForm" action="">
     <div class="formGroup flex flex-col my-4">
         <label for="firstName">First Name</label>
         <div class="flex items-center">
