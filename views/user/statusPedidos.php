@@ -16,7 +16,7 @@
        chamarNavbar($usuario);
         ?>
         <div class="conteudo StatusPedido">
-            <div class="contendmiddle">
+           
 
                 <div class="infoStatus">
 
@@ -25,20 +25,21 @@
                     </div>
 
                     <div class="status">
-                        <h4>Serviço: </h4> 
+                        <h4>Serviço: Aplicar Fertilizante</h4> 
                         <h4>Solicitando:</h4>
                         <h4>Prestador:</h4>
                         <h4>Data:</h4>
                         <h4>Horário Inicio:</h4>
                         <h4>Horário Fim:</h4>
-                        <h4>Status:</h4>
+                        <h4>Status:</h4> 
+                        <h4>Valor:</h4> 
                     </div>
 
                     <form class="btnStatus" name="formStatusPedido" id="formStatusPedido" method="post">
                         <div>
                             <input class="btm" type="submit" value="Confirmar"
                                 formaction="<?php echo DIRPAGE.'/controllers/aprovarPedidoAceitarController.php'; ?>">
-                            <input class="btm bts" type="submit" value="Cancelar"
+                            <input class="btm bts" type="submit" value="Cancelar" id="cancelar"
                                 formaction="<?php echo DIRPAGE.'/views/user/aprovarPedidoCancelarController.php.php'; ?>">
                         </div>
                         <input class="btm bts" type="submit" value="Voltar"
@@ -46,7 +47,7 @@
                     </form>
 
                 </div>
-            </div>
+            
         </div>
     </main>
 
