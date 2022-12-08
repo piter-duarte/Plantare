@@ -1591,6 +1591,34 @@ div.conteudo.meuPerfil form div#btGroup button:first-child{
 
 /* -----------------------------------------------MEU PERFIL END------------------------------------------- */
 
+/* -----------------------------------------------MEUS SERVIÇOS----------------------------------------------- */
+
+div.conteudo.meusServicos{
+    display: grid;
+}
+
+div.conteudo.meusServicos form{
+    width: 100%;
+    justify-self: center;
+    align-self: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+}
+
+div.conteudo.meusServicos form div#btGroup {
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
+
+div.conteudo.meusServicos form div#btGroup button:first-child{
+    margin-right: 5px;
+}
+
+/* -----------------------------------------------MEUS SERVIÇOS END------------------------------------------- */
+
 /* -----------------------------------------------APROVAR PEDIDO------------------------------------------- */
 div.conteudo.aprovarPedido{
     display: grid;
