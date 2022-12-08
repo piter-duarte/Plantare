@@ -27,8 +27,6 @@ if($ehJuridica == 0)
     $usuario->setEhJuridica($ehJuridica);
     $usuario->setEhProvedor($ehProvedor);
     $usuario->setMedia(5);
-
-    $usuarioDAO->inserir($usuario);
 }
 else
 {
@@ -40,16 +38,16 @@ else
     $usuario->setEhJuridica($ehJuridica);
     $usuario->setEhProvedor($ehProvedor);
     $usuario->setMedia(5);
-
-
-    $usuarioDAO->inserir($usuario);
 }
 
 if ($ehProvedor == 0) 
 {
+    $usuarioDAO->inserir($usuario);
     echo "<script>window.location.replace('".DIRPAGE."/views/user/meuCalendario.php');</script>";
 }
 else
 {
+    session_start();
+    $_SESSION['usuario'] = serialize($usuario);
     echo "<script>window.location.replace('".DIRPAGE."/views/manager/continuacaoCadastro.php');</script>";
 }

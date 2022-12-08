@@ -155,9 +155,18 @@ class UsuarioDAO extends Database{
                 $usuarioRetorno->setRazao_social($resultado['razao_social']);
                 $usuarioRetorno->setCnpj($resultado["cnpj"]);
             }
-            session_start();
-            $_SESSION['usuario'] = serialize($usuarioRetorno);
-            $_SESSION['conectado']  = true;
+            
+            if (session_status() == PHP_SESSION_ACTIVE) {
+                //session already exists
+                $_SESSION['usuario'] = serialize($usuarioRetorno);
+                $_SESSION['conectado']  = true;
+            }
+            else
+            {
+                session_start();
+                $_SESSION['usuario'] = serialize($usuarioRetorno);
+                $_SESSION['conectado']  = true;
+            }
         }        
     }
     public function alterarMedia($email)
@@ -272,11 +281,12 @@ class UsuarioDAO extends Database{
     }
     public function buscarDisponiveis($idServico, $start, $end)
     {
+        //TODO arrumar select para usuarios disponiveis corretamente
         $b=$this->useDB()->prepare("SELECT usu.nome, usu.razao_social, usu.ehJuridica, usu.email, usu.media, se.nome 'nomeServico', rel.preco
         FROM usuarios usu
         INNER JOIN relacao rel ON rel.provedorEmail = usu.email
         INNER JOIN servicos se ON se.id = rel.idServico
-        WHERE se.id = ? AND usu.email NOT IN(
+        WHERE se.id = ? AND rel.preco != 0.00 AND usu.email NOT IN(
             SELECT usu2.email 
             FROM usuarios usu2 
             INNER JOIN events ev ON usu2.email = ev.provedorEmail

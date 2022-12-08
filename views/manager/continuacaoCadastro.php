@@ -1,6 +1,5 @@
 <?php
    include("../../config/config.php");
-   require_once "../../lib/includes/valida-acesso.inc.php";
    include(DIRREQ."/lib/html/header.php");
 ?>
 
