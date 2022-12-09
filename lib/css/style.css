@@ -989,7 +989,7 @@ main.loginPage{
     justify-items: center;
     align-items: center;
     border-radius: 10px;
-    background-color: var(--terciary50);
+    background-color: var(--white);
 }
 
 .loginPage .formGroup{
