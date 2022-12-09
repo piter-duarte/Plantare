@@ -1121,7 +1121,8 @@ main.cadastroContinuacaoPage{
 }
 
 form#continuacaoCadastroForm{
-    width: 80%;
+    /*width: 80%;*/
+    width: 30%;
     height: 80%;
     border-radius: 5px;
 }
@@ -1147,52 +1148,87 @@ form#continuacaoCadastroForm div.continuacaoContainer div#heading{
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: auto;
+   /* grid-template-columns: 50% 50%;*/
     grid-template-rows: auto;
     justify-content: center;
     align-items: center;
-}
-
-div.continuacaoContainer div#heading div#servico, div.continuacaoContainer div#heading div#valorHora{
-    width: 100%;
-    height: 100%;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    border-bottom: 2px solid var(--black25);
-}
-
-div.continuacaoContainer div#heading div#servico{
-    border-right: 2px solid var(--black25);
 }
 
 div.continuacaoContainer  div#body {
     height: 100%;
     width: 100%;
     display: grid;
-    grid-template-columns: 50% 50%;
-    border-bottom: 2px solid var(--black25);
+    grid-template-columns: auto;
+   /* border-bottom: 2px solid var(--black25);*/
 }
 
-div.continuacaoContainer  div#body div#bodyContent1, div.continuacaoContainer  div#body div#bodyContent2{
+div.continuacaoContainer div#body div#bodyContent1{
+    display: grid;
+    grid-template-columns: auto;
     width: 100%;
     height: 100%;
     overflow: hidden;
+    align-self: center;
 }
 
 div.continuacaoContainer  div#body div#bodyContent1{
-    border-right: 2px solid var(--black25);
+    /*border-right: 2px solid var(--black25);*/
 }
 
-div.continuacaoContainer  div#body div#bodyContent1, div.continuacaoContainer  div#body div#bodyContent2{
+div.continuacaoContainer  div#body div#bodyContent1 div.contorno{
+    display: grid;
+    grid-template-columns: 20% 1fr;
+    align-self: center;
+    justify-self: center;
+   
+}
+
+div.continuacaoContainer  div#body div#bodyContent1 div.contorno div.labelcheckbox
+{
+    margin-left: 10px;
+    height: 80px;
+    display: flex;
+}
+
+div.continuacaoContainer  div#body  div.contorno div#bodyContent1{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-content: center;
+    align-self: center;
+    
 }
 
-div.continuacaoContainer  div#body div#bodyContent2 div.formGroup.flex.flex-col.my-4 {
+div.continuacaoContainer  div#body div#bodyContent1 div.formGroup.flex.flex-col.my-4 {
+    
+    width: 50%;
+    grid-column-start: 2;
+    grid-column-end: 3;
     margin: 0;
+    
+    
+        
+}
+div.continuacaoContainer label
+{
+    width: 150px;  
+}
+div.continuacaoContainer label.checkbox
+{
+    width: 40px;
+    cursor:pointer;
+       
+}
+div.continuacaoContainer input:disabled
+{
+    background-color: var(--black25);
+    border-bottom: 2px solid var(--terciary) !important;
+}
+div.continuacaoContainer input
+{
+    
+    border-bottom: 2px solid var(--terciary) !important;
 }
 
 /* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
