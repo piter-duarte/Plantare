@@ -1,10 +1,11 @@
 <?php
 include ("../config/config.php");
 $eventoDAO = new \Classes\EventoDAO();
-$id  = filter_input(INPUT_POST,'idEvento', FILTER_DEFAULT);
+$id     = filter_input(INPUT_POST,'idEvento', FILTER_DEFAULT);
 $start  = filter_input(INPUT_POST,'start', FILTER_DEFAULT);
+$end    = filter_input(INPUT_POST,'end', FILTER_DEFAULT);
 
 
-$teste=$eventoDAO->alterarStatus('green',$start,'',$id);
+$eventoDAO->alterarStatus('green', $id, $start, $end);
 
-//echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";
+echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";

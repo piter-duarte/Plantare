@@ -102,16 +102,14 @@ class EventoDAO extends Database
         $b->bindParam(2,$id,\PDO::PARAM_INT);
         $b->execute();
     }
-    public function alterarStatus($color,$start,$end,$id)
+    public function alterarStatus($color, $id, $start, $end)
     {
-        /*$b=$this->useDB()->prepare("UPDATE events SET color=?, start=?, end=? WHERE id=?");
+        $b=$this->useDB()->prepare("UPDATE events SET color=? WHERE id=? AND start=? AND end=?");
         $b->bindParam(1,$color,\PDO::PARAM_STR);
-        $b->bindParam(2,$start,\PDO::PARAM_INT);
-        $b->bindParam(3,$end,\PDO::PARAM_INT);
-        $b->bindParam(4,$id,\PDO::PARAM_INT);
+        $b->bindParam(2,$id,\PDO::PARAM_INT);
+        $b->bindParam(3,$start,\PDO::PARAM_STR);
+        $b->bindParam(4,$end,\PDO::PARAM_STR);
         $b->execute();
-        return $f=$b->fetch(\PDO::FETCH_ASSOC);*/
-        return $start;
     }
     
     //TODO implementar busca por id com intervalo completo

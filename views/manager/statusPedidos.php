@@ -26,12 +26,19 @@ use Models\PessoaFisica;
     $status = $_GET['status'];
 
     $start = $_GET['start'];
-    
-    $date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
+    $end = $_GET['end'];
+   
+    $timestamp = strtotime($end);
+    $dataAtual = date("d/m/Y", $timestamp);
 
+    $array1 = explode(" ", $start);
+    $array2 = explode(" ", $end);
 
-    
+    $horaInicial = $array1[1];
+    $horaFinal   = $array2[1];
 
+    $horaInicial = explode(":", $horaInicial);
+    $horaFinal =   explode(":", $horaFinal);
 
 ?>
 
@@ -78,9 +85,9 @@ use Models\PessoaFisica;
                         }
                         ?>
                     </h4>
-                    <h4>Data: <?php //$data->format("Y-m-d");?></h4>
-                    <h4>Horário Inicio: <?php ?></h4>
-                    <h4>Horário Fim: </h4>
+                    <h4>Data: <?php echo $dataAtual;?></h4>
+                    <h4>Horário Inicio: <?php echo $horaInicial[0].':00';?></h4>
+                    <h4>Horário Fim: <?php echo $horaFinal[0].':00';?></h4>
                     <h4>Status: 
                         <?php 
                         if($status == 'blue')
@@ -104,11 +111,12 @@ use Models\PessoaFisica;
                 <form class="btnStatus" name="formStatusPedido" id="formStatusPedido" method="post">
                     <input type="hidden" name="idEvento" value="<?php echo $_GET['id'];?>">
                     <input type="hidden" name="start" value="<?php echo $_GET['start'];?>">
+                    <input type="hidden" name="end" value="<?php echo $_GET['end'];?>">
                     <div>
                         <input class="btm" type="submit" value="Confirmar"
                             formaction="<?php echo DIRPAGE.'/controllers/aprovarPedidoAceitarController.php'; ?>">
                         <input class="btm bts" type="submit" value="Cancelar" id="cancelar"
-                            formaction="<?php echo DIRPAGE.'/views/user/aprovarPedidoCancelarController.php'; ?>">
+                            formaction="<?php echo DIRPAGE.'/controllers/aprovarPedidoCancelarController.php'; ?>">
                     </div>
                     <input class="btm bts" type="submit" value="Voltar"
                         formaction="<?php echo DIRPAGE.'/views/manager/meuCalendario.php'; ?>">

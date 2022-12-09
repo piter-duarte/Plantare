@@ -435,6 +435,13 @@ i.fa-solid.fa-star.fa-sm.starEmpty {
     border-radius: 10px;
 }
 
+.opacidade0{
+    opacity: 0;
+}
+.opacidade1{
+    opacity: 1;
+}
+
 /* Calendar CSS */
 
     .fc-header-toolbar.fc-toolbar 
@@ -1533,6 +1540,7 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus div.status h4
     
 }
 
+/*-----------------------------------MANAGER------------------------------------------*/
 main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus
 {
     width: 60%;
@@ -1559,6 +1567,31 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus input#ca
     background-color: var(--quaternary75);
     color: var(--black);
 }
+
+/*-----------------------------------MANAGER END------------------------------------------*/
+
+/*-----------------------------------USER------------------------------------------*/
+main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario
+{
+    width: 60%;
+    height: 90%;
+    grid-row-start: 3;
+    grid-row-end: 5;
+    display:grid;
+    justify-items: center;/*centralizou na vertical*/
+    align-items: center; /* centralizou na horizontal*/
+    
+    justify-self: center;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr;
+}
+
+main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario input#avaliar
+{
+   /*display: none;*/
+}
+
+/*-----------------------------------USER END------------------------------------------*/
 
 
 /*-----------------------------------------------STATUS PEDIDO END--------------------------------------------------------------*/
