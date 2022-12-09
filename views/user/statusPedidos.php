@@ -25,14 +25,14 @@
                     </div>
 
                     <div class="status">
-                        <h4>Serviço: Aplicar Fertilizante</h4> 
-                        <h4>Solicitando:</h4>
-                        <h4>Prestador:</h4>
-                        <h4>Data:</h4>
-                        <h4>Horário Inicio:</h4>
-                        <h4>Horário Fim:</h4>
-                        <h4>Status:</h4> 
-                        <h4>Valor:</h4> 
+                        <h4>Serviço: </h4> 
+                        <h4>Solicitante: </h4>
+                        <h4>Prestador: </h4>
+                        <h4>Data: </h4>
+                        <h4>Horário Inicio: </h4>
+                        <h4>Horário Fim: </h4>
+                        <h4>Status: </h4> 
+                        <h4>Valor: </h4> 
                     </div>
 
                     <form class="btnStatus" name="formStatusPedido" id="formStatusPedido" method="post">

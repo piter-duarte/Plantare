@@ -2,7 +2,9 @@
 include ("../config/config.php");
 $eventoDAO = new \Classes\EventoDAO();
 $id  = filter_input(INPUT_POST,'idEvento', FILTER_DEFAULT);
+$start  = filter_input(INPUT_POST,'start', FILTER_DEFAULT);
 
-$eventoDAO->alterarStatus($id, 'green');
 
-echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";
+$teste=$eventoDAO->alterarStatus('green',$start,'',$id);
+
+//echo "<script>window.location.replace('".DIRPAGE."/views/manager/meuCalendario.php');</script>";
