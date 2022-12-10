@@ -120,17 +120,13 @@ use Models\PessoaFisica;
                             formaction="<?php echo DIRPAGE.'/views/user/avaliarProfissional.php?id='.$id.'&provedorEmail='.$provedorEmail; ?>">
                         <input class="btm bts" type="submit" value="Cancelar" id="cancelar"
                             formaction="<?php echo DIRPAGE.'/controllers/aprovarPedidoCancelarController.php'; ?>">
-                        <input class="btm bts" type="submit" value="Voltar"
-                            formaction="<?php echo DIRPAGE.'/views/user/meuCalendario.php'; ?>">
                     </div>
-
+                    <input class="btm bts" type="submit" value="Voltar"
+                        formaction="<?php echo DIRPAGE.'/views/user/meuCalendario.php'; ?>">
                 </form>
-
             </div>
-
         </div>
     </main>
-
 </div>
 
 <?php include(DIRREQ."/lib/html/footer.php"); ?>
