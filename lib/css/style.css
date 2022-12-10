@@ -1122,7 +1122,7 @@ main.cadastroContinuacaoPage{
 
 form#continuacaoCadastroForm{
     /*width: 80%;*/
-    width: 30%;
+    width: 576px;
     height: 80%;
     border-radius: 5px;
 }
@@ -1657,12 +1657,12 @@ div.conteudo.meuPerfil{
 div.conteudo.meuPerfil form{
     width: 100%;
     justify-self: center;
-    align-self: center;
+    align-self:center;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-items: center;
-    align-items: center;
+    align-items:center;
 }
 
 div.conteudo.meuPerfil form div#btGroup {
