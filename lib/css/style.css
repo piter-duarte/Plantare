@@ -1122,8 +1122,8 @@ main.cadastroContinuacaoPage{
 
 form#continuacaoCadastroForm{
     /*width: 80%;*/
-    width: 576px;
-    height: 80%;
+    width: 600px;
+    height: 500px;
     border-radius: 5px;
 }
 
@@ -1220,15 +1220,28 @@ div.continuacaoContainer label.checkbox
     cursor:pointer;
        
 }
-div.continuacaoContainer input:disabled
+div.continuacaoContainer input.price:disabled
 {
     background-color: var(--black25);
     border-bottom: 2px solid var(--terciary) !important;
 }
-div.continuacaoContainer input
+div.continuacaoContainer input.price
 {
     
     border-bottom: 2px solid var(--terciary) !important;
+}
+
+div.continuacaoContainer div.error.text-red-700.py-2{
+    width: 200px;
+}
+
+div.continuacaoContainer div.contorno div.labelcheckbox {
+    padding-top: 10px;
+}
+
+div.continuacaoContainer div.contorno div.formGroup.flex.flex-col.my-4 div.flex.items-center
+{
+    margin-top: 10px;
 }
 
 /* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
