@@ -7,8 +7,9 @@ $id            = filter_input(INPUT_POST,'id', FILTER_DEFAULT);
 $avaliacao     = filter_input(INPUT_POST,'avaliacao', FILTER_DEFAULT);
 $provedorEmail = filter_input(INPUT_POST,'provedorEmail', FILTER_DEFAULT);
 
+$status = 'Avaliado';
 
-$eventoDAO->alterarNota($avaliacao,$id);
+$eventoDAO->alterarAvaliacao($status, $avaliacao, $id);
 
 $usuarioDAO->alterarMedia($provedorEmail);
 
