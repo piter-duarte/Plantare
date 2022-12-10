@@ -138,8 +138,10 @@
                         </div>
                     </div>
                     <!--Botão Finalizar-->
-                    <button type="submit">Finalizar</button>
-
+                    <div class="botao">
+                    <button class="btm" type="submit">Finalizar</button>
+                    <button class="btm bts" type="submit">Cancelar</button>
+                    </div>
             </form>
         </div>
     </main>

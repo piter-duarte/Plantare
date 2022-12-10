@@ -115,7 +115,7 @@ use Models\PessoaFisica;
                 echo '
                 <a href="cadastrarServicos.php">
                     <div class="item">
-                        <i class="fa-solid fa-heart"></i>   
+                        <i class="fa-solid fa-gear"></i>   
                         <h5>Cadastrar Serviços</h5>
                     </div>
                 </a>';  
