@@ -303,4 +303,13 @@ class UsuarioDAO extends Database{
         $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
     }
+
+    public function virarProvedor($usuario)
+    {
+        $email = $usuario->getEmail();
+
+        $b=$this->useDB()->prepare("UPDATE usuarios SET ehProvedor=1 WHERE email=?");
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->execute();
+    }
 }

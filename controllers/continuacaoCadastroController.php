@@ -17,7 +17,17 @@ if (!empty($_POST["servico"]))
 {
     //TODO adicionar variável de sessão 
     //para reconhecer se já um usuário cadastro que quer se tornar prestador de serviço
-    $usuarioDAO->inserir($usuario);
+    $usuarioCadastrado = $_SESSION['usuarioCadastrado'];
+    if($usuarioCadastrado == false)
+    {
+        $usuarioDAO->inserir($usuario);
+    }
+    else
+    {
+        $usuario->setEhProvedor(1);
+        $usuarioDAO->virarProvedor($usuario);
+        $_SESSION['usuario'] = serialize($usuario);
+    }
 
     if(in_array('Cortar Grama',$_POST["servico"]))
     {
