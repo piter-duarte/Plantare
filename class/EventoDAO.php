@@ -102,11 +102,13 @@ class EventoDAO extends Database
         $b->bindParam(2,$id,\PDO::PARAM_INT);
         $b->execute();
     }
-    public function alterarStatus($id, $color)
+    public function alterarStatus($color, $id, $start, $end)
     {
-        $b=$this->useDB()->prepare("UPDATE events SET color=? WHERE id=?");
+        $b=$this->useDB()->prepare("UPDATE events SET color=? WHERE id=? AND start=? AND end=?");
         $b->bindParam(1,$color,\PDO::PARAM_STR);
         $b->bindParam(2,$id,\PDO::PARAM_INT);
+        $b->bindParam(3,$start,\PDO::PARAM_STR);
+        $b->bindParam(4,$end,\PDO::PARAM_STR);
         $b->execute();
     }
     

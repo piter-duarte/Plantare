@@ -89,13 +89,13 @@ use Models\PessoaFisica;
                     <div class="options">
                         <a href="meuPerfil.php">
                             <div class="item">
-                                <i class="fa-solid fa-heart"></i>   
+                            <i class="fa-solid fa-user"></i>   
                                 <h5>Meu Perfil</h5>
                             </div>
                         </a>
                         <a href="meuCalendario.php">
                         <div class="item">
-                            <i class="fa-solid fa-heart"></i>   
+                        <i class="fa-solid fa-calendar-days"></i>  
                             <h5>Meu Calendário</h5>
                         </div>
                     </a>'; 
@@ -105,7 +105,7 @@ use Models\PessoaFisica;
                 echo '
                 <a href='.DIRPAGE.'/views/manager/meusServicos.php>
                     <div class="item">
-                        <i class="fa-solid fa-heart"></i>   
+                    <i class="fa-solid fa-gear"></i>  
                         <h5>Meus Serviços</h5>
                     </div>
                 </a>'; 
@@ -123,7 +123,7 @@ use Models\PessoaFisica;
             echo'
                         <a href="'.DIRPAGE.'/index.php">
                             <div class="item">
-                                <i class="fa-solid fa-heart"></i>   
+                            <i class="fa-solid fa-door-open"></i>
                                 <h5>Sair</h5>
                             </div>
                         </a>

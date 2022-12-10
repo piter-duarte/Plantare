@@ -26,8 +26,9 @@ use Models\PessoaFisica;
                 // var_dump($_SESSION);
                 // echo '</pre> <br>';
             ?>
-            <form id="formMeuPerfil" method="post" action="<?php echo DIRPAGE.'/controllers/meuPerfilController.php'; ?>">
-            <?php
+            <form id="formMeuPerfil" method="post"
+                action="<?php echo DIRPAGE.'/controllers/meuPerfilController.php'; ?>">
+                <?php
                 
                 if($usuario instanceof PessoaFisica)
                 {
@@ -143,7 +144,9 @@ use Models\PessoaFisica;
                 <div class="formGroup flex flex-col my-4">
                     <label for="telefone">Telefone</label>
                     <div class="flex items-center">
-                        <input id="telefone" name="telefone" type="text" class="w-full border-b-2 border-black outline-none py-2" value="<?php echo ''.$usuario->getTelefone().'';?>" disabled>
+                        <input id="telefone" name="telefone" type="text"
+                            class="w-full border-b-2 border-black outline-none py-2"
+                            value="<?php echo ''.$usuario->getTelefone().'';?>" disabled>
                         <span class="error-icon hidden -ml-6 text-red-700">
                             <i class="fa-solid fa-circle-exclamation"></i>
                         </span>
@@ -156,7 +159,8 @@ use Models\PessoaFisica;
                 <div class="formGroup flex flex-col my-4">
                     <label for="cep">CEP</label>
                     <div class="flex items-center">
-                        <input id="cep" name="cep" type="text" class="w-full border-b-2 border-black outline-none py-2" value="<?php echo ''.$usuario->getCep().'';?>" disabled>
+                        <input id="cep" name="cep" type="text" class="w-full border-b-2 border-black outline-none py-2"
+                            value="<?php echo ''.$usuario->getCep().'';?>" disabled>
                         <span class="error-icon hidden -ml-6 text-red-700">
                             <i class="fa-solid fa-circle-exclamation"></i>
                         </span>
@@ -169,7 +173,9 @@ use Models\PessoaFisica;
                 <div class="formGroup flex flex-col my-4">
                     <label for="endereco">Endereço</label>
                     <div class="flex items-center">
-                        <input id="endereco" name="endereco" type="text" class="w-full border-b-2 border-black outline-none py-2" value="<?php echo ''.$usuario->getEndereco().'';?>" disabled>
+                        <input id="endereco" name="endereco" type="text"
+                            class="w-full border-b-2 border-black outline-none py-2"
+                            value="<?php echo ''.$usuario->getEndereco().'';?>" disabled>
                         <span class="error-icon hidden -ml-6 text-red-700">
                             <i class="fa-solid fa-circle-exclamation"></i>
                         </span>
@@ -182,7 +188,9 @@ use Models\PessoaFisica;
                 <div class="formGroup flex flex-col my-4">
                     <label for="email">E-mail</label>
                     <div class="flex items-center">
-                        <input id="email" name="email" type="text" class="w-full border-b-2 border-black outline-none py-2" value="<?php echo ''.$usuario->getEmail().'';?>" readonly>
+                        <input id="email" name="email" type="text"
+                            class="w-full border-b-2 border-black outline-none py-2"
+                            value="<?php echo ''.$usuario->getEmail().'';?>" readonly>
                         <span class="error-icon hidden -ml-6 text-red-700">
                             <i class="fa-solid fa-circle-exclamation"></i>
                         </span>
