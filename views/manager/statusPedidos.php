@@ -121,12 +121,9 @@ use Models\PessoaFisica;
                     <input class="btm bts" type="submit" value="Voltar"
                         formaction="<?php echo DIRPAGE.'/views/manager/meuCalendario.php'; ?>">
                 </form>
-
             </div>
-
         </div>
     </main>
-
 </div>
 
 <?php include(DIRREQ."/lib/html/footer.php"); ?>

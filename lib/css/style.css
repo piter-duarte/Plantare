@@ -1347,7 +1347,7 @@ i.fa-solid.fa-calendar-days
 {
     color:var(--black);
 }
-i.fa-solid.fa-gear
+i.fa-solid.fa-person-diggingr
 {
     color:var(--black);
 }
@@ -1589,7 +1589,7 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus div.titleStatus
 
 main.logadoPage div.conteudo.StatusPedido div.infoStatus div.status
 {
-    width: 50%;
+    width: 220px;
     height: 100%;
     display: grid;
     align-items: center;  /*alinha na vertical*/
@@ -1648,7 +1648,7 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario
     
     justify-self: center;
     grid-template-columns: auto;
-    grid-template-rows: 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario input#avaliar
