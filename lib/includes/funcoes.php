@@ -105,7 +105,7 @@ use Models\PessoaFisica;
                 echo '
                 <a href='.DIRPAGE.'/views/manager/meusServicos.php>
                     <div class="item">
-                    <i class="fa-solid fa-gear"></i>  
+                    <i class="fa-solid fa-person-digging"></i>  
                         <h5>Meus Serviços</h5>
                     </div>
                 </a>'; 
@@ -115,7 +115,7 @@ use Models\PessoaFisica;
                 echo '
                 <a href="cadastrarServicos.php">
                     <div class="item">
-                        <i class="fa-solid fa-gear"></i>   
+                        <i class="fa-solid fa-person-digging"></i>   
                         <h5>Cadastrar Serviços</h5>
                     </div>
                 </a>';  
