@@ -1326,6 +1326,22 @@ div.navbar div.options div.item h5{
 div.navbar div.options div.item i {
    /* opacity: 0; */
 }
+i.fa-solid.fa-user
+{
+    color:var(--black);
+}
+i.fa-solid.fa-calendar-days
+{
+    color:var(--black);
+}
+i.fa-solid.fa-gear
+{
+    color:var(--black);
+}
+i.fa-solid.fa-door-open
+{
+    color:var(--black);
+}
 
 .logadoPage div.conteudo { /* container principal da aplicação*/
     background-color: gray;
