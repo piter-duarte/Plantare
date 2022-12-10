@@ -1122,8 +1122,8 @@ main.cadastroContinuacaoPage{
 
 form#continuacaoCadastroForm{
     /*width: 80%;*/
-    width: 576px;
-    height: 80%;
+    width: 600px;
+    height: 500px;
     border-radius: 5px;
 }
 
@@ -1220,15 +1220,28 @@ div.continuacaoContainer label.checkbox
     cursor:pointer;
        
 }
-div.continuacaoContainer input:disabled
+div.continuacaoContainer input.price:disabled
 {
     background-color: var(--black25);
     border-bottom: 2px solid var(--terciary) !important;
 }
-div.continuacaoContainer input
+div.continuacaoContainer input.price
 {
     
     border-bottom: 2px solid var(--terciary) !important;
+}
+
+div.continuacaoContainer div.error.text-red-700.py-2{
+    width: 200px;
+}
+
+div.continuacaoContainer div.contorno div.labelcheckbox {
+    padding-top: 10px;
+}
+
+div.continuacaoContainer div.contorno div.formGroup.flex.flex-col.my-4 div.flex.items-center
+{
+    margin-top: 10px;
 }
 
 /* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
@@ -1719,3 +1732,106 @@ div.conteudo.aprovarPedido form#formAprovarPedido {
 }
 
 /* -------------------------------------------APROVAR PEDIDO END------------------------------------------- */
+
+/* -------------------------------------------CADASTRAR SERVIÇOS-------------------------------------------- */
+main.logadoPage div.conteudo.cadastrarServicos{
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem {
+    width: 500px;
+    height: 300px;
+    background-color: var(--white);
+    border-radius: 5px;
+    display: grid;
+    justify-self: center;
+    align-self: center;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: center;
+}
+
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem div#textos{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 1fr 1fr;
+}
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem div#textos h5:first-child{
+    height: min-content;
+    position: relative;
+    top: 20px;
+}
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(2){
+    width: 100%;
+    height: 100%;
+
+    display: grid;
+    align-items: center;
+    justify-items: center;
+
+}
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(2) div#servicos
+{
+    display: grid;
+    width: 70%;
+    height: 80%;
+    grid-template-columns: auto;
+    grid-template-rows: 20% 1fr;
+    align-items: center;
+}
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(2) div#servicos h5:first-child{
+    width: max-content;
+    color: var(--primary);
+    margin-bottom: 5px;
+    height: max-content;
+    border-bottom: 2px solid var(--terciary);
+    text-align: left;
+}
+
+
+main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(3) {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+}
+
+main.logadoPage div.conteudo.cadastrarServicos ul {
+    list-style: none; /* Remove default bullets */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    align-items: center;
+    justify-items: center;
+  }
+
+ main.logadoPage div.conteudo.cadastrarServicos ul li{
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    width: 180px;
+    font-size: var(--h5fsize);
+    margin-bottom: 8px;
+  }
+
+  main.logadoPage div.conteudo.cadastrarServicos ul li i{
+    font-size: var(--h6fsize);
+    color: var(--primary);
+  }
+
+  main.logadoPage div.conteudo.cadastrarServicos ul li h5
+  {
+    text-align: left;
+    margin-left: 10px;
+  }
+/* -------------------------------------------CADASTRAR SERVIÇOS END---------------------------------------- */

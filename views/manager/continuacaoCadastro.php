@@ -38,7 +38,7 @@
                                 <div class="formGroup flex flex-col my-4">
                                     <label for="precoGrama">Cortar Grama</label>
                                     <div class="flex items-center">
-                                        <input id="precoGrama" name="precoGrama" type="number"
+                                        <input class="price" id="precoGrama" name="precoGrama" type="number"
                                             placeholder="Informe preço"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
@@ -66,7 +66,8 @@
                                 <div class="formGroup flex flex-col my-4">
                                     <label for="precoPoda">Realizar Poda</label>
                                     <div class="flex items-center">
-                                        <input id="precoPoda" name="precoPoda" type="number" placeholder="Informe preço"
+                                        <input class="price" id="precoPoda" name="precoPoda" type="number"
+                                            placeholder="Informe preço"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
                                         <span class="error-icon hidden -ml-6 text-red-700">
@@ -93,8 +94,8 @@
                                 <div class="formGroup flex flex-col my-4">
                                     <label for="precoFertilizante">Aplicar Fertilizante</label>
                                     <div class="flex items-center">
-                                        <input id="precoFertilizante" name="precoFertilizante" type="number"
-                                            placeholder="Informe preço"
+                                        <input class="price" id="precoFertilizante" name="precoFertilizante"
+                                            type="number" placeholder="Informe preço"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
                                         <span class="error-icon hidden -ml-6 text-red-700">
@@ -121,7 +122,7 @@
                                 <div class="formGroup flex flex-col my-4">
                                     <label for="precoPesticida">Aplicar Pesticida</label>
                                     <div class="flex items-center">
-                                        <input id="precoPesticida" name="precoPesticida" type="number"
+                                        <input class="price" id="precoPesticida" name="precoPesticida" type="number"
                                             placeholder="Informe preço"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
@@ -139,8 +140,8 @@
                     </div>
                     <!--Botão Finalizar-->
                     <div class="botao">
-                    <button class="btm" type="submit">Finalizar</button>
-                    <button class="btm bts" type="submit">Cancelar</button>
+                        <input class="btm" type="submit" value="Finalizar">
+                        <input class="btm bts" id="cancelar" type="button" value="Cancelar">
                     </div>
             </form>
         </div>

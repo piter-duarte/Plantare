@@ -1,32 +1,44 @@
 <?php
+include("../../config/config.php");
+include(DIRREQ."/lib/html/header.php");
+require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
+include(DIRREQ."/lib/includes/funcoes.php");
 
+use Classes\EventoDAO;
 use Classes\UsuarioDAO;
+use Models\Evento;
 use Models\PessoaFisica;
 
-    include("../../config/config.php");
-    include(DIRREQ."/lib/html/header.php");
-    require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
-    include(DIRREQ."/lib/includes/funcoes.php");
     $usuario = unserialize($_SESSION['usuario']);
-    $servico=$_GET['title'];
     
     //objeto de conexão ao BD serve apenas para tabela usuário
     $usuarioDAO=new UsuarioDAO();
+    $eventoDAO = new EventoDAO();
 
-    $solicitante =$_GET['clienteEmail'];
-    $clienteObjeto=$usuarioDAO->buscarPorEmail($solicitante);
+    //pegando o id passado no get com JS (linha: 86 || 113)
+    $id = $_GET['id'];
 
-    $prestador =$_GET['provedorEmail'];
-    $prestadorObjeto=$usuarioDAO->buscarPorEmail($prestador);
+    $evento = new Evento();
+    $evento->setId($id);
 
-    //$data=new \DateTime($_GET['data'], new \DateTimeZone('America/Sao_Paulo'));
-    //$date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
-    $preco = $_GET['preco'];
+    //buscando todos os dados do evento de acordo com o id
+    //retorna o objeto montado com todos os dados do banco
+    //esse método recebe como parâmetro o objeto evento
+    $evento = $eventoDAO->buscar($evento);
 
-    $status = $_GET['status'];
+    //objetos vinculados ao evento
+    $cliente = $evento->getCliente();
+    $prestador = $evento->getProvedor();
+    $servico = $evento->getServico();
 
-    $start = $_GET['start'];
-    $end = $_GET['end'];
+    $preco = $evento->getPrecoServico();
+
+    $status = $evento->getStatus();
+
+    //$start = $_GET['start'];
+    //$end = $_GET['end'];
+    $start = $evento->getStart();
+    $end = $evento->getEnd();
    
     $timestamp = strtotime($end);
     $dataAtual = date("d/m/Y", $timestamp);
@@ -39,10 +51,6 @@ use Models\PessoaFisica;
 
     $horaInicial = explode(":", $horaInicial);
     $horaFinal =   explode(":", $horaFinal);
-
-    $id = $_GET['id'];
-    $provedorEmail = $_GET['provedorEmail'];
-
 ?>
 
 <div class="container">
@@ -54,8 +62,6 @@ use Models\PessoaFisica;
        chamarNavbar($usuario);
         ?>
         <div class="conteudo StatusPedido">
-
-
             <div class="infoStatus">
 
                 <div class="titleStatus">
@@ -63,28 +69,28 @@ use Models\PessoaFisica;
                 </div>
 
                 <div class="status">
-                    <h4>Serviço: <?php echo $servico?></h4>
+                    <h4>Serviço: <?php echo  $servico->getNome();?></h4>
                     <h4>Solicitante:
                         <?php 
-                        if($clienteObjeto instanceof PessoaFisica)
+                        if($cliente instanceof PessoaFisica)
                         {
-                            echo $clienteObjeto->getNome();
+                            echo $cliente->getNome();
                         }
                         else
                         {
-                            echo $clienteObjeto->getRazao_social();
+                            echo $cliente->getRazao_social();
                         }
                         ?>
                     </h4>
                     <h4>Prestador:
                         <?php 
-                        if($prestadorObjeto instanceof PessoaFisica)
+                        if($prestador instanceof PessoaFisica)
                         {
-                            echo $prestadorObjeto->getNome();
+                            echo $prestador->getNome();
                         }
                         else
                         {
-                            echo $prestadorObjeto->getRazao_social();
+                            echo $prestador->getRazao_social();
                         }
                         ?>
                     </h4>
@@ -93,36 +99,82 @@ use Models\PessoaFisica;
                     <h4>Horário Fim: <?php echo $horaFinal[0].':00';?></h4>
                     <h4>Status:
                         <?php 
-                        if($status == 'blue')
+                        if ($status == 'Avaliado')
+                        {
+                            echo "Avaliado";
+                        }
+                        else if($status == 'Finalizado')
+                        {
+                            echo "Finalizado";
+                        }  
+                        else if($status == 'Confirmado')
+                        {
+                            echo "Confirmado";
+                        }        
+                        else if($status == 'Pendente')
                         {
                             echo "Pendente";
                         }
-                        else if($status == 'green')
-                        {
-                            echo "Confirmado";
-                        }
-                        else
+                        else if($status == 'Cancelado')
                         {
                             echo "Cancelado";
                         }
-
                         ?>
                     </h4>
                     <h4>Valor: R$ <?php echo $preco?> </h4>
                 </div>
 
                 <form class="btnStatus usuario" name="formStatusPedido" id="formStatusPedido" method="post">
-                    <input type="hidden" name="idEvento" value="<?php echo $_GET['id'];?>">
-                    <input type="hidden" name="start" value="<?php echo $_GET['start'];?>">
-                    <input type="hidden" name="end" value="<?php echo $_GET['end'];?>">
-                    <div>
-                        <input class="btm" type="submit" value="Avaliar" id="avaliar"
-                            formaction="<?php echo DIRPAGE.'/views/user/avaliarProfissional.php?id='.$id.'&provedorEmail='.$provedorEmail; ?>">
-                        <input class="btm bts" type="submit" value="Cancelar" id="cancelar"
-                            formaction="<?php echo DIRPAGE.'/controllers/aprovarPedidoCancelarController.php'; ?>">
-                    </div>
-                    <input class="btm bts" type="submit" value="Voltar"
-                        formaction="<?php echo DIRPAGE.'/views/user/meuCalendario.php'; ?>">
+                    <input type="hidden" name="idEvento" value="<?php echo $evento->getId();?>">
+                    <input type="hidden" name="start" value="<?php echo  $evento->getStart();?>">
+                    <input type="hidden" name="end" value="<?php echo $evento->getEnd();?>">
+                    <?php
+                        if($evento->getStatus() == 'Avaliado')
+                        {
+                            echo "
+                            <div class='avaliado'>
+                                <input class='btm bts' type='submit' value='Voltar' formaction='" . DIRPAGE . "/views/user/meuCalendario.php'>
+                            </div>
+                            ";
+                        }
+                        else if ($evento->getStatus() == 'Finalizado')
+                        {
+                            echo 
+                                "
+                                    <div class='finalizado'>
+                                        <input class='btm' type='submit' value='Avaliar' id='avaliar' formaction='".DIRPAGE."/views/user/avaliarProfissional.php?id=".$evento->getId()."&provedorEmail=".$prestador->getEmail()."'>                       
+                                    </div>
+                                    <input class='btm bts' type='submit' value='Voltar' formaction='".DIRPAGE."/views/user/meuCalendario.php'>  
+                                ";
+                        }
+                        else if($evento->getStatus() == 'Confirmado') //se estiver confirmado não pode cancelar o evento
+                        {
+                            echo 
+                                "
+                                    <div class='confirmado'>                                                          
+                                        <input class='btm bts' type='submit' value='Cancelar' id='cancelar' formaction='".DIRPAGE."/controllers/aprovarPedidoCancelarController.php'>
+                                    </div>
+                                    <input class='btm bts' type='submit' value='Voltar' formaction='".DIRPAGE."/views/user/meuCalendario.php'>  
+                                ";            
+                        }
+                        else if ($evento->getStatus() == 'Cancelado')
+                        {
+                            echo "
+                                <div class='cancelado'>
+                                    <input class='btm bts' type='submit' value='Voltar' formaction='" . DIRPAGE . "/views/user/meuCalendario.php'>
+                                </div>
+                            ";
+                        } 
+                        else if ($evento->getStatus() == 'Pendente')
+                        {
+                            echo 
+                                "
+                                    <input class='btm bts' type='submit' value='Cancelar' id='cancelar'
+                                        formaction='".DIRPAGE."/controllers/aprovarPedidoCancelarController.php'>
+                                    <input class='btm bts' type='submit' value='Voltar' formaction='" . DIRPAGE . "/views/user/meuCalendario.php'>
+                                "; 
+                        }       
+                        ?>
                 </form>
             </div>
         </div>

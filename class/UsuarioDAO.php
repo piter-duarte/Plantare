@@ -294,7 +294,7 @@ class UsuarioDAO extends Database{
             INNER JOIN servicos se2 ON se2.id = rel2.idServico
             WHERE rel2.idServico = se.id AND ev.start >= ? AND ev.end <= ?
             GROUP BY usu2.nome, ev.provedorEmail
-        )");
+        ) ORDER BY  usu.media DESC, usu.nome ASC, usu.razao_social");
 
         $b->bindParam(1,$idServico,\PDO::PARAM_INT);
         $b->bindParam(2,$start,\PDO::PARAM_STR);
@@ -302,5 +302,14 @@ class UsuarioDAO extends Database{
         $b->execute();
         $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
+    }
+
+    public function virarProvedor($usuario)
+    {
+        $email = $usuario->getEmail();
+
+        $b=$this->useDB()->prepare("UPDATE usuarios SET ehProvedor=1 WHERE email=?");
+        $b->bindParam(1,$email,\PDO::PARAM_STR);
+        $b->execute();
     }
 }

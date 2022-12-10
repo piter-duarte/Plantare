@@ -48,6 +48,9 @@ if ($ehProvedor == 0)
 else
 {
     session_start();
+    //se o usuário estiver realizando o cadastro cria a sessão usuario
     $_SESSION['usuario'] = serialize($usuario);
+
+    $_SESSION['usuarioCadastrado'] = false;
     echo "<script>window.location.replace('".DIRPAGE."/views/manager/continuacaoCadastro.php');</script>";
 }

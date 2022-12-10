@@ -53,6 +53,7 @@ do
     $evento->setTitle($servico->getNome());
 
     $evento->setPrecoServico($precoServico);
+    $evento->setStatus('Pendente');
 
     $eventoDAO->inserir($evento);
 

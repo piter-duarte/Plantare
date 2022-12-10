@@ -9,7 +9,7 @@ class EventoDAO extends Database
     public function inserir($evento)
     {
 
-        $b=$this->useDB()->prepare("INSERT INTO events(title, description, color, start, end, rating, clienteEmail, provedorEmail, idServico, precoServico) VALUES (?,?,?,?,?,?,?,?,?,?)");
+        $b=$this->useDB()->prepare("INSERT INTO events(title, description, color, start, end, rating, clienteEmail, provedorEmail, idServico, precoServico, status) VALUES (?,?,?,?,?,?,?,?,?,?,?)");
 
         $title = $evento->getTitle();
         $description = $evento->getDescription();
@@ -21,6 +21,7 @@ class EventoDAO extends Database
         $provedorEmail = $evento->getProvedor()->getEmail();
         $idServico     = $evento->getServico()->getId();
         $precoServico = $evento->getPrecoServico();
+        $status = $evento->getStatus();
 
 
         $b->bindParam(1,$title,\PDO::PARAM_STR);
@@ -33,6 +34,7 @@ class EventoDAO extends Database
         $b->bindParam(8,$provedorEmail,\PDO::PARAM_STR);
         $b->bindParam(9,$idServico,\PDO::PARAM_STR);
         $b->bindParam(10,$precoServico,\PDO::PARAM_STR);  //mesmo sendo DECIMAL o bindParam não tem um específico para decimais, portanto deve se usar PARAM_STR
+        $b->bindParam(11,$status,\PDO::PARAM_STR);
         $b->execute();
     }
     public function alterar()
@@ -63,6 +65,7 @@ class EventoDAO extends Database
         $eventoRetorno->setStart($resultado["start"]);
         $eventoRetorno->setEnd($resultado["end"]);
         $eventoRetorno->setRating($resultado["rating"]);
+        $eventoRetorno->setStatus($resultado["status"]);
         //buscando no banco de dados informações do cliente e do provedor e criando os seus objetos
         $usuarioDAO = new UsuarioDAO;
         $cliente  = $usuarioDAO->buscarPorEmail($resultado["clienteEmail"]);
@@ -95,20 +98,22 @@ class EventoDAO extends Database
         $resultado=$b->fetchAll(\PDO::FETCH_ASSOC);
         return json_encode($resultado);
     }
-    public function alterarNota($avaliacao, $id)
+    public function alterarAvaliacao($status, $avaliacao, $id)
     {
-        $b=$this->useDB()->prepare("UPDATE events SET rating=? WHERE id=?");
-        $b->bindParam(1,$avaliacao,\PDO::PARAM_INT);
-        $b->bindParam(2,$id,\PDO::PARAM_INT);
+        $b=$this->useDB()->prepare("UPDATE events SET status=?, rating=? WHERE id=?");
+        $b->bindParam(1,$status,\PDO::PARAM_STR);
+        $b->bindParam(2,$avaliacao,\PDO::PARAM_INT);
+        $b->bindParam(3,$id,\PDO::PARAM_INT);
         $b->execute();
     }
-    public function alterarStatus($color, $id, $start, $end)
+    public function alterarStatus($color, $status, $id, $start, $end)
     {
-        $b=$this->useDB()->prepare("UPDATE events SET color=? WHERE id=? AND start=? AND end=?");
+        $b=$this->useDB()->prepare("UPDATE events SET color=?, status=? WHERE id=? AND start=? AND end=?");
         $b->bindParam(1,$color,\PDO::PARAM_STR);
-        $b->bindParam(2,$id,\PDO::PARAM_INT);
-        $b->bindParam(3,$start,\PDO::PARAM_STR);
-        $b->bindParam(4,$end,\PDO::PARAM_STR);
+        $b->bindParam(2,$status,\PDO::PARAM_STR);
+        $b->bindParam(3,$id,\PDO::PARAM_INT);
+        $b->bindParam(4,$start,\PDO::PARAM_STR);
+        $b->bindParam(5,$end,\PDO::PARAM_STR);
         $b->execute();
     }
     

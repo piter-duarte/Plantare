@@ -59,7 +59,8 @@ class Database extends Connection
                 clienteEmail VARCHAR(300),
                 provedorEmail VARCHAR(300),
                 idServico INT,
-                precoServico DECIMAL(10,2), 
+                precoServico DECIMAL(10,2),
+                status VARCHAR(300), 
                 FOREIGN KEY (clienteEmail) REFERENCES usuarios(email)
                 ON DELETE CASCADE
                 ON UPDATE CASCADE,

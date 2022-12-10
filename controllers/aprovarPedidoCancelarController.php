@@ -6,7 +6,7 @@ $start  = filter_input(INPUT_POST,'start', FILTER_DEFAULT);
 $end    = filter_input(INPUT_POST,'end', FILTER_DEFAULT);
 
 
-$eventoDAO->alterarStatus('red', $id, $start, $end);
+$eventoDAO->alterarStatus('red', 'Cancelado', $id, $start, $end);
 
 session_start();
 $usuario = unserialize($_SESSION["usuario"]);
