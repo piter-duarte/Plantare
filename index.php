@@ -1,12 +1,16 @@
 <?php 
+use Models\Database;
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
-
     $con= new Models\Database;
-    $con->createDB();
 
-    //o código abaixo remove tudo das variáveis de sessão e cookies do sistema
+    if($con->verificarSeExiste() == false)
+    {
+        $con->createDB();
+    }
+
     session_start();
+    //o código abaixo remove tudo das variáveis de sessão e cookies do sistema 
     $_SESSION = array();
     session_destroy();
     if (isset($_COOKIE['id'])) {
