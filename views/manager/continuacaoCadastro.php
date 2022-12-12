@@ -39,7 +39,7 @@
                                     <label for="precoGrama">Cortar Grama</label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoGrama" name="precoGrama" type="number"
-                                            placeholder="Informe preço"
+                                            placeholder="Informe valor por hora"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
                                         <span class="error-icon hidden -ml-6 text-red-700">
@@ -67,7 +67,7 @@
                                     <label for="precoPoda">Realizar Poda</label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoPoda" name="precoPoda" type="number"
-                                            placeholder="Informe preço"
+                                            placeholder="Informe valor por hora"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
                                         <span class="error-icon hidden -ml-6 text-red-700">
@@ -95,7 +95,7 @@
                                     <label for="precoFertilizante">Aplicar Fertilizante</label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoFertilizante" name="precoFertilizante"
-                                            type="number" placeholder="Informe preço"
+                                            type="number" placeholder="Informe valor por hora"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
                                         <span class="error-icon hidden -ml-6 text-red-700">
@@ -123,7 +123,7 @@
                                     <label for="precoPesticida">Aplicar Pesticida</label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoPesticida" name="precoPesticida" type="number"
-                                            placeholder="Informe preço"
+                                            placeholder="Informe valor por hora"
                                             class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
                                             disabled>
                                         <span class="error-icon hidden -ml-6 text-red-700">

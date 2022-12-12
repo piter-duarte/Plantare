@@ -1183,6 +1183,11 @@ div.continuacaoContainer  div#body div#bodyContent1 div.contorno{
     justify-self: center;
    
 }
+div.contorno ::-webkit-input-placeholder {
+    text-align: center;
+    font-size: 14px;
+    color:var(--terciary50);
+}
 
 div.continuacaoContainer  div#body div#bodyContent1 div.contorno div.labelcheckbox
 {
@@ -1589,13 +1594,14 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus div.titleStatus
 
 main.logadoPage div.conteudo.StatusPedido div.infoStatus div.status
 {
-    width: 220px;
+    width: 230px;
     height: 100%;
     display: grid;
     align-items: center;  /*alinha na vertical*/
     align-self: center;    /*alinha na vertical*/
     justify-self: center;
 }
+
 main.logadoPage div.conteudo.StatusPedido div.infoStatus div.status h4
 {
     text-align: left;
@@ -1672,14 +1678,17 @@ div.conteudo.meuPerfil form{
     justify-self: center;
     align-self:center;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
+    /*grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;*/
+    grid-template-columns:40% 1fr 40%;
+    grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     align-items:center;
+    
 }
 
 div.conteudo.meuPerfil form div#btGroup {
-    grid-column-start: 1;
+    grid-column-start: 2;
     grid-column-end: 3;
 }
 
