@@ -1412,7 +1412,7 @@ form.containerform div.formGroup.flex.flex-col.my-4 label
 div.popup.realizarOrcamento {
 
     width: 550px;
-    height: 400px;
+    height: 450px;
     padding: 20px;
     background-color: var(--white);
     border-radius: 5px;

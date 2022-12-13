@@ -279,6 +279,7 @@ class UsuarioDAO extends Database{
             return $usuarioRetorno;
         }
     }
+    //PARA INTERVALOS DE 1 HORA
     public function buscarDisponiveis($idServico, $start, $end)
     {
         //TODO arrumar select para usuarios disponiveis corretamente
@@ -303,7 +304,33 @@ class UsuarioDAO extends Database{
         $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
         return $resultado;
     }
+    //PARA INTERVALOS + DE 1 HORA
+    public function buscarDisponiveis2($idServico, $start, $end)
+    {
+        $b=$this->useDB()->prepare("SELECT usu.nome, usu.razao_social, usu.ehJuridica, usu.email, usu.media, se.nome 'nomeServico', rel.preco
+        FROM usuarios usu
+        INNER JOIN relacao rel ON rel.provedorEmail = usu.email
+        INNER JOIN servicos se ON se.id = rel.idServico
+        WHERE se.id = ? AND rel.preco != 0.00 AND usu.email NOT IN(
+            SELECT usu2.email 
+            FROM usuarios usu2 
+            INNER JOIN events ev ON usu2.email = ev.provedorEmail
+            INNER JOIN relacao rel2 ON rel2.provedorEmail = usu2.email
+            INNER JOIN servicos se2 ON se2.id = rel2.idServico
+            WHERE rel2.idServico = se.id AND ? between ev.start and ev.end
+            and ? between ev.start and ev.end    
+            and ev.start < ev.end
+            GROUP BY usu2.nome, ev.provedorEmail
+        ) ORDER BY  usu.media DESC, usu.nome ASC, usu.razao_social");
 
+        $b->bindParam(1,$idServico,\PDO::PARAM_INT);
+        $b->bindParam(2,$start,\PDO::PARAM_STR);
+        $b->bindParam(3,$end,\PDO::PARAM_STR);
+        $b->execute();
+        $resultado = $b->fetchAll(\PDO::FETCH_ASSOC);
+        return $resultado;
+    }
+    
     public function virarProvedor($usuario)
     {
         $email = $usuario->getEmail();

@@ -30,7 +30,7 @@ use Models\Database;
 
     <header>
         <div class="logo">
-            <a class="img-logo" href="assets.php">
+            <a class="img-logo" href="index.php">
                 <img class="img-logo" src="./lib/img/LogoAlterada.png">
             </a>
             <h5>Plantare</h5>

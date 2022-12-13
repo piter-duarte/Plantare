@@ -13,7 +13,7 @@
     $end  =new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));
 
         //busca pelos provedores de serviço disponíveis de acordo com o que o usuário selecionar
-        $resultadoBuscarDisponiveis = $usuarioDAO->buscarDisponiveis($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $end->modify('+'.$_COOKIE["hora"].'hours')->format("Y-m-d H:i:s"));
+        $resultadoBuscarDisponiveis = $usuarioDAO->buscarDisponiveis2($_COOKIE["id"], $start->format("Y-m-d H:i:s"), $end->modify('+'.$_COOKIE["hora"].'hours')->format("Y-m-d H:i:s"));
         
         //busca pelos serviços disponíveis no sistema
         $resultadoServicosDAO = $servicoDAO->listar();
