@@ -36,7 +36,7 @@
                                     </label>
                                 </div>
                                 <div class="formGroup flex flex-col my-4">
-                                    <label for="precoGrama">Cortar Grama</label>
+                                    <label for="precoGrama"><h3>Cortar Grama</h3></label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoGrama" name="precoGrama" type="number"
                                             placeholder="Informe valor por hora"
@@ -64,7 +64,7 @@
                                     </label>
                                 </div>
                                 <div class="formGroup flex flex-col my-4">
-                                    <label for="precoPoda">Realizar Poda</label>
+                                    <label for="precoPoda"><h3>Realizar Poda</h3></label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoPoda" name="precoPoda" type="number"
                                             placeholder="Informe valor por hora"
@@ -92,7 +92,7 @@
                                     </label>
                                 </div>
                                 <div class="formGroup flex flex-col my-4">
-                                    <label for="precoFertilizante">Aplicar Fertilizante</label>
+                                    <label for="precoFertilizante"><h3>Aplicar Fertilizante</h3></label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoFertilizante" name="precoFertilizante"
                                             type="number" placeholder="Informe valor por hora"
@@ -120,7 +120,7 @@
                                     </label>
                                 </div>
                                 <div class="formGroup flex flex-col my-4">
-                                    <label for="precoPesticida">Aplicar Pesticida</label>
+                                    <label for="precoPesticida"><h3>Aplicar Pesticida</h3></label>
                                     <div class="flex items-center">
                                         <input class="price" id="precoPesticida" name="precoPesticida" type="number"
                                             placeholder="Informe valor por hora"

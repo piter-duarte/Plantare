@@ -31,6 +31,7 @@ body{
     --terciary: #174429;
     --terciary75: rgba(23, 68, 41, 0.75);
     --terciary50: rgba(23, 68, 41, 0.50);
+    --terciary30: rgba(23, 68, 41, 0.3);
     --quaternary: #CAEED0;
     --quaternary75: rgba(202, 238, 208, 0.75);
     --quaternary50: rgba(202, 238, 208, 0.50);
@@ -279,6 +280,14 @@ button.bts[disabled], input[type='submit'].bts[disabled], input[type="button"].b
 button.btxg, input[type='submit'].btxg, input[type="button"].btxg
 {
     width: 250px;
+
+}
+button.btxgx, input[type='submit'].btxgx, input[type="button"].btxgx
+{
+    width: 200px;
+    height: 46px;
+    font-size: var(--h5fsize);
+    color: var(--black);
 }
 
 input[type='radio']{
@@ -1121,9 +1130,8 @@ main.cadastroContinuacaoPage{
 }
 
 form#continuacaoCadastroForm{
-    /*width: 80%;*/
-    width: 600px;
-    height: 500px;
+    width: 30%;
+    height: 80%;
     border-radius: 5px;
 }
 
@@ -1185,7 +1193,7 @@ div.continuacaoContainer  div#body div#bodyContent1 div.contorno{
 }
 div.contorno ::-webkit-input-placeholder {
     text-align: center;
-    font-size: 14px;
+    font-size: 16px;
     color:var(--terciary50);
 }
 
@@ -1207,7 +1215,7 @@ div.continuacaoContainer  div#body  div.contorno div#bodyContent1{
 
 div.continuacaoContainer  div#body div#bodyContent1 div.formGroup.flex.flex-col.my-4 {
     
-    width: 50%;
+    width: 100%;
     grid-column-start: 2;
     grid-column-end: 3;
     margin: 0;
@@ -1217,7 +1225,11 @@ div.continuacaoContainer  div#body div#bodyContent1 div.formGroup.flex.flex-col.
 }
 div.continuacaoContainer label
 {
-    width: 150px;  
+    width: 100%; 
+}
+div.contorno div.formGroup.flex.flex-col.my-4 label h3
+{
+    font-size: 22px !important;
 }
 div.continuacaoContainer label.checkbox
 {
@@ -1227,7 +1239,7 @@ div.continuacaoContainer label.checkbox
 }
 div.continuacaoContainer input.price:disabled
 {
-    background-color: var(--black25);
+    background-color: var(--black10);
     border-bottom: 2px solid var(--terciary) !important;
 }
 div.continuacaoContainer input.price
@@ -1671,30 +1683,42 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario 
 
 div.conteudo.meuPerfil{
     display: grid;
+    background-image: url(../img/meuPerfilPage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div.conteudo.meuPerfil form{
-    width: 100%;
+    width: 50%;
     justify-self: center;
     align-self:center;
     display: grid;
-    /*grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;*/
-    grid-template-columns:40% 1fr 40%;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-items: center;
     align-items:center;
+    background-color:var(--white);
+    border-radius: 5px;
+    
     
 }
-
 div.conteudo.meuPerfil form div#btGroup {
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 3;
+    
 }
 
 div.conteudo.meuPerfil form div#btGroup button:first-child{
     margin-right: 5px;
 }
+
+div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled, input:read-only
+{
+background-color: var(--quaternary75);
+color: var(--terciary30);
+
+}
+
 
 /* -----------------------------------------------MEU PERFIL END------------------------------------------- */
 
@@ -1702,10 +1726,14 @@ div.conteudo.meuPerfil form div#btGroup button:first-child{
 
 div.conteudo.meusServicos{
     display: grid;
+    background-image: url(../img/meuServicosPage.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div.conteudo.meusServicos form{
-    width: 100%;
+    width: 40%;
+    height: 40%;
     justify-self: center;
     align-self: center;
     display: grid;
@@ -1713,6 +1741,8 @@ div.conteudo.meusServicos form{
     grid-template-rows: 1fr 1fr 1fr;
     justify-items: center;
     align-items: center;
+    background-color:var(--white);
+    border-radius: 5px;
 }
 
 div.conteudo.meusServicos form div#btGroup {
@@ -1722,6 +1752,12 @@ div.conteudo.meusServicos form div#btGroup {
 
 div.conteudo.meusServicos form div#btGroup button:first-child{
     margin-right: 5px;
+}
+
+div.conteudo.meusServicos input:disabled
+{
+background-color: var(--quaternary75);
+color: var(--terciary50);
 }
 
 /* -----------------------------------------------MEUS SERVIÇOS END------------------------------------------- */
@@ -1747,12 +1783,15 @@ main.logadoPage div.conteudo.cadastrarServicos{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
+    background-image: url(../img/cadastrarServicos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main.logadoPage div.conteudo.cadastrarServicos div.mensagem {
-    width: 500px;
-    height: 300px;
-    background-color: var(--white);
+    width: 50%;
+    height: 60%;
+    background-color: var(--fc-list-event-hover-bg-color);
     border-radius: 5px;
     display: grid;
     justify-self: center;
@@ -1765,6 +1804,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem {
 
 
 main.logadoPage div.conteudo.cadastrarServicos div.mensagem div#textos{
+    margin-top: 60px;
     width: 100%;
     height: 100%;
     display: grid;
@@ -1785,6 +1825,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(2){
     display: grid;
     align-items: center;
     justify-items: center;
+    margin-top: 60px;
 
 }
 
@@ -1815,6 +1856,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(3) {
 }
 
 main.logadoPage div.conteudo.cadastrarServicos ul {
+    width:75%;
     list-style: none; /* Remove default bullets */
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1824,14 +1866,14 @@ main.logadoPage div.conteudo.cadastrarServicos ul {
   }
 
  main.logadoPage div.conteudo.cadastrarServicos ul li{
+    width:85%;
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: max-content 1fr;
     align-items: center;
-    width: 180px;
-    font-size: var(--h5fsize);
+    font-size: var(--h4fsize);
     margin-bottom: 8px;
-  }
+ }
 
   main.logadoPage div.conteudo.cadastrarServicos ul li i{
     font-size: var(--h6fsize);
@@ -1842,5 +1884,6 @@ main.logadoPage div.conteudo.cadastrarServicos ul {
   {
     text-align: left;
     margin-left: 10px;
+    font-size: 24px !important;
   }
 /* -------------------------------------------CADASTRAR SERVIÇOS END---------------------------------------- */
