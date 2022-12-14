@@ -1712,7 +1712,7 @@ div.conteudo.meuPerfil form div#btGroup button:first-child{
     margin-right: 5px;
 }
 
-div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled, input:read-only
+div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled, div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled input:read-only
 {
 background-color: var(--quaternary75);
 color: var(--terciary30);
