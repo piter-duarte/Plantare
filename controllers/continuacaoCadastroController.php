@@ -48,18 +48,18 @@ if (!empty($_POST["servico"]))
         $relacaoDAO->inserir($email, 2, 0.0);  
     }
 
-    if(in_array('Aplicar Fertilizante',$_POST["servico"]))
+    if(in_array('Aplicar Pesticida',$_POST["servico"]))
     {
-        $relacaoDAO->inserir($email, 3, $precoFertilizante);
+        $relacaoDAO->inserir($email, 3, $precoPesticida);
     }
     else
     {
         $relacaoDAO->inserir($email, 3, 0.0);  
     }
-
-    if(in_array('Aplicar Pesticida',$_POST["servico"]))
+    
+    if(in_array('Aplicar Fertilizante',$_POST["servico"]))
     {
-        $relacaoDAO->inserir($email, 4, $precoPesticida);
+        $relacaoDAO->inserir($email, 4, $precoFertilizante);
     }
     else
     {

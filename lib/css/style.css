@@ -1119,7 +1119,7 @@ form#formCadastro div.formEnd label.checkbox {
 
 /* -----------------------------------------------CADASTRO CONTINUACAO------------------------------------- */
 
-main.cadastroContinuacaoPage{
+main.continuacaoCadastro{
     grid-template-rows: auto;
     grid-template-columns: auto;
     display: grid;
@@ -1130,135 +1130,112 @@ main.cadastroContinuacaoPage{
 }
 
 form#continuacaoCadastroForm{
-    width: 30%;
+    width: 50%;
     height: 80%;
     border-radius: 5px;
-}
-
-form#continuacaoCadastroForm div.continuacaoContainer{
-    width: 100%;
-    height: 100%;
     background-color: var(--white);
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 15% 65% 20%;
-    align-items: center;
-    justify-items: center;
-}
-
-input.button.btg{
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-form#continuacaoCadastroForm div.continuacaoContainer div#heading{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto;
-   /* grid-template-columns: 50% 50%;*/
-    grid-template-rows: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-div.continuacaoContainer  div#body {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto;
-   /* border-bottom: 2px solid var(--black25);*/
-}
-
-div.continuacaoContainer div#body div#bodyContent1{
-    display: grid;
-    grid-template-columns: auto;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    align-self: center;
-}
-
-div.continuacaoContainer  div#body div#bodyContent1{
-    /*border-right: 2px solid var(--black25);*/
-}
-
-div.continuacaoContainer  div#body div#bodyContent1 div.contorno{
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    align-self: center;
-    justify-self: center;
-   
-}
-div.contorno ::-webkit-input-placeholder {
-    text-align: center;
-    font-size: 16px;
-    color:var(--terciary50);
-}
-
-div.continuacaoContainer  div#body div#bodyContent1 div.contorno div.labelcheckbox
-{
-    margin-left: 10px;
-    height: 80px;
-    display: flex;
-}
-
-div.continuacaoContainer  div#body  div.contorno div#bodyContent1{
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    justify-content: center;
-    align-self: center;
+    justify-self: center; /*horizontal*/
+    align-self: center; /*vertical*/
     
 }
-
-div.continuacaoContainer  div#body div#bodyContent1 div.formGroup.flex.flex-col.my-4 {
-    
-    width: 100%;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    margin: 0;
-    
-    
-        
-}
-div.continuacaoContainer label
-{
-    width: 100%; 
-}
-div.contorno div.formGroup.flex.flex-col.my-4 label h3
-{
-    font-size: 22px !important;
-}
-div.continuacaoContainer label.checkbox
-{
-    width: 40px;
-    cursor:pointer;
-       
-}
-div.continuacaoContainer input.price:disabled
-{
-    background-color: var(--black10);
-    border-bottom: 2px solid var(--terciary) !important;
-}
-div.continuacaoContainer input.price
-{
-    
-    border-bottom: 2px solid var(--terciary) !important;
-}
-
-div.continuacaoContainer div.error.text-red-700.py-2{
-    width: 200px;
-}
-
-div.continuacaoContainer div.contorno div.labelcheckbox {
-    padding-top: 10px;
-}
-
-div.continuacaoContainer div.contorno div.formGroup.flex.flex-col.my-4 div.flex.items-center
+form#continuacaoCadastroForm h2
 {
     margin-top: 10px;
+}
+form#continuacaoCadastroForm div#servicos
+{
+  
+    width: 80%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+form#continuacaoCadastroForm div#servicos div#coluna1
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: auto;
+ 
+}
+form#continuacaoCadastroForm div#servicos div#coluna1 div.linha
+{
+    width: 80%;
+    height: 100%;  
+    display: grid;
+    grid-template-columns: 14% 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-self: center;
+ 
+}
+div#coluna1 div.linha div.labelcheckbox
+{
+    margin-top:22px;
+    margin-right: 10px;
+}
+
+
+form#continuacaoCadastroForm div#servicos div#coluna2
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: auto;
+}
+form#continuacaoCadastroForm div#servicos div#coluna2 div.linha
+{
+    width: 80%;
+    height: 100%;  
+    display: grid;
+    grid-template-columns: 14% 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-self: center;
+ 
+}
+div#coluna2 div.linha div.labelcheckbox
+{
+    margin-top:22px;
+    margin-right: 10px;
+}
+
+
+form#continuacaoCadastroForm div.botao
+{   
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 10% 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    margin:auto;
+}
+form#continuacaoCadastroForm div.botao input:nth-child(2)
+{
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+div#servicos div.linha div.formGroup.flex.flex-col.my-4 label
+{
+    font-size: 21px;
+}
+form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input:disabled
+{
+    background-color: var(--quaternary75);
+    color: var(--terciary30);   
+}
+
+form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input::placeholder {
+    text-align: center;
+    font-size: 14px;
+    color:var(--terciary50);
 }
 
 /* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
@@ -1712,7 +1689,7 @@ div.conteudo.meuPerfil form div#btGroup button:first-child{
     margin-right: 5px;
 }
 
-div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled, div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled input:read-only
+div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled, div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:read-only
 {
 background-color: var(--quaternary75);
 color: var(--terciary30);
