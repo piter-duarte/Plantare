@@ -35,7 +35,7 @@
         <?php
                   chamarNavbar($usuario);
         ?>
-        <div class="conteudo">
+        <div class="conteudo meuCalendario">
             <div class="calendarUser"></div>
         </div>
     </main>

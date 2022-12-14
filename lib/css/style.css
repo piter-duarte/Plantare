@@ -282,13 +282,13 @@ button.btxg, input[type='submit'].btxg, input[type="button"].btxg
     width: 250px;
 
 }
-button.btxgx, input[type='submit'].btxgx, input[type="button"].btxgx
+/* button.btxgx, input[type='submit'].btxgx, input[type="button"].btxgx
 {
     width: 200px;
     height: 46px;
     font-size: var(--h5fsize);
     color: var(--black);
-}
+} */
 
 input[type='radio']{
     margin-left: 10px;
@@ -456,6 +456,45 @@ i.fa-solid.fa-star.fa-sm.starEmpty {
     .fc-header-toolbar.fc-toolbar 
     {
         align-self: center;
+        margin-bottom: 0.0em !important;
+    }
+
+    .fc-toolbar-chunk:nth-child(2)
+    {
+        background-color: var(--black75);
+        /* border-radius: 5px;
+        border: 0.5px solid var(--white); */
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; 
+        border-top: 0.5px solid var(--white);
+        border-left: 0.5px solid var(--white);
+        border-right: 0.5px solid var(--white);
+    }
+
+    .fc-popover.fc-more-popover
+    {
+        background-color: var(--black75);
+    }
+
+    .fc-popover-title
+    {
+        color: var(--white);
+    }
+
+    .fc-popover-body .fc-event-title
+    {
+        color: var(--white);
+    }
+
+    .fc-daygrid-more-link.fc-more-link
+    {
+        color: var(--white) !important;
+        font-size: var(--h6fsize);
+    }
+
+    .fc-toolbar-title
+    {
+        color: var(--white);
     }
 
     .calendarManager,  
@@ -539,7 +578,7 @@ i.fa-solid.fa-star.fa-sm.starEmpty {
     .calendarUser div.fc-header-toolbar.fc-toolbar  div.fc-toolbar-chunk h2.fc-toolbar-title
     {
         font-family: var(--hfonts);
-        font-size: var(--h5fsize) !important;
+        font-size:  0.65rem !important;
         
     }
 
@@ -1017,9 +1056,9 @@ main.loginPage{
     background-color: transparent;
 }
 
-.loginPage .formGroup label {
+/* .loginPage .formGroup label {
     color: var(--primary);
-}
+} */
 
 /* -----------------------------------------------LOGIN END------------------------------------------------- */
 
@@ -1333,25 +1372,22 @@ div.navbar div.options div.item h5{
 div.navbar div.options div.item i {
    /* opacity: 0; */
 }
-i.fa-solid.fa-user
-{
-    color:var(--black);
-}
-i.fa-solid.fa-calendar-days
-{
-    color:var(--black);
-}
-i.fa-solid.fa-person-diggingr
-{
-    color:var(--black);
-}
-i.fa-solid.fa-door-open
+i.fa-solid.fa-user, i.fa-solid.fa-calendar-days, i.fa-solid.fa-person-diggingr, 
+i.fa-solid.fa-door-open, i.fa-solid.fa-pen-to-square
 {
     color:var(--black);
 }
 
 .logadoPage div.conteudo { /* container principal da aplicação*/
     background-color: gray;
+}
+
+div.navbar div.options a{
+    margin-bottom: 20px;
+}
+
+div.navbar div.options a:last-child{
+    margin-top: 10%;
 }
 
 /* -----------------------------------------------NAVBAR END------------------------------------------------- */
@@ -1864,3 +1900,25 @@ main.logadoPage div.conteudo.cadastrarServicos ul {
     font-size: 24px !important;
   }
 /* -------------------------------------------CADASTRAR SERVIÇOS END---------------------------------------- */
+
+/* -------------------------------------------MEU CALENDARIO------------------------------------------------- */
+
+div.container main.logadoPage div.conteudo.meuCalendario
+{
+    background-image: url(../img/meuCalendarioImg.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+}
+
+div.container main.logadoPage div.conteudo.meuCalendario div.calendarUser
+{
+    margin-top: 1%;
+}
+
+div.container main.logadoPage div.conteudo.meuCalendario div.calendarManager
+{
+    margin-top: 1%;
+}
+
+/* ----------------------------------------MEU CALENDARIO END---------=------------------------------------- */
+
