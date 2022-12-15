@@ -35,7 +35,7 @@
                             <div class="flex items-center">
                                 <input id="precoGrama" name="precoGrama" type="number"
                                     placeholder="Informe valor por hora"
-                                    class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
+                                    class="w-full border-b-2 border-black outline-none py-2 op0" min="0" step="0.01"
                                     disabled>
                                 <span class="error-icon hidden -ml-6 text-red-700">
                                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -61,7 +61,7 @@
                             <div class="flex items-center">
                                 <input id="precoPoda" name="precoPoda" type="number"
                                     placeholder="Informe valor por hora"
-                                    class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
+                                    class="w-full border-b-2 border-black outline-none py-2 op0" min="0" step="0.01"
                                     disabled>
                                 <span class="error-icon hidden -ml-6 text-red-700">
                                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -89,7 +89,7 @@
                             <div class="flex items-center">
                                 <input id="precoPesticida" name="precoPesticida" type="number"
                                     placeholder="Informe valor por hora"
-                                    class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
+                                    class="w-full border-b-2 border-black outline-none py-2 op0" min="0" step="0.01"
                                     disabled>
                                 <span class="error-icon hidden -ml-6 text-red-700">
                                     <i class="fa-solid fa-circle-exclamation"></i>
@@ -115,7 +115,7 @@
                             <div class="flex items-center">
                                 <input id="precoFertilizante" name="precoFertilizante" type="number"
                                     placeholder="Informe valor por hora"
-                                    class="w-full border-b-2 border-black outline-none py-2" min="0" step="0.01"
+                                    class="w-full border-b-2 border-black outline-none py-2 op0" min="0" step="0.01"
                                     disabled>
                                 <span class="error-icon hidden -ml-6 text-red-700">
                                     <i class="fa-solid fa-circle-exclamation"></i>

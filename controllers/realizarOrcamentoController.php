@@ -1,10 +1,10 @@
 <?php
-use Models\Servico;
+use Models\Domain\Servico;
 include ("../config/config.php");
-use Models\Evento;
-$eventoDAO  = new \Classes\EventoDAO();
-$servicoDAO = new \Classes\ServicoDAO();
-$usuarioDAO = new \Classes\UsuarioDAO();
+use Models\Domain\Evento;
+$eventoDAO  = new \Models\DAO\EventoDAO();
+$servicoDAO = new \Models\DAO\ServicoDAO();
+$usuarioDAO = new \Models\DAO\UsuarioDAO();
 session_start();
 
 //pegando os dados do formulário

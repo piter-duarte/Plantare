@@ -1,9 +1,9 @@
 <?php
 
-use Models\PessoaFisica;
+use Models\Domain\PessoaFisica;
 
 include ("../config/config.php");
-$usuarioDAO      = new \Classes\UsuarioDAO();
+$usuarioDAO      = new \Models\DAO\UsuarioDAO();
    
     $nome         = filter_input(INPUT_POST,'nome', FILTER_DEFAULT);
     $cpf          = filter_input(INPUT_POST,'cpf', FILTER_DEFAULT);

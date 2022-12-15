@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Models\Domain;
 class PessoaFisica extends Usuario
 {
     private $nome;

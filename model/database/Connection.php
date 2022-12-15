@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Models\Database;
 
 abstract class Connection //classe de conexão com o banco
 {

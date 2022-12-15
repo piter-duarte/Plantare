@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Models\Domain;
 class Servico
 {
     private $id;

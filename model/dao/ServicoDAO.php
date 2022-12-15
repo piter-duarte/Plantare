@@ -1,7 +1,6 @@
 <?php
-namespace Classes;
-use Models\Database;
-use Models\Servico;
+namespace Models\DAO;
+use Models\Database\Database;
 
 class ServicoDAO extends Database
 {

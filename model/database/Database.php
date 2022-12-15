@@ -1,6 +1,6 @@
 <?php
-namespace Models;
-use Models\Connection;
+namespace Models\Database;
+use Models\Database\Connection;
 
 class Database extends Connection
 {

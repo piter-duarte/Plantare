@@ -4,9 +4,9 @@
     require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
     include(DIRREQ."/lib/includes/funcoes.php");
     $date=new \DateTime($_GET['date'], new \DateTimeZone('America/Sao_Paulo'));
-    $usuarioDAO = new \Classes\UsuarioDAO();
-    $relacaoDAO = new \Classes\RelacaoDAO();
-    $servicoDAO = new \Classes\ServicoDAO();
+    $usuarioDAO = new \Models\DAO\UsuarioDAO();
+    $relacaoDAO = new \Models\DAO\RelacaoDAO();
+    $servicoDAO = new \Models\DAO\ServicoDAO();
 
     //descobre a data atual
     $start=new \DateTime($date->format("Y-m-d").' '.$date->format("H:i"), new \DateTimeZone('America/Sao_Paulo'));

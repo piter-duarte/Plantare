@@ -1169,13 +1169,12 @@ main.continuacaoCadastro{
 }
 
 form#continuacaoCadastroForm{
-    width: 50%;
-    height: 80%;
+    width: max(900px, 50%);
+    height: max(550px, 80%);
     border-radius: 5px;
     background-color: var(--white);
     justify-self: center; /*horizontal*/
-    align-self: center; /*vertical*/
-    
+    align-self: center; /*vertical*/    
 }
 form#continuacaoCadastroForm h2
 {
@@ -1255,6 +1254,10 @@ form#continuacaoCadastroForm div.botao
     justify-items: center;
     margin:auto;
 }
+
+form#continuacaoCadastroForm div.botao input {
+    font-size: var(--h6fsize);
+}
 form#continuacaoCadastroForm div.botao input:nth-child(2)
 {
     grid-column-start: 3;
@@ -1275,6 +1278,11 @@ form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input::placeholder
     text-align: center;
     font-size: 14px;
     color:var(--terciary50);
+}
+
+form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input.op0::placeholder
+{
+    opacity: 0.0;
 }
 
 /* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
@@ -1398,6 +1406,9 @@ main.logadoPage div.conteudo.realizarOrcamento {
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: 2% 1fr 2%;
+    background-image: url(../img/meuCalendarioImg7.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
     
 }
 
@@ -1407,20 +1418,24 @@ main.logadoPage div.conteudo.realizarOrcamento  div.space80{
     display: grid;
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: auto;
-    justify-content: center;/*centralizou na vertical*/
+    justify-items: center;/*centralizou na vertical*/
     align-items: center; /* centralizou na horizontal*/
 }
 div.space80 form.containerform{
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 100%;
+    width: 400px;
     height: 100%;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 0.5fr;    
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     box-sizing: border-box;
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 16px;
+    align-self: center;
 }
 
 form.containerform div.formGroup.flex.flex-col.my-4
@@ -1479,6 +1494,10 @@ div#popup-bt-group{
     align-self: center; 
 }
 
+div#popup-bt-group input{
+    font-size: var(--h6fsize);
+}
+
 div#popup-bt-group input:nth-child(2){
     margin-left: 10px;
 }
@@ -1486,6 +1505,25 @@ div#popup-bt-group input:nth-child(2){
 div.space80.disabled{
     opacity: 0;
 }
+
+main.logadoPage div.conteudo.realizarOrcamento input[type="date"]:read-only, main.logadoPage div.conteudo.realizarOrcamento input[type="time"]:read-only
+{
+    background-color: var(--quaternary75);
+    color: var(--terciary30); 
+}
+
+main.logadoPage div.conteudo.realizarOrcamento select{
+    border-bottom: 2px solid var(--black);
+    border-left: none;
+    /* appearance: none; */
+}
+
+/* main.logadoPage div.conteudo.realizarOrcamento div.selectArrow
+{
+    display: inline-block;
+    position: relative;
+    background-color: red;
+} */
 
 
 /* -----------------------------------------------ORÇAMENTO END------------------------------------------------- */
@@ -1498,6 +1536,10 @@ main.logadoPage div.conteudo.avaliarProfissional
     display: grid;
     grid-template-rows: 10% 1fr 10%;
     justify-content: center;
+
+    background-image: url(../img/meuCalendarioImg8.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
     
 }
 
@@ -1572,6 +1614,10 @@ div.contendmiddle div.btnAvaliar
     justify-content: center;
 }
 
+div.btnAvaliar input {
+    font-size: var(--h6fsize) !important;
+}
+
 div.btnAvaliar input:first-child
 {
     margin-right: 15px;
@@ -1589,6 +1635,10 @@ main.logadoPage div.conteudo.StatusPedido /*  div conteudo */
     justify-content: left;
     width: 100%;
     height: 100%;
+
+    background-image: url(../img/meuCalendarioImg7.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
         
 }
 
@@ -1702,7 +1752,7 @@ div.conteudo.meuPerfil{
 }
 
 div.conteudo.meuPerfil form{
-    width: 50%;
+    width: 780px;
     justify-self: center;
     align-self:center;
     display: grid;
@@ -1745,13 +1795,13 @@ div.conteudo.meusServicos{
 }
 
 div.conteudo.meusServicos form{
-    width: 40%;
-    height: 40%;
+    width: 650px;
+    height: 350px;
     justify-self: center;
     align-self: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr;
     justify-items: center;
     align-items: center;
     background-color:var(--white);
@@ -1869,7 +1919,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(3) {
 }
 
 main.logadoPage div.conteudo.cadastrarServicos ul {
-    width:75%;
+    width: 450px;
     list-style: none; /* Remove default bullets */
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1893,12 +1943,24 @@ main.logadoPage div.conteudo.cadastrarServicos ul {
     color: var(--primary);
   }
 
+  main.logadoPage div.conteudo.cadastrarServicos div#textos h4
+  {
+    font-size: 18px !important;
+    height: 100px;
+  }
+
   main.logadoPage div.conteudo.cadastrarServicos ul li h5
   {
     text-align: left;
     margin-left: 10px;
-    font-size: 24px !important;
+    font-size: 15px !important;
   }
+
+  main.logadoPage div.conteudo.cadastrarServicos form input
+  {
+    font-size: var(--h6fsize);
+  }
+
 /* -------------------------------------------CADASTRAR SERVIÇOS END---------------------------------------- */
 
 /* -------------------------------------------MEU CALENDARIO------------------------------------------------- */

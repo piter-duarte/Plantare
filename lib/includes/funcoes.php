@@ -1,6 +1,7 @@
 <?php
 
-use Models\PessoaFisica;
+use Models\Domain\PessoaFisica;
+use Models\Domain\PessoaJuridica;
 
         function chamarHeader($nomePagina) 
         {

@@ -1,6 +1,6 @@
 <?php
 include ("../config/config.php");
-$relacaoDAO = new \Classes\RelacaoDAO();
+$relacaoDAO = new \Models\DAO\RelacaoDAO();
 session_start();
 $usuario = unserialize($_SESSION['usuario']);
    

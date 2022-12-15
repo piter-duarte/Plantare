@@ -1,8 +1,7 @@
 <?php 
-use Models\Database;
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
-    $con= new Models\Database;
+    $con= new Models\Database\Database;
 
     if($con->verificarSeExiste() == false)
     {

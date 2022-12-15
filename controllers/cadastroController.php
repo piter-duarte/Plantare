@@ -1,9 +1,9 @@
 <?php
-use Models\PessoaFisica;
-use Models\PessoaJuridica;
+use Models\Domain\PessoaFisica;
+use Models\Domain\PessoaJuridica;
 
 include ("../config/config.php");
-$usuarioDAO       = new \Classes\UsuarioDAO();
+$usuarioDAO       = new \Models\DAO\UsuarioDAO();
 
 $nome         = filter_input(INPUT_POST,'nome', FILTER_DEFAULT);
 $razao_social = filter_input(INPUT_POST,'razao_social', FILTER_DEFAULT);

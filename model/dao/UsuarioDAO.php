@@ -1,8 +1,8 @@
 <?php
-namespace Classes;
-use Models\Database;
-use Models\PessoaFisica;
-use Models\PessoaJuridica;
+namespace Models\DAO;
+use Models\Database\Database;
+use Models\Domain\PessoaFisica;
+use Models\Domain\PessoaJuridica;
 
 class UsuarioDAO extends Database{
     public function inserir($usuario)

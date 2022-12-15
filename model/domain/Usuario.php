@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Models\Domain;
 abstract class Usuario
 {
     protected $email;

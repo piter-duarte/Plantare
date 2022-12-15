@@ -1,8 +1,8 @@
 <?php
 include ("../config/config.php");
 session_start();
-$relacaoDAO     = new \Classes\RelacaoDAO();
-$usuarioDAO = new \Classes\UsuarioDAO();
+$relacaoDAO     = new \Models\DAO\RelacaoDAO();
+$usuarioDAO = new \Models\DAO\UsuarioDAO();
 
 $precoGrama         = filter_input(INPUT_POST,'precoGrama', FILTER_DEFAULT);
 $precoPoda          = filter_input(INPUT_POST,'precoPoda', FILTER_DEFAULT);

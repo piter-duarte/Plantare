@@ -1,6 +1,7 @@
 <?php
-namespace Classes;
-use Models\Database;
+namespace Models\DAO;
+use Models\Database\Database;
+
 class RelacaoDAO extends Database
 {
     public function inserir($provedorEmail, $idServico, $preco)

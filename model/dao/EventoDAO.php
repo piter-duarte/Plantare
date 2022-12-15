@@ -1,8 +1,11 @@
 <?php
-namespace Classes;
-use Models\Database;
-use Models\Evento;
-use Models\Servico;
+namespace Models\DAO;
+use Models\Database\Database;
+
+use Models\DAO\ServicoDAO;
+use Models\DAO\UsuarioDAO;
+use Models\Domain\Evento;
+use Models\Domain\Servico;
 
 class EventoDAO extends Database
 {

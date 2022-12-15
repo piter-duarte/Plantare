@@ -1,5 +1,5 @@
 <?php
-namespace Models;
+namespace Models\Domain;
 class PessoaJuridica extends Usuario
 {
     private $razao_social;

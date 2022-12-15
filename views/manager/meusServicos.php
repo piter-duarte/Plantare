@@ -6,7 +6,7 @@
     
     $usuario = unserialize($_SESSION['usuario']);
     
-    $relacaoDAO = new \Classes\RelacaoDAO();
+    $relacaoDAO = new \Models\DAO\RelacaoDAO();
     $resultado = $relacaoDAO->buscarTodosPrecosUsuario($usuario);
    
 ?>
