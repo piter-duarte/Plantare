@@ -1406,7 +1406,7 @@ main.logadoPage div.conteudo.realizarOrcamento {
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: 2% 1fr 2%;
-    background-image: url(../img/meuCalendarioImg7.jpg);
+    background-image: url(../img/realizarOrcamentoImg.jpg);
     background-size:     cover;
     background-repeat:   no-repeat;
     
@@ -1537,7 +1537,7 @@ main.logadoPage div.conteudo.avaliarProfissional
     grid-template-rows: 10% 1fr 10%;
     justify-content: center;
 
-    background-image: url(../img/meuCalendarioImg8.jpg);
+    background-image: url(../img/avaliarProfissionalImg.jpg);
     background-size:     cover;
     background-repeat:   no-repeat;
     
@@ -1636,7 +1636,7 @@ main.logadoPage div.conteudo.StatusPedido /*  div conteudo */
     width: 100%;
     height: 100%;
 
-    background-image: url(../img/meuCalendarioImg7.jpg);
+    background-image: url(../img/statusPedidoImg.jpg);
     background-size:     cover;
     background-repeat:   no-repeat;
         
@@ -1746,7 +1746,7 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario 
 
 div.conteudo.meuPerfil{
     display: grid;
-    background-image: url(../img/meuPerfilPage.png);
+    background-image: url(../img/meuPerfilImg.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -1789,7 +1789,7 @@ color: var(--terciary30);
 
 div.conteudo.meusServicos{
     display: grid;
-    background-image: url(../img/meuServicosPage.png);
+    background-image: url(../img/meuServicosImg.png);
     background-repeat: no-repeat;
     background-size: cover;
 }
