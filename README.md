@@ -14,7 +14,7 @@
 <br>
 <p>
   As tecnologias usadas para o desenvolvimento deste projeto foram:
-<p>
+</p>
 
 <ul>
   <li>PHP</li>
@@ -27,3 +27,8 @@
   <li>Composer</li>
   <li>Entre outros</li>
 </ul>
+<br>
+<p>
+  Para maiores detalhes segue abaixo uma apresentação do projeto:
+</p>
+[Plantare.pdf](https://github.com/piter-duarte/ProjetoIntegrador/files/11040593/Plantare.pdf)
