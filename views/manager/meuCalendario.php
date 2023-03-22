@@ -15,8 +15,7 @@
         <?php
        chamarNavbar($usuario);
         ?>
-        <div class="conteudo">
-        <a href="<?php echo DIRPAGE.'/views/user/meuCalendario.php' ?>"><button>Fazer Pedidos</button></a>
+        <div class="conteudo meuCalendario">
         <div class="calendarManager"></div>
         </div>
     </main>

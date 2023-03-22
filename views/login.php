@@ -6,7 +6,7 @@
 <div class="container">
     <header>
             <div class="logo">
-            <a class="img-logo" href="<?php echo DIRPAGE.'/assets.php'; ?>">
+            <a class="img-logo" href="<?php echo DIRPAGE.'/index.php'; ?>">
             <img class="img-logo" src="<?php echo DIRPAGE.'/lib/img/LogoAlterada.png'; ?>">
             </a>
             <h5>Plantare</h5>

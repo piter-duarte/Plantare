@@ -1,16 +1,15 @@
 <?php 
     include("config/config.php");
     include(DIRREQ."/lib/html/header.php");
+    $con= new Models\Database\Database;
 
-    $con = new Models\Database;
-    
-    if(!$con->verificarSeExiste())
+    if($con->verificarSeExiste() == false)
     {
         $con->createDB();
     }
 
-    //o código abaixo remove tudo das variáveis de sessão e cookies do sistema
     session_start();
+    //o código abaixo remove tudo das variáveis de sessão e cookies do sistema 
     $_SESSION = array();
     session_destroy();
     if (isset($_COOKIE['id'])) {
@@ -30,7 +29,7 @@
 
     <header>
         <div class="logo">
-            <a class="img-logo" href="assets.php">
+            <a class="img-logo" href="index.php">
                 <img class="img-logo" src="./lib/img/LogoAlterada.png">
             </a>
             <h5>Plantare</h5>

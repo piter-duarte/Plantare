@@ -1,6 +1,6 @@
 <?php
 include ("../config/config.php");
-$eventDAO = new \Classes\EventoDAO();
+$eventDAO = new \Models\DAO\EventoDAO();
 session_start();
 $usuario = unserialize($_SESSION['usuario']);
 echo $eventDAO->listarPorEmail($usuario); //busca por email

@@ -1,6 +1,7 @@
 <?php
 
-use Models\PessoaFisica;
+use Models\Domain\PessoaFisica;
+use Models\Domain\PessoaJuridica;
 
         function chamarHeader($nomePagina) 
         {
@@ -82,7 +83,7 @@ use Models\PessoaFisica;
                             break;
                     }
                 }
-            echo '  </div>
+    echo '  </div>
     
                     </div>
                     <div class="divider"></div>
@@ -92,27 +93,42 @@ use Models\PessoaFisica;
                             <i class="fa-solid fa-user"></i>   
                                 <h5>Meu Perfil</h5>
                             </div>
-                        </a>
-                        <a href="meuCalendario.php">
-                        <div class="item">
-                        <i class="fa-solid fa-calendar-days"></i>  
-                            <h5>Meu Calendário</h5>
-                        </div>
-                    </a>'; 
+                        </a>'; 
                     
             if($usuario->getEhProvedor() == 1)
             {
-                echo '
-                <a href='.DIRPAGE.'/views/manager/meusServicos.php>
+        echo '
+                <a href=' . DIRPAGE . '/views/manager/meuCalendario.php>
+                    <div class="item">
+                    <i class="fa-solid fa-calendar-days"></i>  
+                        <h5>Meu Calendário</h5>
+                    </div>
+                </a>
+
+                <a href=' . DIRPAGE . '/views/manager/meusServicos.php>
                     <div class="item">
                     <i class="fa-solid fa-person-digging"></i>  
                         <h5>Meus Serviços</h5>
                     </div>
-                </a>'; 
+                </a>
+                <a href=' . DIRPAGE . '/views/user/meuCalendario.php>
+                    <div class="item">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                        <h5>Fazer um Pedido</h5>
+                    </div>
+                </a>';
+
             }
             else
             {
                 echo '
+                <a href=' . DIRPAGE . '/views/user/meuCalendario.php>
+                    <div class="item">
+                    <i class="fa-solid fa-calendar-days"></i>  
+                        <h5>Meu Calendário</h5>
+                    </div>
+                </a>
+
                 <a href="cadastrarServicos.php">
                     <div class="item">
                         <i class="fa-solid fa-person-digging"></i>   

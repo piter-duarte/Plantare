@@ -1,8 +1,8 @@
 <?php
 include ("../config/config.php");
 session_start();
-$relacaoDAO     = new \Classes\RelacaoDAO();
-$usuarioDAO = new \Classes\UsuarioDAO();
+$relacaoDAO     = new \Models\DAO\RelacaoDAO();
+$usuarioDAO = new \Models\DAO\UsuarioDAO();
 
 $precoGrama         = filter_input(INPUT_POST,'precoGrama', FILTER_DEFAULT);
 $precoPoda          = filter_input(INPUT_POST,'precoPoda', FILTER_DEFAULT);
@@ -48,18 +48,18 @@ if (!empty($_POST["servico"]))
         $relacaoDAO->inserir($email, 2, 0.0);  
     }
 
-    if(in_array('Aplicar Fertilizante',$_POST["servico"]))
+    if(in_array('Aplicar Pesticida',$_POST["servico"]))
     {
-        $relacaoDAO->inserir($email, 3, $precoFertilizante);
+        $relacaoDAO->inserir($email, 3, $precoPesticida);
     }
     else
     {
         $relacaoDAO->inserir($email, 3, 0.0);  
     }
-
-    if(in_array('Aplicar Pesticida',$_POST["servico"]))
+    
+    if(in_array('Aplicar Fertilizante',$_POST["servico"]))
     {
-        $relacaoDAO->inserir($email, 4, $precoPesticida);
+        $relacaoDAO->inserir($email, 4, $precoFertilizante);
     }
     else
     {

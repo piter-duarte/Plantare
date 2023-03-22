@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Models\\' => array($baseDir . '/../../model'),
-    'Classes\\' => array($baseDir . '/../../class'),
 );

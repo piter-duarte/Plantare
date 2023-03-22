@@ -9,7 +9,7 @@ $senha=filter_input(INPUT_POST,'senha', FILTER_DEFAULT);
     isto porque se trata de uma classa abstrata e, ainda 
     não temos como saber se é uma pessoa física ou jurídica
 */
-$usuarioDAO= new \Classes\UsuarioDAO();
+$usuarioDAO= new \Models\DAO\UsuarioDAO();
 $usuarioDAO->buscarPorEmailSenha($email, $senha); //busca o usuario no banco
 
 $usuario = unserialize($_SESSION['usuario']);

@@ -4,10 +4,10 @@ include(DIRREQ."/lib/html/header.php");
 require_once DIRREQ."/lib/includes/valida-acesso.inc.php";
 include(DIRREQ."/lib/includes/funcoes.php");
 
-use Classes\EventoDAO;
-use Classes\UsuarioDAO;
-use Models\Evento;
-use Models\PessoaFisica;
+use Models\DAO\EventoDAO;
+use Models\DAO\UsuarioDAO;
+use Models\Domain\Evento;
+use Models\Domain\PessoaFisica;
 
     $usuario = unserialize($_SESSION['usuario']);
     

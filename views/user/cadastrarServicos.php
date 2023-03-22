@@ -20,8 +20,8 @@
             <div class="mensagem">
 
                 <div id="textos">
-                    <h5>Deseja se tornar um prestador de serviços ?</h5>
-                    <h5>Você poderá realizar os seguintes serviços em nossa plataforma: </h5>
+                    <h4>Deseja se tornar um prestador de serviços ?</h4>
+                    <h4>Você poderá realizar os seguintes serviços <br> em nossa plataforma: </h4>
                 </div>
 
 
@@ -47,7 +47,7 @@
                 </div>
 
                 <form action="<?php echo DIRPAGE.'/controllers/cadastroServicosController.php'; ?>">
-                    <input type="submit" class="btg" value="Vamos lá ?">
+                    <input type="submit" class="btxgx" value="Vamos lá ?">
                 </form>
             </div>
 

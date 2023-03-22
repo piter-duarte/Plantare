@@ -21,7 +21,7 @@
         }
         if(!isset($_COOKIE["email"]))
         {
-            setcookie('email', 'softplan@email.com', 0 ); 
+            setcookie('email', 'cortadores@email.com', 0 ); 
         }
     $usuario = unserialize($_SESSION['usuario']);
 ?>
@@ -35,7 +35,7 @@
         <?php
                   chamarNavbar($usuario);
         ?>
-        <div class="conteudo">
+        <div class="conteudo meuCalendario">
             <div class="calendarUser"></div>
         </div>
     </main>

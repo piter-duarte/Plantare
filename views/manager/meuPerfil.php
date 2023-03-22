@@ -1,6 +1,6 @@
 <?php
 
-use Models\PessoaFisica;
+use Models\Domain\PessoaFisica;
 
     include("../../config/config.php");
     include(DIRREQ."/lib/html/header.php");

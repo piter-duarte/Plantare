@@ -6,7 +6,7 @@
     
     $usuario = unserialize($_SESSION['usuario']);
     
-    $relacaoDAO = new \Classes\RelacaoDAO();
+    $relacaoDAO = new \Models\DAO\RelacaoDAO();
     $resultado = $relacaoDAO->buscarTodosPrecosUsuario($usuario);
    
 ?>
@@ -51,29 +51,6 @@
                      {
                          $idServico = $linha['idServico'];
                          $preco   = $linha['preco'];
-                         if($idServico == 2)
-                         {
-                             echo "<div class='formGroup flex flex-col my-4'>
-                             <label for='precoPoda'>Realizar Poda</label>
-                             <div class='flex items-center'>
-                                 <input id='precoPoda' name='precoPoda' type='number' min='0' step='0.01'
-                                     class='w-full border-b-2 border-black outline-none py-2'
-                                     value='$preco' disabled>
-                                 <span class='error-icon hidden -ml-6 text-red-700'>
-                                     <i class='fa-solid fa-circle-exclamation'></i>
-                                 </span>
-                                 <span class='success-icon hidden -ml-6 text-green-700'>
-                                     <i class='fa-solid fa-circle-check'></i>
-                                 </span>
-                             </div>
-                             <div class='error text-red-700 py-2'></div>
-                         </div>";
-                         }
-                     }
-                     foreach($resultado as $linha)
-                     {
-                         $idServico = $linha['idServico'];
-                         $preco   = $linha['preco'];
                          if($idServico == 3)
                          {
                              echo "<div class='formGroup flex flex-col my-4'>
@@ -93,6 +70,29 @@
                          </div>";
                          }
                      }
+                     foreach($resultado as $linha)
+                     {
+                         $idServico = $linha['idServico'];
+                         $preco   = $linha['preco'];
+                         if($idServico == 2)
+                         {
+                             echo "<div class='formGroup flex flex-col my-4'>
+                             <label for='precoPoda'>Realizar Poda</label>
+                             <div class='flex items-center'>
+                                 <input id='precoPoda' name='precoPoda' type='number' min='0' step='0.01'
+                                     class='w-full border-b-2 border-black outline-none py-2'
+                                     value='$preco' disabled>
+                                 <span class='error-icon hidden -ml-6 text-red-700'>
+                                     <i class='fa-solid fa-circle-exclamation'></i>
+                                 </span>
+                                 <span class='success-icon hidden -ml-6 text-green-700'>
+                                     <i class='fa-solid fa-circle-check'></i>
+                                 </span>
+                             </div>
+                             <div class='error text-red-700 py-2'></div>
+                         </div>";
+                         }
+                     }                     
                      foreach($resultado as $linha)
                      {
                          $idServico = $linha['idServico'];

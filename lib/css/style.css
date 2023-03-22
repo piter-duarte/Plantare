@@ -31,6 +31,7 @@ body{
     --terciary: #174429;
     --terciary75: rgba(23, 68, 41, 0.75);
     --terciary50: rgba(23, 68, 41, 0.50);
+    --terciary30: rgba(23, 68, 41, 0.3);
     --quaternary: #CAEED0;
     --quaternary75: rgba(202, 238, 208, 0.75);
     --quaternary50: rgba(202, 238, 208, 0.50);
@@ -279,7 +280,15 @@ button.bts[disabled], input[type='submit'].bts[disabled], input[type="button"].b
 button.btxg, input[type='submit'].btxg, input[type="button"].btxg
 {
     width: 250px;
+
 }
+/* button.btxgx, input[type='submit'].btxgx, input[type="button"].btxgx
+{
+    width: 200px;
+    height: 46px;
+    font-size: var(--h5fsize);
+    color: var(--black);
+} */
 
 input[type='radio']{
     margin-left: 10px;
@@ -447,6 +456,45 @@ i.fa-solid.fa-star.fa-sm.starEmpty {
     .fc-header-toolbar.fc-toolbar 
     {
         align-self: center;
+        margin-bottom: 0.0em !important;
+    }
+
+    .fc-toolbar-chunk:nth-child(2)
+    {
+        background-color: var(--black75);
+        /* border-radius: 5px;
+        border: 0.5px solid var(--white); */
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px; 
+        border-top: 0.5px solid var(--white);
+        border-left: 0.5px solid var(--white);
+        border-right: 0.5px solid var(--white);
+    }
+
+    .fc-popover.fc-more-popover
+    {
+        background-color: var(--black75);
+    }
+
+    .fc-popover-title
+    {
+        color: var(--white);
+    }
+
+    .fc-popover-body .fc-event-title
+    {
+        color: var(--white);
+    }
+
+    .fc-daygrid-more-link.fc-more-link
+    {
+        color: var(--white) !important;
+        font-size: var(--h6fsize);
+    }
+
+    .fc-toolbar-title
+    {
+        color: var(--white);
     }
 
     .calendarManager,  
@@ -530,7 +578,7 @@ i.fa-solid.fa-star.fa-sm.starEmpty {
     .calendarUser div.fc-header-toolbar.fc-toolbar  div.fc-toolbar-chunk h2.fc-toolbar-title
     {
         font-family: var(--hfonts);
-        font-size: var(--h5fsize) !important;
+        font-size:  0.65rem !important;
         
     }
 
@@ -1008,9 +1056,9 @@ main.loginPage{
     background-color: transparent;
 }
 
-.loginPage .formGroup label {
+/* .loginPage .formGroup label {
     color: var(--primary);
-}
+} */
 
 /* -----------------------------------------------LOGIN END------------------------------------------------- */
 
@@ -1110,7 +1158,7 @@ form#formCadastro div.formEnd label.checkbox {
 
 /* -----------------------------------------------CADASTRO CONTINUACAO------------------------------------- */
 
-main.cadastroContinuacaoPage{
+main.continuacaoCadastro{
     grid-template-rows: auto;
     grid-template-columns: auto;
     display: grid;
@@ -1121,127 +1169,120 @@ main.cadastroContinuacaoPage{
 }
 
 form#continuacaoCadastroForm{
-    /*width: 80%;*/
-    width: 600px;
-    height: 500px;
+    width: max(900px, 50%);
+    height: max(550px, 80%);
     border-radius: 5px;
-}
-
-form#continuacaoCadastroForm div.continuacaoContainer{
-    width: 100%;
-    height: 100%;
     background-color: var(--white);
-    border-radius: 5px;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 15% 65% 20%;
-    align-items: center;
-    justify-items: center;
+    justify-self: center; /*horizontal*/
+    align-self: center; /*vertical*/    
 }
-
-input.button.btg{
-    grid-row-start: 3;
-    grid-row-end: 4;
-}
-
-form#continuacaoCadastroForm div.continuacaoContainer div#heading{
-    width: 100%;
-    height: 100%;
-    display: grid;
-    grid-template-columns: auto;
-   /* grid-template-columns: 50% 50%;*/
-    grid-template-rows: auto;
-    justify-content: center;
-    align-items: center;
-}
-
-div.continuacaoContainer  div#body {
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-columns: auto;
-   /* border-bottom: 2px solid var(--black25);*/
-}
-
-div.continuacaoContainer div#body div#bodyContent1{
-    display: grid;
-    grid-template-columns: auto;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    align-self: center;
-}
-
-div.continuacaoContainer  div#body div#bodyContent1{
-    /*border-right: 2px solid var(--black25);*/
-}
-
-div.continuacaoContainer  div#body div#bodyContent1 div.contorno{
-    display: grid;
-    grid-template-columns: 20% 1fr;
-    align-self: center;
-    justify-self: center;
-   
-}
-
-div.continuacaoContainer  div#body div#bodyContent1 div.contorno div.labelcheckbox
-{
-    margin-left: 10px;
-    height: 80px;
-    display: flex;
-}
-
-div.continuacaoContainer  div#body  div.contorno div#bodyContent1{
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    justify-content: center;
-    align-self: center;
-    
-}
-
-div.continuacaoContainer  div#body div#bodyContent1 div.formGroup.flex.flex-col.my-4 {
-    
-    width: 50%;
-    grid-column-start: 2;
-    grid-column-end: 3;
-    margin: 0;
-    
-    
-        
-}
-div.continuacaoContainer label
-{
-    width: 150px;  
-}
-div.continuacaoContainer label.checkbox
-{
-    width: 40px;
-    cursor:pointer;
-       
-}
-div.continuacaoContainer input.price:disabled
-{
-    background-color: var(--black25);
-    border-bottom: 2px solid var(--terciary) !important;
-}
-div.continuacaoContainer input.price
-{
-    
-    border-bottom: 2px solid var(--terciary) !important;
-}
-
-div.continuacaoContainer div.error.text-red-700.py-2{
-    width: 200px;
-}
-
-div.continuacaoContainer div.contorno div.labelcheckbox {
-    padding-top: 10px;
-}
-
-div.continuacaoContainer div.contorno div.formGroup.flex.flex-col.my-4 div.flex.items-center
+form#continuacaoCadastroForm h2
 {
     margin-top: 10px;
+}
+form#continuacaoCadastroForm div#servicos
+{
+  
+    width: 80%;
+    height: 70%;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: auto;
+    margin:auto;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+form#continuacaoCadastroForm div#servicos div#coluna1
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: auto;
+ 
+}
+form#continuacaoCadastroForm div#servicos div#coluna1 div.linha
+{
+    width: 80%;
+    height: 100%;  
+    display: grid;
+    grid-template-columns: 14% 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-self: center;
+ 
+}
+div#coluna1 div.linha div.labelcheckbox
+{
+    margin-top:22px;
+    margin-right: 10px;
+}
+
+
+form#continuacaoCadastroForm div#servicos div#coluna2
+{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-template-columns: auto;
+}
+form#continuacaoCadastroForm div#servicos div#coluna2 div.linha
+{
+    width: 80%;
+    height: 100%;  
+    display: grid;
+    grid-template-columns: 14% 1fr;
+    grid-template-rows: auto;
+    align-items: center;
+    justify-self: center;
+ 
+}
+div#coluna2 div.linha div.labelcheckbox
+{
+    margin-top:22px;
+    margin-right: 10px;
+}
+
+
+form#continuacaoCadastroForm div.botao
+{   
+    width: 30%;
+    display: grid;
+    grid-template-columns: 1fr 10% 1fr;
+    grid-template-rows: auto;
+    justify-items: center;
+    margin:auto;
+}
+
+form#continuacaoCadastroForm div.botao input {
+    font-size: var(--h6fsize);
+}
+form#continuacaoCadastroForm div.botao input:nth-child(2)
+{
+    grid-column-start: 3;
+    grid-column-end: 4;
+
+}
+div#servicos div.linha div.formGroup.flex.flex-col.my-4 label
+{
+    font-size: 21px;
+}
+form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input:disabled
+{
+    background-color: var(--quaternary75);
+    color: var(--terciary30);   
+}
+
+form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input::placeholder {
+    text-align: center;
+    font-size: 14px;
+    color:var(--terciary50);
+}
+
+form#continuacaoCadastroForm div.formGroup.flex.flex-col.my-4 input.op0::placeholder
+{
+    opacity: 0.0;
 }
 
 /* -----------------------------------------------CADASTRO CONTINUACAO END--------------------------------- */
@@ -1339,25 +1380,22 @@ div.navbar div.options div.item h5{
 div.navbar div.options div.item i {
    /* opacity: 0; */
 }
-i.fa-solid.fa-user
-{
-    color:var(--black);
-}
-i.fa-solid.fa-calendar-days
-{
-    color:var(--black);
-}
-i.fa-solid.fa-person-diggingr
-{
-    color:var(--black);
-}
-i.fa-solid.fa-door-open
+i.fa-solid.fa-user, i.fa-solid.fa-calendar-days, i.fa-solid.fa-person-diggingr, 
+i.fa-solid.fa-door-open, i.fa-solid.fa-pen-to-square
 {
     color:var(--black);
 }
 
 .logadoPage div.conteudo { /* container principal da aplicação*/
     background-color: gray;
+}
+
+div.navbar div.options a{
+    margin-bottom: 20px;
+}
+
+div.navbar div.options a:last-child{
+    margin-top: 10%;
 }
 
 /* -----------------------------------------------NAVBAR END------------------------------------------------- */
@@ -1368,6 +1406,9 @@ main.logadoPage div.conteudo.realizarOrcamento {
     display: grid;
     grid-template-columns: 1;
     grid-template-rows: 2% 1fr 2%;
+    background-image: url(../img/realizarOrcamentoImg.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
     
 }
 
@@ -1377,20 +1418,24 @@ main.logadoPage div.conteudo.realizarOrcamento  div.space80{
     display: grid;
     grid-template-columns: 10% 80% 10%;
     grid-template-rows: auto;
-    justify-content: center;/*centralizou na vertical*/
+    justify-items: center;/*centralizou na vertical*/
     align-items: center; /* centralizou na horizontal*/
 }
 div.space80 form.containerform{
     grid-column-start: 2;
     grid-column-end: 3;
-    width: 100%;
+    width: 400px;
     height: 100%;
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 0.5fr;    
-    justify-content: center;
+    justify-items: center;
     align-items: center;
     box-sizing: border-box;
+    background-color: var(--white);
+    border-radius: 5px;
+    padding: 16px;
+    align-self: center;
 }
 
 form.containerform div.formGroup.flex.flex-col.my-4
@@ -1407,7 +1452,7 @@ form.containerform div.formGroup.flex.flex-col.my-4 label
 div.popup.realizarOrcamento {
 
     width: 550px;
-    height: 400px;
+    height: 450px;
     padding: 20px;
     background-color: var(--white);
     border-radius: 5px;
@@ -1435,7 +1480,7 @@ div.popup.realizarOrcamento.active{
 }
 
 div#popup-p-group{
-    width: 18rem;  
+    width: 21rem;  
     align-self: center;
     margin: 20px 15px; 
 }
@@ -1449,6 +1494,10 @@ div#popup-bt-group{
     align-self: center; 
 }
 
+div#popup-bt-group input{
+    font-size: var(--h6fsize);
+}
+
 div#popup-bt-group input:nth-child(2){
     margin-left: 10px;
 }
@@ -1456,6 +1505,25 @@ div#popup-bt-group input:nth-child(2){
 div.space80.disabled{
     opacity: 0;
 }
+
+main.logadoPage div.conteudo.realizarOrcamento input[type="date"]:read-only, main.logadoPage div.conteudo.realizarOrcamento input[type="time"]:read-only
+{
+    background-color: var(--quaternary75);
+    color: var(--terciary30); 
+}
+
+main.logadoPage div.conteudo.realizarOrcamento select{
+    border-bottom: 2px solid var(--black);
+    border-left: none;
+    /* appearance: none; */
+}
+
+/* main.logadoPage div.conteudo.realizarOrcamento div.selectArrow
+{
+    display: inline-block;
+    position: relative;
+    background-color: red;
+} */
 
 
 /* -----------------------------------------------ORÇAMENTO END------------------------------------------------- */
@@ -1468,6 +1536,10 @@ main.logadoPage div.conteudo.avaliarProfissional
     display: grid;
     grid-template-rows: 10% 1fr 10%;
     justify-content: center;
+
+    background-image: url(../img/avaliarProfissionalImg.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
     
 }
 
@@ -1542,6 +1614,10 @@ div.contendmiddle div.btnAvaliar
     justify-content: center;
 }
 
+div.btnAvaliar input {
+    font-size: var(--h6fsize) !important;
+}
+
 div.btnAvaliar input:first-child
 {
     margin-right: 15px;
@@ -1559,6 +1635,10 @@ main.logadoPage div.conteudo.StatusPedido /*  div conteudo */
     justify-content: left;
     width: 100%;
     height: 100%;
+
+    background-image: url(../img/statusPedidoImg.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
         
 }
 
@@ -1589,13 +1669,14 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus div.titleStatus
 
 main.logadoPage div.conteudo.StatusPedido div.infoStatus div.status
 {
-    width: 220px;
+    width: 230px;
     height: 100%;
     display: grid;
     align-items: center;  /*alinha na vertical*/
     align-self: center;    /*alinha na vertical*/
     justify-self: center;
 }
+
 main.logadoPage div.conteudo.StatusPedido div.infoStatus div.status h4
 {
     text-align: left;
@@ -1665,10 +1746,13 @@ main.logadoPage div.conteudo.StatusPedido div.infoStatus form.btnStatus.usuario 
 
 div.conteudo.meuPerfil{
     display: grid;
+    background-image: url(../img/meuPerfilImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div.conteudo.meuPerfil form{
-    width: 100%;
+    width: 780px;
     justify-self: center;
     align-self:center;
     display: grid;
@@ -1676,16 +1760,28 @@ div.conteudo.meuPerfil form{
     grid-template-rows: 1fr 1fr 1fr 1fr;
     justify-items: center;
     align-items:center;
+    background-color:var(--white);
+    border-radius: 5px;
+    
+    
 }
-
 div.conteudo.meuPerfil form div#btGroup {
     grid-column-start: 1;
     grid-column-end: 3;
+    
 }
 
 div.conteudo.meuPerfil form div#btGroup button:first-child{
     margin-right: 5px;
 }
+
+div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:disabled, div.conteudo.meuPerfil div.formGroup.flex.flex-col.my-4 input:read-only
+{
+background-color: var(--quaternary75);
+color: var(--terciary30);
+
+}
+
 
 /* -----------------------------------------------MEU PERFIL END------------------------------------------- */
 
@@ -1693,17 +1789,23 @@ div.conteudo.meuPerfil form div#btGroup button:first-child{
 
 div.conteudo.meusServicos{
     display: grid;
+    background-image: url(../img/meuServicosImg.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 div.conteudo.meusServicos form{
-    width: 100%;
+    width: 650px;
+    height: 350px;
     justify-self: center;
     align-self: center;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 0.5fr;
     justify-items: center;
     align-items: center;
+    background-color:var(--white);
+    border-radius: 5px;
 }
 
 div.conteudo.meusServicos form div#btGroup {
@@ -1713,6 +1815,12 @@ div.conteudo.meusServicos form div#btGroup {
 
 div.conteudo.meusServicos form div#btGroup button:first-child{
     margin-right: 5px;
+}
+
+div.conteudo.meusServicos input:disabled
+{
+background-color: var(--quaternary75);
+color: var(--terciary50);
 }
 
 /* -----------------------------------------------MEUS SERVIÇOS END------------------------------------------- */
@@ -1738,12 +1846,15 @@ main.logadoPage div.conteudo.cadastrarServicos{
     display: grid;
     grid-template-columns: auto;
     grid-template-rows: auto;
+    background-image: url(../img/cadastrarServicos.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main.logadoPage div.conteudo.cadastrarServicos div.mensagem {
-    width: 500px;
-    height: 300px;
-    background-color: var(--white);
+    width: 50%;
+    height: 60%;
+    background-color: var(--fc-list-event-hover-bg-color);
     border-radius: 5px;
     display: grid;
     justify-self: center;
@@ -1756,6 +1867,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem {
 
 
 main.logadoPage div.conteudo.cadastrarServicos div.mensagem div#textos{
+    margin-top: 60px;
     width: 100%;
     height: 100%;
     display: grid;
@@ -1776,6 +1888,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(2){
     display: grid;
     align-items: center;
     justify-items: center;
+    margin-top: 60px;
 
 }
 
@@ -1806,6 +1919,7 @@ main.logadoPage div.conteudo.cadastrarServicos div.mensagem div:nth-child(3) {
 }
 
 main.logadoPage div.conteudo.cadastrarServicos ul {
+    width: 450px;
     list-style: none; /* Remove default bullets */
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1815,23 +1929,58 @@ main.logadoPage div.conteudo.cadastrarServicos ul {
   }
 
  main.logadoPage div.conteudo.cadastrarServicos ul li{
+    width:85%;
     display: grid;
     grid-template-rows: auto;
     grid-template-columns: max-content 1fr;
     align-items: center;
-    width: 180px;
-    font-size: var(--h5fsize);
+    font-size: var(--h4fsize);
     margin-bottom: 8px;
-  }
+ }
 
   main.logadoPage div.conteudo.cadastrarServicos ul li i{
     font-size: var(--h6fsize);
     color: var(--primary);
   }
 
+  main.logadoPage div.conteudo.cadastrarServicos div#textos h4
+  {
+    font-size: 18px !important;
+    height: 100px;
+  }
+
   main.logadoPage div.conteudo.cadastrarServicos ul li h5
   {
     text-align: left;
     margin-left: 10px;
+    font-size: 15px !important;
   }
+
+  main.logadoPage div.conteudo.cadastrarServicos form input
+  {
+    font-size: var(--h6fsize);
+  }
+
 /* -------------------------------------------CADASTRAR SERVIÇOS END---------------------------------------- */
+
+/* -------------------------------------------MEU CALENDARIO------------------------------------------------- */
+
+div.container main.logadoPage div.conteudo.meuCalendario
+{
+    background-image: url(../img/meuCalendarioImg.jpg);
+    background-size:     cover;
+    background-repeat:   no-repeat;
+}
+
+div.container main.logadoPage div.conteudo.meuCalendario div.calendarUser
+{
+    margin-top: 1%;
+}
+
+div.container main.logadoPage div.conteudo.meuCalendario div.calendarManager
+{
+    margin-top: 1%;
+}
+
+/* ----------------------------------------MEU CALENDARIO END---------=------------------------------------- */
+

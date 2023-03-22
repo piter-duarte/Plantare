@@ -6,10 +6,10 @@
 ?>
 
 <?php
-    $evento = new \Models\Evento();
+    $evento = new \Models\Domain\Evento();
     $evento->setId($_GET['id']);
 
-    $eventoDAO = new \Classes\EventoDAO();
+    $eventoDAO = new \Models\DAO\EventoDAO();
     $evento = $eventoDAO->buscar($evento);
 
     $dateInicio    = new \DateTime($evento->getStart());
